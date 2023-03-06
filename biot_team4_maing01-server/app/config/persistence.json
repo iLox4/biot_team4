@@ -1,0 +1,13 @@
+{
+  "uuSubAppDataStore": {
+    "primary": {
+      "type": "uuAppObjectStore",
+      "realization": "MongoDB",
+      "schemaMap": {
+        "team4Main": {
+          "realization": "dao/Team4MainMongo"
+        }
+      }
+    }
+  }
+}
