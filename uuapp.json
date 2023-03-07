@@ -1,5 +1,5 @@
 {
-  "product": "biot_team4_maing01",
+  "product": "uu_weatherstation_maing01",
   "version": "0.1.0",
   "license": "License Commercial",
   "description": {
@@ -12,5 +12,6 @@
       "appDeploymentUri": null
     }
   },
-  "biot_team4_maing01-server": {}
+  "uu_weatherstation_maing01-hi": {},
+  "uu_weatherstation_maing01-server": {}
 }
