@@ -1,15 +1,14 @@
 {
   "{asid}": {
-    "profileList": ["AsidAuthorities", "AsidExecutives", "AsidLicenseOwner", "Public"],
-    "useCaseMap": {
-    }
+    "profileList": ["AsidAuthorities","AsidExecutives","AsidLicenseOwner","Public"],
+    "useCaseMap": {}
   },
   "*": {
-    "profileList": ["Authorities", "Executives", "AwidLicenseOwner", "Public", "Authenticated", "AwidInitiator"],
+    "profileList": ["Authorities","Executives","AwidLicenseOwner","Public","Authenticated","AwidInitiator","Gateways","Administrators"],
     "useCaseMap": {
       "sys/uuAppWorkspace/init": {
-        "sysStateList": ["created", "assigned"],
-        "profileList": ["AwidLicenseOwner", "AwidInitiator"]
+        "sysStateList": ["created","assigned"],
+        "profileList": ["AwidLicenseOwner","AwidInitiator"]
       },
       "sys/uuAppWorkspace/load": {
         "sysStateList": ["active"],
@@ -24,7 +23,39 @@
       },
       "sys/uuAppWorkspace/initUve": {
         "sysStateList": ["created"],
-        "profileList": ["Public", "AwidLicenseOwner"]
+        "profileList": ["Public","AwidLicenseOwner"]
+      },
+      "gateway/register": {
+        "sysStateList": ["active"],
+        "profileList": ["Gateways"]
+      },
+      "gateway/update": {
+        "sysStateList": ["active"],
+        "profileList": ["Administrators"]
+      },
+      "gateway/get": {
+        "sysStateList": ["active"],
+        "profileList": ["Administrators"]
+      },
+      "gateway/list": {
+        "sysStateList": ["active"],
+        "profileList": ["Public"]
+      },
+      "gateway/remove": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities","Administrators"]
+      },
+      "record/add": {
+        "sysStateList": ["active"],
+        "profileList": ["Gateways"]
+      },
+      "gateway/getRecords": {
+        "sysStateList": ["active"],
+        "profileList": ["Public"]
+      },
+      "record/remove": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities"]
       }
     }
   }

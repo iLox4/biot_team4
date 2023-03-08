@@ -3,7 +3,13 @@
   "uuSubAppDataStoreMap": {
     "primary": "mongodb://127.0.0.1:27017/weatherstationMainPrimary"
   },
-  "asid_license_owner_list": [],
+  "asid_license_owner_list": [
+    "486-5865-1",
+    "24-9573-1",
+    "25-346-1",
+    "8154-7527-1",
+    "3857-7491-1"
+  ],
   "asid": "11111111111111111111111111111111",
   "log_level": "INFO"
 }

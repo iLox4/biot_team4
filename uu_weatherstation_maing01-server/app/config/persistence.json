@@ -6,6 +6,12 @@
       "schemaMap": {
         "weatherstationMain": {
           "realization": "dao/WeatherstationMainMongo"
+        },
+        "gateway": {
+          "realization": "dao/GatewayMongo"
+        },
+        "record": {
+          "realization": "dao/RecordMongo"
         }
       }
     }

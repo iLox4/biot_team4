@@ -25,6 +25,46 @@
         "realization": "index.html",
         "httpMethod": "GET",
         "type": "UVE"
+      },
+      "gateway/register": {
+        "realization": "api/controllers/GatewayController.register",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "gateway/update": {
+        "realization": "api/controllers/GatewayController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "gateway/get": {
+        "realization": "api/controllers/GatewayController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "gateway/list": {
+        "realization": "api/controllers/GatewayController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "gateway/remove": {
+        "realization": "api/controllers/GatewayController.remove",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "gateway/getRecords": {
+        "realization": "api/controllers/GatewayController.getRecords",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "record/add": {
+        "realization": "api/controllers/RecordController.add",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "record/remove": {
+        "realization": "api/controllers/RecordController.remove",
+        "httpMethod": "POST",
+        "type": "CMD"
       }
     }
   }
