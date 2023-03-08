@@ -1,0 +1,1647 @@
+[
+    {
+        "id": "b81e9a5ddfc89d95",
+        "type": "tab",
+        "label": "Serial input",
+        "disabled": false,
+        "info": "",
+        "env": [
+            {
+                "name": "AVG_INTERVAL",
+                "value": "10",
+                "type": "str"
+            }
+        ]
+    },
+    {
+        "id": "6153cd5f03b21a2d",
+        "type": "tab",
+        "label": "Send records",
+        "disabled": false,
+        "info": "",
+        "env": [
+            {
+                "name": "SEND_INTERVAL",
+                "value": "30",
+                "type": "str"
+            },
+            {
+                "name": "ACCESS_CODE_1",
+                "value": "12323",
+                "type": "str"
+            },
+            {
+                "name": "ACCESS_CODE_2",
+                "value": "13231424",
+                "type": "str"
+            },
+            {
+                "name": "OIDC_BASE_URI",
+                "value": "https://uuappg01-eu-c-3.plus4u.net/uun-bpmi22wft02-maing01/3aac9c8017cdac802968ed6db29c501b",
+                "type": "str"
+            },
+            {
+                "name": "MAX_RECORDS_PER_REQUEST",
+                "value": "100",
+                "type": "str"
+            }
+        ]
+    },
+    {
+        "id": "c9b7c0b1d7c8a8af",
+        "type": "tab",
+        "label": "Clear sent records",
+        "disabled": false,
+        "info": "",
+        "env": [
+            {
+                "name": "CLEAR_INTERVAL",
+                "value": "60",
+                "type": "str"
+            }
+        ]
+    },
+    {
+        "id": "ca03f85991e465e2",
+        "type": "group",
+        "z": "b81e9a5ddfc89d95",
+        "name": "Serial input",
+        "style": {
+            "fill": "#d1d1d1",
+            "fill-opacity": "0.5",
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "7af86e76bbeef911",
+            "ad2f5c4cdf0e3068",
+            "c7b0908817c0e25a",
+            "26d49fc6d927ed4c",
+            "205949bf18d4b3a7",
+            "cb5df8886d3b7d56",
+            "9b92ab0cc6e45b59",
+            "009ba5c0fca934c9",
+            "44a361c9e68cc9f7",
+            "3886e6931ab2441c"
+        ],
+        "x": 74,
+        "y": 99,
+        "w": 1412,
+        "h": 162
+    },
+    {
+        "id": "21f52af46773224c",
+        "type": "group",
+        "z": "6153cd5f03b21a2d",
+        "name": "Send records",
+        "style": {
+            "label": true,
+            "fill": "#d1d1d1",
+            "fill-opacity": "0.5",
+            "color": "#000000"
+        },
+        "nodes": [
+            "81f309b12f8e6463",
+            "19bc4cc7e92f9113",
+            "8fe4ce3dc11518ad",
+            "17d7968e77ae9043",
+            "99ac28d34efa2689",
+            "6abdb0539e405ddc",
+            "8cad889e3f297e76",
+            "d7625200a0a2b01e",
+            "de50c9778807beba",
+            "63c0581bee5bde81",
+            "698a268c74f84a4f",
+            "f063d5a315d6ecb7",
+            "3aa3d4d598c0b09f",
+            "cb51967ab0d987b4",
+            "f24dca9c28a65869",
+            "0b4366a2cbc466ba",
+            "9f3f727d47c03244",
+            "9dc550d7b9df9af8",
+            "438a92dc6d66ce99",
+            "298b21147ea8e5e3",
+            "057db9f4ef285918"
+        ],
+        "x": 74,
+        "y": 99,
+        "w": 2612,
+        "h": 302
+    },
+    {
+        "id": "e1c4e9224fe010cf",
+        "type": "group",
+        "z": "6153cd5f03b21a2d",
+        "name": "Ensure valid token",
+        "style": {
+            "label": true,
+            "color": "#000000",
+            "fill": "#d1d1d1",
+            "fill-opacity": "0.5"
+        },
+        "nodes": [
+            "135599e1c31fcf51",
+            "db42bd9e924c449b",
+            "11642c2c41a95f26",
+            "d47c4cda9cbcfa0f",
+            "edb2aed5cd80af32",
+            "2ca9f62db386a6fb"
+        ],
+        "x": 74,
+        "y": 839,
+        "w": 722,
+        "h": 122
+    },
+    {
+        "id": "bf9bb54df4a72cd2",
+        "type": "group",
+        "z": "6153cd5f03b21a2d",
+        "name": "Update Dashboard",
+        "style": {
+            "fill": "#d1d1d1",
+            "fill-opacity": "0.5",
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "4ab39205961df903",
+            "6b08828b6f78b337",
+            "c719e4a02130a485",
+            "aea4872bfb53ecbd",
+            "85bbea60b6ac4130",
+            "329cab12fc51f479",
+            "0a8ef769c074abaa",
+            "42674bc90c1e0451",
+            "37a13051a1305fb9",
+            "ad6dcb3fe6beee83",
+            "0b51e0cb9f0348c5",
+            "b37b4b0c6bcb8bc9",
+            "4064c929e28088d3",
+            "770e1eb6c06e7156",
+            "947bcf123f495608",
+            "fe2098baa03b96c9"
+        ],
+        "x": 74,
+        "y": 479,
+        "w": 1252,
+        "h": 282
+    },
+    {
+        "id": "d3b747240337cf44",
+        "type": "group",
+        "z": "c9b7c0b1d7c8a8af",
+        "name": "Clear sent records",
+        "style": {
+            "fill": "#d1d1d1",
+            "fill-opacity": "0.5",
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "62518d26662b9dc2",
+            "ca12a33f0913b342",
+            "0367d6e079a23378",
+            "610d9f413fcf3283",
+            "d72b430ea54bf06d"
+        ],
+        "x": 74,
+        "y": 59,
+        "w": 1412,
+        "h": 82
+    },
+    {
+        "id": "69cd5af3cf3a32be",
+        "type": "serial-port",
+        "serialport": "/dev/cu.usbmodem1101",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "b2754a5c5d91fc78",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c9e35a340a6f2ebf",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "6945f2e11b7ceb54",
+        "type": "ui_group",
+        "name": "Info",
+        "tab": "b2754a5c5d91fc78",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "94b4fcd8e38862aa",
+        "type": "mongodb",
+        "hostname": "localhost",
+        "topology": "direct",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "nodeRedDB",
+        "name": ""
+    },
+    {
+        "id": "7e6bef660ec07321",
+        "type": "ui_group",
+        "name": "Current values",
+        "tab": "b2754a5c5d91fc78",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f94e5ff98bcd85f0",
+        "type": "ui_group",
+        "name": "Chart",
+        "tab": "b2754a5c5d91fc78",
+        "order": 3,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7af86e76bbeef911",
+        "type": "serial in",
+        "z": "b81e9a5ddfc89d95",
+        "d": true,
+        "g": "ca03f85991e465e2",
+        "name": "Serial input from Arduino",
+        "serial": "69cd5af3cf3a32be",
+        "x": 230,
+        "y": 180,
+        "wires": [
+            [
+                "cb5df8886d3b7d56"
+            ]
+        ]
+    },
+    {
+        "id": "ad2f5c4cdf0e3068",
+        "type": "function",
+        "z": "b81e9a5ddfc89d95",
+        "g": "ca03f85991e465e2",
+        "name": "Accumulate data during AVG_INTERVAL",
+        "func": "const data = context.get(\"data\") ?? [];\nconst prevSavedTimestamp = context.get(\"prevSavedTimestamp\") ?? [];\n\nconst interval = parseInt(env.get('AVG_INTERVAL')) * 1000;\n\nif (Date.now() - prevSavedTimestamp >= interval) {\n    context.set(\"data\", []);\n    context.set('prevSavedTimestamp', Date.now());\n    if (data.length) return { payload: data }\n} else {\n    data.push( msg.payload )\n    context.set(\"data\", data);\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 180,
+        "wires": [
+            [
+                "009ba5c0fca934c9"
+            ]
+        ]
+    },
+    {
+        "id": "c7b0908817c0e25a",
+        "type": "inject",
+        "z": "b81e9a5ddfc89d95",
+        "g": "ca03f85991e465e2",
+        "name": "Fake serial",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "26d49fc6d927ed4c"
+            ]
+        ]
+    },
+    {
+        "id": "26d49fc6d927ed4c",
+        "type": "function",
+        "z": "b81e9a5ddfc89d95",
+        "g": "ca03f85991e465e2",
+        "name": "Random data",
+        "func": "const randomTemp = Math.round((Math.random() * 30) * 100) / 100;\nconst randomHum = Math.round((Math.random() * 100) * 100) / 100;\n\nreturn {\n    payload: `{\"temperature\": ${randomTemp}, \"humidity\": ${randomHum}}`\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 140,
+        "wires": [
+            [
+                "cb5df8886d3b7d56"
+            ]
+        ]
+    },
+    {
+        "id": "205949bf18d4b3a7",
+        "type": "mongodb out",
+        "z": "b81e9a5ddfc89d95",
+        "g": "ca03f85991e465e2",
+        "mongodb": "94b4fcd8e38862aa",
+        "name": "",
+        "collection": "record",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 1330,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "cb5df8886d3b7d56",
+        "type": "json",
+        "z": "b81e9a5ddfc89d95",
+        "g": "ca03f85991e465e2",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 530,
+        "y": 180,
+        "wires": [
+            [
+                "ad2f5c4cdf0e3068"
+            ]
+        ]
+    },
+    {
+        "id": "9b92ab0cc6e45b59",
+        "type": "debug",
+        "z": "b81e9a5ddfc89d95",
+        "g": "ca03f85991e465e2",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1260,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "009ba5c0fca934c9",
+        "type": "function",
+        "z": "b81e9a5ddfc89d95",
+        "g": "ca03f85991e465e2",
+        "name": "Calculate average",
+        "func": "if (!msg.payload || msg.payload.length === 0) {\n    node.warn('No data to save!')\n    return null;\n}\n\nconst avgTemp = msg.payload.reduce((sum, current) => sum += current.temperature, 0) / msg.payload.length;\nconst avgHum = msg.payload.reduce((sum, current) => sum += current.humidity, 0) / msg.payload.length;\n\nconst avgTempRounded = Math.round(avgTemp * 100) / 100;\nconst avgHumRounded = Math.round(avgHum * 100) / 100;\n\nreturn {\n    payload: {\n        temperature: avgTempRounded,\n        humidity: avgHumRounded,\n        datetime: new Date().toISOString(),\n        sent: false,\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 180,
+        "wires": [
+            [
+                "9b92ab0cc6e45b59",
+                "205949bf18d4b3a7",
+                "44a361c9e68cc9f7"
+            ]
+        ]
+    },
+    {
+        "id": "2e029fb16d1b080b",
+        "type": "function",
+        "z": "b81e9a5ddfc89d95",
+        "d": true,
+        "name": "upsample",
+        "func": "function upsampleData(data, outputFreq) {\n    // Initialize variables\n    let outputData = [];\n\n    // Loop through the input data\n    for (let i = 0; i < data.length - 1; i++) {\n        // Convert the input time strings to Date objects\n        const time1 = new Date(data[i].datetime);\n        const time2 = new Date(data[i + 1].datetime);\n\n        // Calculate the time difference between the two input data points\n        const timeDiff = time2.getTime() - time1.getTime();\n\n        // Calculate the number of output data points to be generated within this time interval\n        const numOutputs = Math.floor(timeDiff / (outputFreq * 1000));\n\n        // Calculate the temperature increment per output data point\n        const tempIncrement = (data[i + 1].temperature - data[i].temperature) / numOutputs;\n        const humIncrement = (data[i + 1].humidity - data[i].humidity) / numOutputs;\n\n        // Loop through each output data point within this time interval and generate the temperature value using linear interpolation\n        for (let j = 0; j < numOutputs; j++) {\n            const timestamp = time1.getTime() + j * outputFreq * 1000;\n            const temp = data[i].temperature + j * tempIncrement;\n            const hum = data[i].humidity + j * humIncrement;\n            outputData.push({ datetime: new Date(timestamp).toISOString(), temperature: temp, humidity: hum });\n        }\n    }\n\n    // Add the last input data point to the output data\n    outputData.push(data[data.length - 1]);\n\n    return outputData;\n}\n\nreturn {\n    payload: upsampleData(msg.payload, 5),\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 140,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "44a361c9e68cc9f7",
+        "type": "link call",
+        "z": "b81e9a5ddfc89d95",
+        "g": "ca03f85991e465e2",
+        "name": "",
+        "links": [
+            "b37b4b0c6bcb8bc9"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 1290,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9e9ebfcfb8c766c6",
+        "type": "function",
+        "z": "b81e9a5ddfc89d95",
+        "d": true,
+        "name": "downsample",
+        "func": "function downsampleData(data, outputFreq) {\n    // Initialize variables\n    let outputData = [];\n    let tempSum = 0;\n    let numTemps = 0;\n    let lastOutputTime = null;\n\n    // Loop through the input data\n    for (let i = 0; i < data.length; i++) {\n        // Convert the input time string to a Date object\n        const time = new Date(data[i].time);\n\n        console.log(data[i].time);\n\n        // If this is the first data point, set the last output time to the input time\n        if (lastOutputTime === null) {\n            lastOutputTime = time;\n        }\n\n        // Add the temperature value to the sum and increment the count\n        tempSum += data[i].temp;\n        numTemps++;\n\n        // If the time difference between the current input data point and the last output data point is greater than or equal to the desired output frequency, generate a new output data point\n        const timeDiff = time.getTime() - lastOutputTime.getTime();\n        if (timeDiff >= outputFreq * 1000) {\n            const tempAvg = tempSum / numTemps;\n            outputData.push({ time: lastOutputTime.toISOString(), temp: tempAvg });\n            tempSum = 0;\n            numTemps = 0;\n            lastOutputTime = new Date(lastOutputTime.getTime() + outputFreq * 1000);\n        }\n    }\n\n    // Add the last output data point (if any)\n    if (numTemps > 0) {\n        const tempAvg = tempSum / numTemps;\n        outputData.push({ time: lastOutputTime.toISOString(), temp: tempAvg });\n    }\n\n    return outputData;\n}\n\nreturn {\n    payload: upsampleData(msg.payload, 5),\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 150,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a0efe158a17ad2ad",
+        "type": "comment",
+        "z": "b81e9a5ddfc89d95",
+        "name": "How to: fake serial input",
+        "info": "DEBUG ON:\n    Fake serial: enabled\n    Serial input from Arduino: disabled\nDEBUG OFF:\n    Fake serial: disabled\n    Serial input from Arduino: enabled",
+        "x": 190,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "3886e6931ab2441c",
+        "type": "comment",
+        "z": "b81e9a5ddfc89d95",
+        "g": "ca03f85991e465e2",
+        "name": "Serial input format",
+        "info": "JSON string:\n{\"temperature\": <float>, \"humidity\": <float>}",
+        "x": 210,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "81f309b12f8e6463",
+        "type": "http request",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "send records",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://localhost:8080/uun-meteo-maing01/22222222222222222222222222222222/record/add",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1670,
+        "y": 240,
+        "wires": [
+            [
+                "17d7968e77ae9043"
+            ]
+        ]
+    },
+    {
+        "id": "19bc4cc7e92f9113",
+        "type": "function",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "Make request",
+        "func": "return {\n    ...msg,\n    headers: {\n        'Authorization': 'Bearer ' + msg.token,\n    },\n    payload: msg.dataToSend,\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1460,
+        "y": 240,
+        "wires": [
+            [
+                "81f309b12f8e6463",
+                "d7625200a0a2b01e"
+            ]
+        ]
+    },
+    {
+        "id": "8fe4ce3dc11518ad",
+        "type": "link call",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "",
+        "links": [
+            "d47c4cda9cbcfa0f"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 1270,
+        "y": 240,
+        "wires": [
+            [
+                "19bc4cc7e92f9113"
+            ]
+        ]
+    },
+    {
+        "id": "17d7968e77ae9043",
+        "type": "function",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "Last request status",
+        "func": "if (msg.payload && typeof msg.payload === 'object' && msg.payload.addedRecordsIds) {\n    flow.set('lastRequestInfo', { status: 'success', time: Date.now() })\n    return [{ payload: { ...msg, status: 'success', time: new Date() } }, msg]\n} else {\n    flow.set('lastRequestInfo', { status: 'error', time: Date.now() })\n    return [{ payload: { ...msg, status: 'error', time: new Date() } }, null]\n}\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1870,
+        "y": 240,
+        "wires": [
+            [
+                "99ac28d34efa2689",
+                "6abdb0539e405ddc",
+                "3aa3d4d598c0b09f"
+            ],
+            [
+                "f063d5a315d6ecb7",
+                "438a92dc6d66ce99"
+            ]
+        ],
+        "outputLabels": [
+            "success & error",
+            "success only"
+        ]
+    },
+    {
+        "id": "99ac28d34efa2689",
+        "type": "ui_text",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "group": "6945f2e11b7ceb54",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Latest request status",
+        "format": "{{msg.payload.status}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 2160,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "6abdb0539e405ddc",
+        "type": "ui_text",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "group": "6945f2e11b7ceb54",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Latest request time",
+        "format": "{{msg.payload.time}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 2150,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "8cad889e3f297e76",
+        "type": "mongodb in",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "mongodb": "94b4fcd8e38862aa",
+        "name": "",
+        "collection": "record",
+        "operation": "find",
+        "x": 850,
+        "y": 240,
+        "wires": [
+            [
+                "63c0581bee5bde81"
+            ]
+        ]
+    },
+    {
+        "id": "d7625200a0a2b01e",
+        "type": "debug",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "Req. payload",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1670,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "de50c9778807beba",
+        "type": "function",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "Get last N unsent records",
+        "func": "\nreturn {\n    ...msg,\n    payload: { sent: false },\n    projection: { sent: 0 },\n    sort: { datetime: -1 },\n    limit: env.get('MAX_RECORDS_PER_REQUEST') ?? 100,\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 240,
+        "wires": [
+            [
+                "8cad889e3f297e76"
+            ]
+        ]
+    },
+    {
+        "id": "63c0581bee5bde81",
+        "type": "function",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "Prepare data",
+        "func": "if (!msg.payload || msg.payload.length === 0) {\n    node.log('No data to send!')\n    return [null, msg];\n}\n\nreturn [{ ...msg, dataToSend: msg.payload }, null];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1090,
+        "y": 240,
+        "wires": [
+            [
+                "0b4366a2cbc466ba"
+            ],
+            []
+        ],
+        "outputLabels": [
+            "Continue",
+            "No more records to send"
+        ]
+    },
+    {
+        "id": "698a268c74f84a4f",
+        "type": "mongodb out",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "mongodb": "94b4fcd8e38862aa",
+        "name": "",
+        "collection": "record",
+        "payonly": true,
+        "upsert": false,
+        "multi": true,
+        "operation": "update",
+        "x": 2530,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "f063d5a315d6ecb7",
+        "type": "function",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "Set sent=true for each sent record",
+        "func": "const { ObjectId } = mongodb;\n\nconst addedRecordsIds = msg.payload.addedRecordsIds.map((id) => new ObjectId(id));\n\nreturn {\n    query: { _id: { $in: addedRecordsIds } },\n    payload: { $set: { \"sent\": true } }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "mongodb",
+                "module": "mongodb"
+            }
+        ],
+        "x": 2200,
+        "y": 320,
+        "wires": [
+            [
+                "698a268c74f84a4f",
+                "9f3f727d47c03244"
+            ]
+        ]
+    },
+    {
+        "id": "3aa3d4d598c0b09f",
+        "type": "debug",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "Send data request status",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2170,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "cb51967ab0d987b4",
+        "type": "comment",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "Only if request was sucessful",
+        "info": "",
+        "x": 2180,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f24dca9c28a65869",
+        "type": "catch",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "Catch error",
+        "scope": [
+            "81f309b12f8e6463"
+        ],
+        "uncaught": false,
+        "x": 1670,
+        "y": 280,
+        "wires": [
+            [
+                "17d7968e77ae9043"
+            ]
+        ]
+    },
+    {
+        "id": "0b4366a2cbc466ba",
+        "type": "function",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "TEMP TOKEN",
+        "func": "\nreturn {\n    ...msg,\n    token: \"TOKEN\",\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 200,
+        "wires": [
+            [
+                "19bc4cc7e92f9113"
+            ]
+        ]
+    },
+    {
+        "id": "9f3f727d47c03244",
+        "type": "link call",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "",
+        "links": [
+            "b37b4b0c6bcb8bc9"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 2490,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9dc550d7b9df9af8",
+        "type": "link in",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "Send records",
+        "links": [
+            "438a92dc6d66ce99"
+        ],
+        "x": 245,
+        "y": 260,
+        "wires": [
+            [
+                "057db9f4ef285918"
+            ]
+        ]
+    },
+    {
+        "id": "438a92dc6d66ce99",
+        "type": "link out",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "Send next records",
+        "mode": "link",
+        "links": [
+            "9dc550d7b9df9af8"
+        ],
+        "x": 2075,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "298b21147ea8e5e3",
+        "type": "inject",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "Send data",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "${SEND_INTERVAL}",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 190,
+        "y": 220,
+        "wires": [
+            [
+                "057db9f4ef285918"
+            ]
+        ]
+    },
+    {
+        "id": "057db9f4ef285918",
+        "type": "delay",
+        "z": "6153cd5f03b21a2d",
+        "g": "21f52af46773224c",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 360,
+        "y": 240,
+        "wires": [
+            [
+                "de50c9778807beba"
+            ]
+        ]
+    },
+    {
+        "id": "135599e1c31fcf51",
+        "type": "function",
+        "z": "6153cd5f03b21a2d",
+        "g": "e1c4e9224fe010cf",
+        "name": "Check token",
+        "func": "function parseJwt(token) {\n    return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());\n}\nfunction getNewToken() {\n    return [ \n        { \n            ...msg, \n            payload: {\n                accessCode1: env.get('ACCESS_CODE_1'),\n                accessCode2: env.get('ACCESS_CODE_2'),\n                baseUri: env.get('OIDC_BASE_URI'),\n                grant_type: \"password\",\n            },\n        },\n        null,\n    ];\n}\n\nconst token = msg.token ?? (context.get(\"TOKEN\") ?? '');\n\nif (!token || Date.now() > parseJwt(token).exp * 1000) {\n    return getNewToken()\n} else {\n    context.set(\"TOKEN\", token)\n    return [null, { ...msg, token: token }];\n}\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 900,
+        "wires": [
+            [
+                "db42bd9e924c449b"
+            ],
+            [
+                "2ca9f62db386a6fb"
+            ]
+        ]
+    },
+    {
+        "id": "db42bd9e924c449b",
+        "type": "http request",
+        "z": "6153cd5f03b21a2d",
+        "g": "e1c4e9224fe010cf",
+        "name": "Get new token",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://uuidentity.plus4u.net/uu-oidc-maing02/bb977a99f4cc4c37a2afce3fd599d0a7/oidc/grantToken",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 420,
+        "y": 880,
+        "wires": [
+            [
+                "11642c2c41a95f26"
+            ]
+        ]
+    },
+    {
+        "id": "11642c2c41a95f26",
+        "type": "function",
+        "z": "6153cd5f03b21a2d",
+        "g": "e1c4e9224fe010cf",
+        "name": "Save new token",
+        "func": "node.warn(\"Obtained new token!\")\n\nreturn { ...msg, token: msg.payload.id_token }",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 880,
+        "wires": [
+            [
+                "edb2aed5cd80af32"
+            ]
+        ]
+    },
+    {
+        "id": "d47c4cda9cbcfa0f",
+        "type": "link in",
+        "z": "6153cd5f03b21a2d",
+        "g": "e1c4e9224fe010cf",
+        "name": "Ensure token",
+        "links": [
+            "edb2aed5cd80af32"
+        ],
+        "x": 115,
+        "y": 900,
+        "wires": [
+            [
+                "135599e1c31fcf51"
+            ]
+        ]
+    },
+    {
+        "id": "edb2aed5cd80af32",
+        "type": "link out",
+        "z": "6153cd5f03b21a2d",
+        "g": "e1c4e9224fe010cf",
+        "name": "Check again",
+        "mode": "link",
+        "links": [
+            "d47c4cda9cbcfa0f"
+        ],
+        "x": 755,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "2ca9f62db386a6fb",
+        "type": "link out",
+        "z": "6153cd5f03b21a2d",
+        "g": "e1c4e9224fe010cf",
+        "name": "Token is valid, continue",
+        "mode": "return",
+        "links": [],
+        "x": 355,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "4ab39205961df903",
+        "type": "ui_chart",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "name": "",
+        "group": "f94e5ff98bcd85f0",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "monotone",
+        "nodata": "",
+        "dot": true,
+        "ymin": "-20",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1250,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6b08828b6f78b337",
+        "type": "function",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "name": "prepare graph data",
+        "func": "const data = msg.payload;\n\nconst tempData = data.map((record) => ({ x: record.datetime, y: record.temperature }))\nconst humData = data.map((record) => ({ x: record.datetime, y: record.humidity }))\n\nreturn {\n    payload: [{\n        \"series\": [\"Temperature\", \"Humidity\"],\n        \"data\": [tempData, humData],\n        \"labels\": [\"\"]\n    }]\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 560,
+        "wires": [
+            [
+                "4ab39205961df903"
+            ]
+        ]
+    },
+    {
+        "id": "c719e4a02130a485",
+        "type": "ui_gauge",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "name": "Temp",
+        "group": "7e6bef660ec07321",
+        "order": 1,
+        "width": "5",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "-40",
+        "max": "80",
+        "colors": [
+            "#00b7db",
+            "#e5e826",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1250,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "aea4872bfb53ecbd",
+        "type": "ui_gauge",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "name": "Hum",
+        "group": "7e6bef660ec07321",
+        "order": 2,
+        "width": "5",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1250,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "85bbea60b6ac4130",
+        "type": "function",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "name": "prepare temp data",
+        "func": "\nreturn {\n    payload: msg.payload[0]?.temperature ?? 0,\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 600,
+        "wires": [
+            [
+                "c719e4a02130a485"
+            ]
+        ]
+    },
+    {
+        "id": "329cab12fc51f479",
+        "type": "function",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "name": "prepare hum data",
+        "func": "\nreturn {\n    payload: msg.payload[0]?.humidity ?? 0,\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 640,
+        "wires": [
+            [
+                "aea4872bfb53ecbd"
+            ]
+        ]
+    },
+    {
+        "id": "0a8ef769c074abaa",
+        "type": "mongodb in",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "mongodb": "94b4fcd8e38862aa",
+        "name": "Get records",
+        "collection": "record",
+        "operation": "find",
+        "x": 810,
+        "y": 560,
+        "wires": [
+            [
+                "6b08828b6f78b337",
+                "85bbea60b6ac4130",
+                "329cab12fc51f479",
+                "42674bc90c1e0451"
+            ]
+        ]
+    },
+    {
+        "id": "42674bc90c1e0451",
+        "type": "ui_table",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "group": "6945f2e11b7ceb54",
+        "name": "",
+        "order": 3,
+        "width": "12",
+        "height": "10",
+        "columns": [
+            {
+                "field": "",
+                "title": "#",
+                "width": "5%",
+                "align": "left",
+                "formatter": "rownum",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "datetime",
+                "title": "Time",
+                "width": "35%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "temperature",
+                "title": "Temperature",
+                "width": "20%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "humidity",
+                "title": "Humidity",
+                "width": "20%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "sent",
+                "title": "Sent",
+                "width": "15%",
+                "align": "left",
+                "formatter": "tickCross",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 1030,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "37a13051a1305fb9",
+        "type": "function",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "name": "get last 100 records",
+        "func": "\nreturn {\n    sort: { datetime: -1 },\n    limit: 100,\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 560,
+        "wires": [
+            [
+                "0a8ef769c074abaa"
+            ]
+        ]
+    },
+    {
+        "id": "ad6dcb3fe6beee83",
+        "type": "mongodb in",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "mongodb": "94b4fcd8e38862aa",
+        "name": "Count records",
+        "collection": "record",
+        "operation": "count",
+        "x": 820,
+        "y": 720,
+        "wires": [
+            [
+                "0b51e0cb9f0348c5"
+            ]
+        ]
+    },
+    {
+        "id": "0b51e0cb9f0348c5",
+        "type": "ui_text",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "group": "6945f2e11b7ceb54",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Number of records",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1070,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "b37b4b0c6bcb8bc9",
+        "type": "link in",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "name": "Update Dashboard",
+        "links": [],
+        "x": 115,
+        "y": 560,
+        "wires": [
+            [
+                "4064c929e28088d3",
+                "947bcf123f495608"
+            ]
+        ]
+    },
+    {
+        "id": "4064c929e28088d3",
+        "type": "link out",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "name": "link out 3",
+        "mode": "return",
+        "links": [],
+        "x": 195,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "770e1eb6c06e7156",
+        "type": "ui_button",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "name": "",
+        "group": "6945f2e11b7ceb54",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Reload",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 400,
+        "y": 560,
+        "wires": [
+            [
+                "37a13051a1305fb9",
+                "ad6dcb3fe6beee83"
+            ]
+        ]
+    },
+    {
+        "id": "947bcf123f495608",
+        "type": "delay",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 240,
+        "y": 560,
+        "wires": [
+            [
+                "770e1eb6c06e7156"
+            ]
+        ]
+    },
+    {
+        "id": "f16088e57ce247b9",
+        "type": "comment",
+        "z": "6153cd5f03b21a2d",
+        "name": "How to: temporary token",
+        "info": "Get your token from:\nhttps://uuidentity.plus4u.net/uu-identitymanagement-maing01/a9b105aff2744771be4daa8361954677/showToken\n\nPaste token into 'TEMP TOKEN' function in 'Send request' group",
+        "x": 190,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "fe2098baa03b96c9",
+        "type": "comment",
+        "z": "6153cd5f03b21a2d",
+        "g": "bf9bb54df4a72cd2",
+        "name": "{{baseUri}}/ui",
+        "info": "",
+        "x": 170,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "62518d26662b9dc2",
+        "type": "inject",
+        "z": "c9b7c0b1d7c8a8af",
+        "g": "d3b747240337cf44",
+        "name": "Clear sent data",
+        "props": [],
+        "repeat": "${CLEAR_INTERVAL}",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "0",
+        "topic": "",
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "0367d6e079a23378"
+            ]
+        ]
+    },
+    {
+        "id": "ca12a33f0913b342",
+        "type": "mongodb out",
+        "z": "c9b7c0b1d7c8a8af",
+        "g": "d3b747240337cf44",
+        "mongodb": "94b4fcd8e38862aa",
+        "name": "",
+        "collection": "record",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "delete",
+        "x": 1330,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "0367d6e079a23378",
+        "type": "function",
+        "z": "c9b7c0b1d7c8a8af",
+        "g": "d3b747240337cf44",
+        "name": "Get ids of last N sent records",
+        "func": "const n = 100;\n\nreturn {\n    payload: { sent: true },\n    sort: { datetime: -1 },\n    limit: n,\n    projection: { _id: 1 }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 100,
+        "wires": [
+            [
+                "610d9f413fcf3283"
+            ]
+        ]
+    },
+    {
+        "id": "610d9f413fcf3283",
+        "type": "mongodb in",
+        "z": "c9b7c0b1d7c8a8af",
+        "g": "d3b747240337cf44",
+        "mongodb": "94b4fcd8e38862aa",
+        "name": "",
+        "collection": "record",
+        "operation": "find",
+        "x": 730,
+        "y": 100,
+        "wires": [
+            [
+                "d72b430ea54bf06d"
+            ]
+        ]
+    },
+    {
+        "id": "d72b430ea54bf06d",
+        "type": "function",
+        "z": "c9b7c0b1d7c8a8af",
+        "g": "d3b747240337cf44",
+        "name": "Drop all but last N sent records",
+        "func": "const { ObjectId } = mongodb;\n\nreturn {\n    payload: { \n        sent: true,\n        _id: { $not: { $in: msg.payload.map((record) => new ObjectId(record._id)) } },\n    },\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "mongodb",
+                "module": "mongodb"
+            }
+        ],
+        "x": 1030,
+        "y": 100,
+        "wires": [
+            [
+                "ca12a33f0913b342"
+            ]
+        ]
+    }
+]
