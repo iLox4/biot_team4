@@ -8,10 +8,12 @@
           "realization": "dao/WeatherstationMainMongo"
         },
         "gateway": {
-          "realization": "dao/GatewayMongo"
+          "realization": "dao/GatewayMongo",
+          "maxNoi": 100
         },
         "record": {
-          "realization": "dao/RecordMongo"
+          "realization": "dao/RecordMongo",
+          "maxNoi": 3000000
         }
       }
     }

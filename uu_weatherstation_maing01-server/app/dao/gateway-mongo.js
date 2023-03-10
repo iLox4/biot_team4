@@ -5,6 +5,7 @@ class GatewayMongo extends UuObjectDao {
   async createSchema() {
     await super.createIndex({ awid: 1, _id: 1 }, { unique: true });
     await super.createIndex({ awid: 1, uuIdentity: 1 }, { unique: true });
+    await super.createIndex({ awid: 1, name: 1, "location.city": 1, "location.street": 1, "location.zip": 1 });
   }
 
   async create(uuObject) {
