@@ -15,14 +15,14 @@ const Add = {
   GatewayDaoGetByUuIdentityFailed: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Add.UC_CODE}GatewayDaoGetByUuIdentityFailed`;
+      this.code = `${Add.UC_CODE}gatewayDaoGetByUuIdentityFailed`;
       this.message = "Get gateway by gateway DAO getByUuIdentity failed.";
     }
   },
   GatewayNotFound: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Add.UC_CODE}GatewayNotFound`;
+      this.code = `${Add.UC_CODE}gatewayNotFound`;
       this.message = "Gateway with provided ID does not exist.";
     }
   },
@@ -54,21 +54,21 @@ const Remove = {
   RecordDaoGetFailed: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Remove.UC_CODE}RecordDaoGetFailed`;
+      this.code = `${Remove.UC_CODE}recordDaoGetFailed`;
       this.message = "Get record by record DAO get failed.";
     }
   },
   RecordNotFound: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Add.UC_CODE}RecordNotFound`;
+      this.code = `${Add.UC_CODE}recordNotFound`;
       this.message = "Records with provided ID's do not exist.";
     }
   },
   RecordDaoRemoveFailed: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Remove.UC_CODE}RecordDaoRemoveFailed`;
+      this.code = `${Remove.UC_CODE}recordDaoRemoveFailed`;
       this.message = "Remove record by record DAO remove failed.";
     }
   },

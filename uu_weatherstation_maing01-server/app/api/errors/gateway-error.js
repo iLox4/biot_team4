@@ -15,7 +15,7 @@ const Register = {
   GatewayDaoGetByUuIdentityFailed: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Register.UC_CODE}GatewayDaoGetByUuIdentityFailed`;
+      this.code = `${Register.UC_CODE}gatewayDaoGetByUuIdentityFailed`;
       this.message = "Get gateway by gateway DAO getByUuIdentity failed.";
     }
   },
@@ -33,21 +33,21 @@ const Update = {
   GatewayDaoGetFailed: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Update.UC_CODE}GatewayDaoGetFailed`;
+      this.code = `${Update.UC_CODE}gatewayDaoGetFailed`;
       this.message = "Get gateway by gateway DAO get failed.";
     }
   },
   GatewayDaoUpdateFailed: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Update.UC_CODE}GatewayDaoUpdateFailed`;
+      this.code = `${Update.UC_CODE}gatewayDaoUpdateFailed`;
       this.message = "Update gateway by gateway DAO update failed.";
     }
   },
   GatewayNotFound: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Update.UC_CODE}GatewayNotFound`;
+      this.code = `${Update.UC_CODE}gatewayNotFound`;
       this.message = "Gateway with provided ID does not exist.";
     }
   },
@@ -65,14 +65,14 @@ const Get = {
   GatewayDaoGetFailed: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Get.UC_CODE}GatewayDaoGetFailed`;
+      this.code = `${Get.UC_CODE}gatewayDaoGetFailed`;
       this.message = "Get gateway by gateway DAO get failed.";
     }
   },
   GatewayNotFound: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Get.UC_CODE}GatewayNotFound`;
+      this.code = `${Get.UC_CODE}gatewayNotFound`;
       this.message = "Gateway with provided ID does not exist.";
     }
   },
@@ -90,7 +90,7 @@ const List = {
   GatewayDaoListFailed: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${List.UC_CODE}GatewayDaoListFailed`;
+      this.code = `${List.UC_CODE}gatewayDaoListFailed`;
       this.message = "List gateway by gateway DAO list failed.";
     }
   },
@@ -108,28 +108,28 @@ const Remove = {
   GatewayDaoGetFailed: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Remove.UC_CODE}GatewayDaoGetFailed`;
+      this.code = `${Remove.UC_CODE}gatewayDaoGetFailed`;
       this.message = "Get gateway by gateway DAO get failed.";
     }
   },
   GatewayDaoRemoveFailed: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Remove.UC_CODE}GatewayDaoRemoveFailed`;
+      this.code = `${Remove.UC_CODE}gatewayDaoRemoveFailed`;
       this.message = "Remove gateway by gateway DAO remove failed.";
     }
   },
   GatewayNotFound: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Remove.UC_CODE}GatewayNotFound`;
+      this.code = `${Remove.UC_CODE}gatewayNotFound`;
       this.message = "Gateway with provided ID does not exist.";
     }
   },
   WrongGatewayState: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Remove.UC_CODE}WrongGatewayState`;
+      this.code = `${Remove.UC_CODE}wrongGatewayState`;
       this.message = "Gateway must be in 'closed' state to be removed.";
     }
   },
