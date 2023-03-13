@@ -57,7 +57,8 @@ class GatewayMongo extends UuObjectDao {
       },
       {
         $project: {
-          _id: 1,
+          _id: 0,
+          id: "$_id",
           name: 1,
           location: 1,
           state: 1,
