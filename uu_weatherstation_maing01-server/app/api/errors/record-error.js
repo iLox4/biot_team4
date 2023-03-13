@@ -33,6 +33,13 @@ const Add = {
       this.message = "Add record by record DAO create failed.";
     }
   },
+  InvalidGatewayState: class extends WeatherstationMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Add.UC_CODE}invalidGatewayState`;
+      this.message = "Gateway is in invalid state.";
+    }
+  },
 };
 
 const Remove = {
