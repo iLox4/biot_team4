@@ -127,7 +127,7 @@ class GatewayAbl {
       }
       throw e;
     }
-    if (!dtoOut) throw new Errors.Get.GatewayNotFound({ uuAppErrorMap });
+    if (!dtoOut) throw new Errors.Get.GatewayNotFound({ uuAppErrorMap }, { gatewayId: dtoIn.id });
 
     dtoOut.uuAppErrorMap = uuAppErrorMap;
     return dtoOut;
@@ -153,8 +153,8 @@ class GatewayAbl {
     }
     if (!gateway) throw new Errors.Update.GatewayNotFound({ uuAppErrorMap });
 
-    const updatedGateway = gateway = { 
-      ...gateway, 
+    const updatedGateway = gateway = {
+      ...gateway,
       ...dtoIn,
       location: {
         ...gateway.location,
