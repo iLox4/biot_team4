@@ -44,8 +44,12 @@ class GatewayAbl {
       }
       throw e;
     }
-    if (!gateway) throw new Errors.Remove.GatewayNotFound({ uuAppErrorMap });
-    if (gateway.state !== 'closed') throw new Errors.Remove.WrongGatewayState({ uuAppErrorMap });
+    if (!gateway) throw new Errors.Remove.GatewayNotFound({ uuAppErrorMap }, { gatewayId: dtoIn.id });
+    if (gateway.state !== "closed")
+      throw new Errors.Remove.WrongGatewayState(
+        { uuAppErrorMap },
+        { gatewayId: dtoIn.id, gatewayState: gateway.state }
+      );
 
     try {
       await this.gatewayDao.remove(gateway);
@@ -151,7 +155,7 @@ class GatewayAbl {
       }
       throw e;
     }
-    if (!gateway) throw new Errors.Update.GatewayNotFound({ uuAppErrorMap });
+    if (!gateway) throw new Errors.Update.GatewayNotFound({ uuAppErrorMap }, { gatewayId: dtoIn.id });
 
     const updatedGateway = gateway = {
       ...gateway,
