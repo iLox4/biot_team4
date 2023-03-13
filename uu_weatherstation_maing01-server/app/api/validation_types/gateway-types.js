@@ -23,8 +23,8 @@ const listGatewayDtoInType = shape({
   location: uu5String(512),
   state: oneOf(['created', 'active', 'closed']),
   pageInfo: shape({
-    pageIndex: number(),
-    pageSize: number(),
+    pageIndex: integer(),
+    pageSize: integer(),
   }),
 });
 
