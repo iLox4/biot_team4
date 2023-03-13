@@ -1,5 +1,6 @@
 "use strict";
 const { UuObjectDao } = require("uu_appg01_server").ObjectStore;
+const ObjectID = require("bson-objectid");
 
 class RecordMongo extends UuObjectDao {
   async createSchema() {}
@@ -26,6 +27,17 @@ class RecordMongo extends UuObjectDao {
       id: id,
     };
     return await super.deleteOne(filter);
+  }
+
+  async getInterval(awid, gatewayId, startDate, endDate) {
+    let filter = {
+      gatewayId: ObjectID(gatewayId),
+      awid: awid,
+      datetime: { $gte: startDate },
+      datetime: { $lte: endDate },
+    };
+
+    return await super.find(filter, {datetime: 1});
   }
 }
 

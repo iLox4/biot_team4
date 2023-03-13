@@ -5,6 +5,8 @@
   "license": "License Commercial",
   "spec": "nodejs-app; uu_appg01_devkit@5.5.0",
   "dependencies": {
+    "bson": "^5.0.1",
+    "bson-objectid": "^2.0.4",
     "uu_appg01_server": "^5.0.0",
     "uu_apprepresentationg01": "^2.0.0"
   },

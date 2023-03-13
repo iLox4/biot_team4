@@ -56,6 +56,10 @@
       "record/remove": {
         "sysStateList": ["active"],
         "profileList": ["Authorities"]
+      },
+      "record/getInterval": {
+        "sysStateList": ["active"],
+        "profileList": ["Public"]
       }
     }
   }

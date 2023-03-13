@@ -11,6 +11,9 @@ class RecordController {
     return RecordAbl.add(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession(), ucEnv.getAuthorizationResult());
   }
 
+  getInterval(ucEnv) {
+    return RecordAbl.getInterval(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+  }
 }
 
 module.exports = new RecordController();
