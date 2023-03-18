@@ -17,10 +17,6 @@ class RecordMongo extends UuObjectDao {
     return await super.findOne(filter);
   }
 
-  async getLastByGatewayId(awid, gatewayId) {
-    return await super.find({ awid, gatewayId }).sort({ datetime: -1 }).limit(1);
-  }
-
   async remove(awid, id) {
     let filter = {
       awid: awid,
@@ -33,11 +29,10 @@ class RecordMongo extends UuObjectDao {
     let filter = {
       gatewayId: ObjectID(gatewayId),
       awid: awid,
-      datetime: { $gte: startDate },
-      datetime: { $lte: endDate },
+      datetime: { $gte: startDate, $lt: endDate },
     };
 
-    return await super.find(filter, {datetime: 1});
+    return await super.find(filter, {pageIndex: 0, pageSize: 99999}, {datetime: 1});
   }
 }
 

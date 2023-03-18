@@ -1,4 +1,6 @@
 /* eslint-disable */
+const { granularities } = require("../../../app/utils/granularityUtils");
+
 const addRecordDtoInType = array(shape({
     _id: mongoId().isRequired(),
     datetime: datetime().isRequired(),
@@ -14,5 +16,5 @@ const getRecordsIntervalDtoInType = shape({
     gatewayId: mongoId().isRequired(),
     startDate: datetime().isRequired(),
     endDate: datetime().isRequired(),
-    granularity: oneOf(['1m', '5m', '15m', '30m', '1h', '12h', '1d']).isRequired()
+    granularity: oneOf(Object.keys(granularities)).isRequired()
 });
