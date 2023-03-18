@@ -4,7 +4,9 @@ const { Validator } = require("uu_appg01_server").Validation;
 const { DaoFactory, ObjectStoreError } = require("uu_appg01_server").ObjectStore;
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const Errors = require("../api/errors/record-error.js");
-
+const { sampleRecordsData } = require("../utils/recordsDataUtils");
+const { getGranularityInterval, validateGranularity, getSafeTimeInterval } = require("../utils/granularityUtils");
+ 
 const UnsupportedKeysWarning = (error) => {
   return `${error?.UC_CODE}unsupportedKeys`;
 };
@@ -104,95 +106,29 @@ class RecordAbl {
       UnsupportedKeysWarning(Errors.GetInterval),
       Errors.GetInterval.InvalidDtoIn
     );
+    dtoIn.granularity = validateGranularity(dtoIn.granularity, dtoIn.startDate, dtoIn.endDate);
+    const granularity = getGranularityInterval(dtoIn.granularity);
 
-    let dtoOut;
+    const [safeStart, safeEnd] = getSafeTimeInterval(dtoIn.startDate, dtoIn.endDate);
+    const safeStartDate = new Date(safeStart).toISOString();
+    const safeEndDate = new Date(safeEnd).toISOString();
+
+    let records;
     try {
-      dtoOut = await this.recordDao.getInterval(awid, dtoIn.gatewayId, dtoIn.startDate, dtoIn.endDate);
+      records = await this.recordDao.getInterval(awid, dtoIn.gatewayId, safeStartDate, safeEndDate);
     } catch (e) {
-      throw new Error.GetInterval.RecordDaoGetIntervalFailed({ uuAppErrorMap }, e);
+      throw new Errors.GetInterval.RecordDaoGetIntervalFailed({ uuAppErrorMap }, e);
     }
 
-    const granularityConvertor = {
-      "1m": 1,
-      "5m": 5,
-      "15m": 15,
-      "30m": 30,
-      "1h": 60,
-      "12h": 720,
-      "1d": 1440,
+    const recordsListSampled = sampleRecordsData(records.itemList, granularity);
+    const recordsList = recordsListSampled.filter(inTimeInterval(dtoIn.startDate, dtoIn.endDate));
+    const dataList = recordsList.map((record) => ([record.datetime, record.temperature, record.humidity]));
+
+    const dtoOut = {
+      itemList: dataList,
+      granularity: dtoIn.granularity,
+      uuAppErrorMap,
     };
-    
-    let newItemList = [];
-    const granularity = granularityConvertor[dtoIn.granularity];
-
-    if (dtoOut["itemList"]) {
-      dtoOut["itemList"].forEach((record, idx) => {
-        if (idx === 0) {
-          newItemList.push({
-            temperature: record.temperature,
-            humidity: record.humidity,
-            datetime: new Date(record.datetime),
-          });
-        } else {
-          let startInterval = newItemList[newItemList.length - 1];
-          let endInterval = record;
-
-          if (new Date(endInterval.datetime) > new Date(startInterval.datetime)) {
-            let timeDiff = (new Date(endInterval.datetime) - new Date(startInterval.datetime)) / 60000;
-
-            if (timeDiff > granularity) {
-              let changeMod = Math.round(timeDiff / granularity);
-              let temp_change = (endInterval.temperature - startInterval.temperature) / changeMod;
-              let hum_change = (endInterval.humidity - startInterval.humidity) / changeMod;
-
-              for (let i = 1; i <= timeDiff / granularity; i++) {
-                newItemList.push({
-                  temperature: Math.round(startInterval.temperature + temp_change * i),
-                  humidity: Math.round(startInterval.humidity + hum_change * i),
-                  datetime: new Date(new Date(startInterval.datetime).getTime() + granularity * 60000 * i),
-                });
-              }
-
-            } else if (timeDiff < granularity) {
-              let numRecords = 1,
-                sumTemp = startInterval.temperature,
-                sumHum = startInterval.humidity;
-              let newEnd = endInterval;
-              let i = idx;
-
-              while (timeDiff < granularity && i < dtoOut["itemList"].length) {
-                numRecords++;
-                sumTemp += newEnd.temperature;
-                sumHum += newEnd.humidity;
-                i++;
-
-                newEnd = dtoOut["itemList"][i];
-                timeDiff = (new Date(newEnd) - new Date(startInterval.datetime)) / 60000;
-              }
-
-              let avgTemp = Math.round(sumTemp / numRecords);
-              let avgHum = Math.round(sumHum / numRecords);
-
-              newItemList.push({
-                temperature: avgTemp,
-                humidity: avgHum,
-                datetime: new Date(new Date(startInterval.datetime).getTime() + granularity * 60000),
-              });
-            } else {
-              newItemList.push({
-                temperature: endInterval.temperature,
-                humidity: endInterval.humidity,
-                datetime: new Date(endInterval.datetime),
-              });
-            }
-          }
-        }
-      });
-    }
-
-    dtoOut["itemList"] = newItemList;
-    dtoOut.uuAppErrorMap = uuAppErrorMap;
-    dtoOut.pageInfo.total = newItemList.length;
     return dtoOut;
   }
 }
