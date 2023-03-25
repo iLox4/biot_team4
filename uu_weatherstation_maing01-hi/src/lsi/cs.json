@@ -1,7 +1,7 @@
 {
-  "appName": "Aplikace uuWeatherstation",
+  "appName": "Aplikace uuGateways",
   "About": {
-    "header": "O aplikaci uuWeatherstation",
+    "header": "O aplikaci uuGateways",
     "creatorsHeader": "Tvůrci aplikace",
     "termsOfUse": "Podmínky užívání"
   },
@@ -29,8 +29,57 @@
     "nameLabel": "Název",
     "initialize": "Inicializovat"
   },
-  "Menu": {
-    "home": "Vítejte",
+  "UuJokes.Bricks.Joke.CreateForm": {
+    "name": "Název",
+    "location": "Umístění",
+    "vyber": "Výběr",
+    "image": "Obrázek",
+    "text": "Text",
+    "cancel": "Zrušit",
+    "submit": "Vytvořit Gateway",
+    "textOrImage": "Text nebo obrázek musí být vyplněn."
+  },
+  "UuJokes.Bricks.Joke.CreateView": {
+    "creategateway": "Přidat Gateway",
+    "createFail": "Vytvoření vtipu selhalo!",
+    "createDone": "Gateway {0} byl vytvořen."
+  },
+  "UuJokes.Bricks.Joke.DetailModal": {
+    "oneVotes": "{0} hlas",
+    "fewVotes": "{0} hlasy",
+    "otherVotes": "{0} hlasů",
+    "averageRating": "Hodnocení: {0} / 5",
+    "update": "Upravit",
+    "delete": "Smazat"
+  },
+  "UuJokes.Bricks.Joke.UpdateModal": {
+    "header": "Upravit Gateway",
+    "name": "Název",
+    "location": "Umístění",
+    "vyber": "Výběr",
+    "category": "Kategorie",
+    "image": "Obrázek",
+    "text": "Text",
+    "cancel": "Zrušit",
+    "submit": "Upravit",
+    "textOrImage": "Text nebo obrázek musí být vyplněn."
+  },
+  "UuJokes.Bricks.Joke.ListView": {
+    "deleteDone": "Gateway {0} byl smazán.",
+    "deleteFail": "Smazání vtipu selhalo!",
+    "updateFail": "Upravení vtipu selhalo!",
+    "pageLoadFail": "Načítání vtipů selhalo!",
+    "noJokes": "Žádné vtipy"
+  },
+  "UuJokes.Bricks.Joke.Tile": {
+    "averageRating": "Průměrné hodnocení: {0} / 5",
+    "deleteTip": "Smazat",
+    "updateTip": "Upravit"
+  },
+  "UuJokes.Core.RouteBar": {
+    "title": "Lekce 18 - Dynamické vykreslování - {0}",
+    "home": "Home",
+    "gateways": "Gateway",
     "about": "O aplikaci"
   }
 }

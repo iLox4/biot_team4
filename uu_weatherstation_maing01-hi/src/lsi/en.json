@@ -1,7 +1,7 @@
 {
-  "appName": "Application uuWeatherstation",
+  "appName": "Application uuGateways",
   "About": {
-    "header": "About application uuWeatherstation",
+    "header": "About application uuGateways",
     "creatorsHeader": "Application creators",
     "termsOfUse": "Terms of use"
   },
@@ -29,8 +29,55 @@
     "nameLabel": "Name",
     "initialize": "Initialize"
   },
-  "Menu": {
+  "UuJokes.Bricks.Joke.CreateForm": {
+    "name": "Name",
+    "location": "Location",
+    "category": "Category",
+    "image": "Image",
+    "text": "Text",
+    "cancel": "Cancel",
+    "submit": "Create Gateway",
+    "textOrImage": "Text or image must be provided."
+  },
+  "UuJokes.Bricks.Joke.CreateView": {
+    "creategateway": "Add Gateway",
+    "createFail": "Gateway creation failed!",
+    "createDone": "Gateway {0} has been created."
+  },
+  "UuJokes.Bricks.Joke.DetailModal": {
+    "oneVotes": "{0} vote",
+    "fewVotes": "{0} votes",
+    "otherVotes": "{0} votes",
+    "averageRating": "Rating: {0} / 5",
+    "update": "Update",
+    "delete": "Delete"
+  },
+  "UuJokes.Bricks.Joke.UpdateModal": {
+    "header": "Update Gateway",
+    "name": "Name",
+    "category": "Category",
+    "image": "Image",
+    "text": "Text",
+    "cancel": "Cancel",
+    "submit": "Update",
+    "textOrImage": "Text or image must be provided."
+  },
+  "UuJokes.Bricks.Joke.ListView": {
+    "deleteDone": "The Gateway {0} has been deleted.",
+    "deleteFail": "Gateway delete failed!",
+    "updateFail": "Gateway update failed!",
+    "pageLoadFail": "Gateways loading failed!",
+    "noJokes": "No Gateways"
+  },
+  "UuJokes.Bricks.Joke.Tile": {
+    "averageRating": "Average rating: {0} / 5",
+    "deleteTip": "Delete",
+    "updateTip": "Update"
+  },
+  "UuJokes.Core.RouteBar": {
+    "title": "Lesson 18 - Dynamic Rendering - {0}",
     "home": "Welcome",
+    "gateways": "Gateways",
     "about": "About Application"
   }
 }
