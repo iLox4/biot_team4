@@ -1,13 +1,9 @@
 import { Environment } from "uu5g05";
 import Plus4U5 from "uu_plus4u5g02";
 
-// the base URI of calls for development / staging environments can be configured in *-hi/env/development.json
-// (or <stagingEnv>.json), e.g.:
-//   "uu5Environment": {
-//     "callsBaseUri": "http://localhost:8080/vnd-app/awid"
-//   }
-const CALLS_BASE_URI =
-  (process.env.NODE_ENV !== "production" ? Environment.get("callsBaseUri") : null) || Environment.appBaseUri;
+const CALLS_BASE_URI = (
+  (process.env.NODE_ENV !== "production" ? Environment.get("callsBaseUri") : null) || Environment.appBaseUri
+).replace(/\/*$/, "/");
 
 const Calls = {
   async call(method, url, dtoIn, clientOptions) {
@@ -15,15 +11,9 @@ const Calls = {
     return response.data;
   },
 
-  // // example for mock calls
-  // loadDemoContent(dtoIn) {
-  //   const commandUri = Calls.getCommandUri("loadDemoContent");
-  //   return Calls.call("get", commandUri, dtoIn);
-  // },
-
   loadIdentityProfiles() {
     const commandUri = Calls.getCommandUri("sys/uuAppWorkspace/initUve");
-    return Calls.call("get", commandUri);
+    return Calls.call("get", commandUri, {});
   },
 
   initWorkspace(dtoInData) {
@@ -33,7 +23,7 @@ const Calls = {
 
   getWorkspace() {
     const commandUri = Calls.getCommandUri("sys/uuAppWorkspace/get");
-    return Calls.call("get", commandUri);
+    return Calls.call("get", commandUri, {});
   },
 
   async initAndGetWorkspace(dtoInData) {
@@ -41,8 +31,42 @@ const Calls = {
     return await Calls.getWorkspace();
   },
 
-  getCommandUri(useCase, baseUri = CALLS_BASE_URI) {
-    return (!baseUri.endsWith("/") ? baseUri + "/" : baseUri) + (useCase.startsWith("/") ? useCase.slice(1) : useCase);
+  Gateway: {
+    list(dtoIn) {
+      const commandUri = Calls.getCommandUri("gateway/list");
+      return Calls.call("get", commandUri, dtoIn);
+    },
+
+    create(dtoIn) {
+      const commandUri = Calls.getCommandUri("gateway/create");
+      return Calls.call("post", commandUri, dtoIn);
+    },
+
+    update(dtoIn) {
+      const commandUri = Calls.getCommandUri("gateway/update");
+      return Calls.call("post", commandUri, dtoIn);
+    },
+
+    delete(dtoIn) {
+      const commandUri = Calls.getCommandUri("gateway/delete");
+      return Calls.call("post", commandUri, dtoIn);
+    },
+
+    getImage(dtoIn) {
+      const commandUri = Calls.getCommandUri("uu-app-binarystore/getBinaryData");
+      return Calls.call("get", commandUri, dtoIn);
+    },
+  },
+
+  Gateways: {
+    load(dtoIn) {
+      const commandUri = Calls.getCommandUri("sys/uuAppWorkspace/load");
+      return Calls.call("get", commandUri, dtoIn);
+    },
+  },
+
+  getCommandUri(useCase) {
+    return CALLS_BASE_URI + useCase.replace(/^\/+/, "");
   },
 };
 
