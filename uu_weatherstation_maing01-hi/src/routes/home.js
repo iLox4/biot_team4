@@ -1,30 +1,15 @@
 //@@viewOn:imports
-import { Utils, createVisualComponent, useSession, Lsi } from "uu5g05";
-import Uu5Elements from "uu5g05-elements";
-import Plus4U5Elements from "uu_plus4u5g02-elements";
+import { Utils, createVisualComponent, Content, useSession, Environment, DynamicLibraryComponent } from "uu5g05";
 import { withRoute } from "uu_plus4u5g02-app";
-
 import Config from "./config/config.js";
-import WelcomeRow from "../bricks/welcome-row.js";
 import RouteBar from "../core/route-bar.js";
-import importLsi from "../lsi/import-lsi.js";
 //@@viewOff:imports
-
-//@@viewOn:constants
-//@@viewOff:constants
 
 //@@viewOn:css
 const Css = {
-  icon: () =>
-    Config.Css.css({
-      fontSize: 48,
-      lineHeight: "1em",
-    }),
+  container: () => Config.Css.css({ padding: 16 }),
 };
 //@@viewOff:css
-
-//@@viewOn:helpers
-//@@viewOff:helpers
 
 let Home = createVisualComponent({
   //@@viewOn:statics
@@ -42,41 +27,221 @@ let Home = createVisualComponent({
   render(props) {
     //@@viewOn:private
     const { identity } = useSession();
-    //@@viewOff:private
 
-    //@@viewOn:interface
-    //@@viewOff:interface
+    const data = [
+      {
+        label: "Jan",
+        value: 4000,
+        value2: 3000,
+        value3: 1000,
+      },
+      {
+        label: "Feb",
+        value: 3000,
+        value2: 1000,
+        value3: 2000,
+      },
+      {
+        label: "Mar",
+        value: 2000,
+        value2: 1400,
+        value3: 3000,
+      },
+      {
+        label: "Apr",
+        value: 2780,
+        value2: 2000,
+        value3: 4000,
+      },
+      {
+        label: "May",
+        value: 1890,
+        value2: 2900,
+        value3: 1400,
+      },
+      {
+        label: "Jun",
+        value: 2390,
+        value2: 5000,
+        value3: 1600,
+      },
+      {
+        label: "Jul",
+        value: 3490,
+        value2: 1000,
+        value3: 1900,
+      },
+      {
+        label: "Aug",
+        value: 500,
+        value2: 3200,
+        value3: 1500,
+      },
+      {
+        label: "Sep",
+        value: 1500,
+        value2: 1100,
+        value3: 2300,
+      },
+      {
+        label: "Oct",
+        value: 3400,
+        value2: 4300,
+        value3: 2100,
+      },
+      {
+        label: "Nov",
+        value: 2895,
+        value2: 3100,
+        value3: 2900,
+      },
+      {
+        label: "Dec",
+        value: 4400,
+        value2: 2200,
+        value3: 3000,
+      },
+    ];
+
+    const series = [
+      {
+        valueKey: "value",
+        name: "First chart",
+        colorSchema: "red",
+      },
+      {
+        valueKey: "value2",
+        name: "Second chart",
+        colorSchema: "blue",
+      },
+      {
+        valueKey: "value3",
+        name: "Third chart",
+      },
+    ];
+
+    Environment.uu5DataMap = { data, series };
+    //@@viewOff:private
 
     //@@viewOn:render
     const attrs = Utils.VisualComponent.getAttrs(props);
+
     return (
       <div {...attrs}>
         <RouteBar />
-        <WelcomeRow left={<Plus4U5Elements.PersonPhoto size="xl" borderRadius="none" />}>
-          <Uu5Elements.Text category="story" segment="heading" type="h2">
-            <Lsi import={importLsi} path={["Home", "welcome"]} />
-          </Uu5Elements.Text>
-          {identity && (
-            <Uu5Elements.Text category="story" segment="heading" type="h2">
-              {identity.name}
-            </Uu5Elements.Text>
-          )}
-        </WelcomeRow>
-        <WelcomeRow left={<Uu5Elements.Icon icon="mdi-human-greeting" className={Css.icon()} />}>
-          <Uu5Elements.Text category="story" segment="body" type="common">
-            <Lsi import={importLsi} path={["Home", "intro"]} />
-          </Uu5Elements.Text>
-        </WelcomeRow>
-        <WelcomeRow left={<Uu5Elements.Icon icon="mdi-monitor" className={Css.icon()} />}>
-          <Uu5Elements.Text category="story" segment="body" type="common">
-            <Lsi import={importLsi} path={["Home", "clientSide"]} />
-          </Uu5Elements.Text>
-        </WelcomeRow>
-        <WelcomeRow left={<Uu5Elements.Icon icon="mdi-server" className={Css.icon()} />}>
-          <Uu5Elements.Text category="story" segment="body" type="common">
-            <Lsi import={importLsi} path={["Home", "serverSide"]} />
-          </Uu5Elements.Text>
-        </WelcomeRow>
+        <div className={Css.container()}>
+          
+        
+          <Content>
+            {`
+              <uu5string/>
+              <UU5.SimpleChart.AreaChart
+                data='<uu5json/>[
+                    {
+                      "label": "Jan",
+                      "value": 4000,
+                      "value2": 3000,
+                      "value3": 1000
+                    },
+                    {
+                      "label": "Feb",
+                      "value": 3000,
+                      "value2": 1000,
+                      "value3": 2000
+                    },
+                    {
+                      "label": "Mar",
+                      "value": 2000,
+                      "value2": 1400,
+                      "value3": 3000
+                    },
+                    {
+                      "label": "Apr",
+                      "value": 2780,
+                      "value2": 2000,
+                      "value3": 4000
+                    },
+                    {
+                      "label": "May",
+                      "value": 1890,
+                      "value2": 2900,
+                      "value3": 1400
+                    },
+                    {
+                      "label": "Jun",
+                      "value": 2390,
+                      "value2": 5000,
+                      "value3": 1600
+                    },
+                    {
+                      "label": "Jul",
+                      "value": 3490,
+                      "value2": 1000,
+                      "value3": 1900
+                    },
+                    {
+                      "label": "Aug",
+                      "value": 500,
+                      "value2": 3200,
+                      "value3": 1500
+                    },
+                    {
+                      "label": "Sep",
+                      "value": 1500,
+                      "value2": 1100,
+                      "value3": 2300
+                    },
+                    {
+                      "label": "Oct",
+                      "value": 3400,
+                      "value2": 4300,
+                      "value3": 2100
+                    },
+                    {
+                      "label": "Nov",
+                      "value": 2895,
+                      "value2": 3100,
+                      "value3": 2900
+                    },
+                    {
+                      "label": "Dec",
+                      "value": 4400,
+                      "value2": 2200,
+                      "value3": 3000
+                    }
+                    ]'
+                series='<uu5json/>[
+                    {
+                      "valueKey": "value",
+                      "name": "First chart",
+                      "colorSchema": "red"
+                    },
+                    {
+                      "valueKey": "value2",
+                      "name": "Second chart",
+                      "colorSchema": "blue"
+                    },
+                    {
+                      "valueKey": "value3",
+                      "name": "Third chart"
+                    }
+                  ]'
+                labelKey="label"
+                chartType="monotone"
+                colorSchema="default"
+                stacked=true
+                displayCartesianGrid=false
+                responsive
+                isAnimationActive
+                displayTooltip
+                gradient
+              />
+            `}
+          </Content>
+      
+         
+        
+        </div>
       </div>
     );
     //@@viewOff:render
