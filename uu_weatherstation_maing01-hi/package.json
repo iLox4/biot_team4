@@ -1,0 +1,46 @@
+{
+  "name": "uu5_tutorial_maing01-hi",
+  "version": "2.0.0",
+  "description": "",
+  "license": "License Commercial",
+  "namespace": "UU5.Tutorial",
+  "spec": "uu5-app; uu_appg01_devkit@4.6.0",
+  "dependencies": {
+    "uu_plus4u5g01": "^4.24.5",
+    "uu_plus4u5g02-app": "^1.16.0",
+    "uu5g04": "^1.51.5",
+    "uu5g05-browser-compatibility": "^1.15.4",
+    "uu5g05-elements": "^1.15.4",
+    "uu5g05-forms": "^1.15.4",
+    "uu5loaderg01": "^1.0.3",
+    "uu5tilesg02": "^1.18.2",
+    "uu5tilesg02-elements": "^2.5.1"
+  },
+  "uuBuildSettings": {
+    "externals": {}
+  },
+  "devDependencies": {
+    "uu_appg01_devkit": "^4.6.0"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "scripts": {
+    "clean": "uu_appg01_devkit clean",
+    "test": "uu_appg01_devkit test",
+    "build": "uu_appg01_devkit build",
+    "package": "uu_appg01_devkit package",
+    "dist": "uu_appg01_devkit package",
+    "start": "uu_appg01_devkit start",
+    "prettify": "uu_appg01_devkit prettify",
+    "vulnerabilityScan": "uu_appg01_devkit vulnerabilityScan",
+    "generate": "uu_appg01_devkit generate",
+    "lsiExport": "uu_appg01_devkit lsiExport",
+    "lsiImport": "uu_appg01_devkit lsiImport",
+    "uuAppDevKitUpgrade": "uu_appg01_devkit uuAppDevKitUpgrade"
+  },
+  "prettier": {
+    "printWidth": 120
+  },
+  "private": true
+}
