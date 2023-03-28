@@ -83,6 +83,9 @@ class RecordAbl {
     }
     if (!gateway) throw new Errors.Add.GatewayNotFound({ uuAppErrorMap });
 
+    if (["created", "closed"].includes(gateway.state))
+      throw new Errors.Add.InvalidGatewayState({ uuAppErrorMap }, { gatewayState: gateway.state });
+
     let dtoOut;
     try {
       await Promise.all(dtoIn.map((record) => this.recordDao.create({ ...record, gatewayId: gateway.id, awid })));

@@ -1,17 +1,24 @@
-import { testProperties } from "uu5g05-test";
+import { mount, shallow } from "enzyme";
 import WelcomeRow from "../../src/bricks/welcome-row.js";
 
-const CONFIG = {
-  props: {
-    left: {
-      values: ["Left content", <span key="l">Left</span>],
-    },
-  },
-  requiredProps: {
-    children: "Children content",
-  },
-};
+describe("WelcomeRow", function() {
+  test("should render props", function() {
+    let icon = "mdi-check";
+    let text = "asdfegsdf";
+    let wrapper = mount(
+      <WelcomeRow id="id" icon={icon}>
+        {text}
+      </WelcomeRow>
+    );
 
-describe("WelcomeRow", function () {
-  testProperties(WelcomeRow, CONFIG);
+    let renderedHtml = wrapper.html();
+    expect(renderedHtml).toContain(icon);
+    expect(renderedHtml).toContain(text);
+  });
+
+  test("should match snapshot", function() {
+    let icon = "mdi-check";
+    let wrapper = shallow(<WelcomeRow id="id" icon={icon} />);
+    expect(wrapper).toMatchSnapshot();
+  });
 });

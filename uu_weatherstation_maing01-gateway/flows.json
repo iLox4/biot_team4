@@ -26,21 +26,6 @@
                 "type": "str"
             },
             {
-                "name": "ACCESS_CODE_1",
-                "value": "12323",
-                "type": "str"
-            },
-            {
-                "name": "ACCESS_CODE_2",
-                "value": "13231424",
-                "type": "str"
-            },
-            {
-                "name": "OIDC_BASE_URI",
-                "value": "https://uuappg01-eu-c-3.plus4u.net/uun-bpmi22wft02-maing01/3aac9c8017cdac802968ed6db29c501b",
-                "type": "str"
-            },
-            {
                 "name": "MAX_RECORDS_PER_REQUEST",
                 "value": "100",
                 "type": "str"
@@ -57,6 +42,38 @@
             {
                 "name": "CLEAR_INTERVAL",
                 "value": "60",
+                "type": "str"
+            }
+        ]
+    },
+    {
+        "id": "66a9701038c57810",
+        "type": "tab",
+        "label": "Register",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "868ea968c59b4598",
+        "type": "tab",
+        "label": "Ensure token",
+        "disabled": false,
+        "info": "",
+        "env": [
+            {
+                "name": "ACCESS_CODE_1",
+                "value": "12323",
+                "type": "str"
+            },
+            {
+                "name": "ACCESS_CODE_2",
+                "value": "13231424",
+                "type": "str"
+            },
+            {
+                "name": "OIDC_BASE_URI",
+                "value": "https://uuappg01-eu-c-3.plus4u.net/uun-bpmi22wft02-maing01/3aac9c8017cdac802968ed6db29c501b",
                 "type": "str"
             }
         ]
@@ -116,7 +133,6 @@
             "3aa3d4d598c0b09f",
             "cb51967ab0d987b4",
             "f24dca9c28a65869",
-            "0b4366a2cbc466ba",
             "9f3f727d47c03244",
             "9dc550d7b9df9af8",
             "438a92dc6d66ce99",
@@ -127,30 +143,6 @@
         "y": 99,
         "w": 2612,
         "h": 302
-    },
-    {
-        "id": "e1c4e9224fe010cf",
-        "type": "group",
-        "z": "6153cd5f03b21a2d",
-        "name": "Ensure valid token",
-        "style": {
-            "label": true,
-            "color": "#000000",
-            "fill": "#d1d1d1",
-            "fill-opacity": "0.5"
-        },
-        "nodes": [
-            "135599e1c31fcf51",
-            "db42bd9e924c449b",
-            "11642c2c41a95f26",
-            "d47c4cda9cbcfa0f",
-            "edb2aed5cd80af32",
-            "2ca9f62db386a6fb"
-        ],
-        "x": 74,
-        "y": 839,
-        "w": 722,
-        "h": 122
     },
     {
         "id": "bf9bb54df4a72cd2",
@@ -208,6 +200,56 @@
         "y": 59,
         "w": 1412,
         "h": 82
+    },
+    {
+        "id": "45d7c435cdd662ad",
+        "type": "group",
+        "z": "66a9701038c57810",
+        "name": "Register gateway",
+        "style": {
+            "fill": "#d1d1d1",
+            "label": true,
+            "fill-opacity": "0.5",
+            "color": "#000000"
+        },
+        "nodes": [
+            "cc20caa7b0e1de6f",
+            "0ca02f47c49d30dc",
+            "98adfb91783c1e5f",
+            "9469ab4b3eca4a37",
+            "1c5a31594f415b5e",
+            "58751f0d0284ccba",
+            "c0ba1d77393ab5b7"
+        ],
+        "x": 74,
+        "y": 59,
+        "w": 1172,
+        "h": 122
+    },
+    {
+        "id": "20e2c3fa7f34e180",
+        "type": "group",
+        "z": "868ea968c59b4598",
+        "name": "Ensure valid token",
+        "style": {
+            "label": true,
+            "color": "#000000",
+            "fill": "#d1d1d1",
+            "fill-opacity": "0.5"
+        },
+        "nodes": [
+            "46e60a4739012d93",
+            "fb244f5bf9950c6b",
+            "df6f2f9c2ae16d83",
+            "71f46217a93c6eba",
+            "82a9b171fed9f4b4",
+            "c4421ba278fc33c5",
+            "9024efc8d7d1cc42"
+        ],
+        "x": 74,
+        "y": 99,
+        "w": 762,
+        "h": 142
     },
     {
         "id": "69cd5af3cf3a32be",
@@ -657,7 +699,7 @@
         "g": "21f52af46773224c",
         "name": "",
         "links": [
-            "d47c4cda9cbcfa0f"
+            "71f46217a93c6eba"
         ],
         "linkType": "static",
         "timeout": "30",
@@ -806,7 +848,7 @@
         "y": 240,
         "wires": [
             [
-                "0b4366a2cbc466ba"
+                "8fe4ce3dc11518ad"
             ],
             []
         ],
@@ -901,26 +943,6 @@
         "wires": [
             [
                 "17d7968e77ae9043"
-            ]
-        ]
-    },
-    {
-        "id": "0b4366a2cbc466ba",
-        "type": "function",
-        "z": "6153cd5f03b21a2d",
-        "g": "21f52af46773224c",
-        "name": "TEMP TOKEN",
-        "func": "\nreturn {\n    ...msg,\n    token: \"TOKEN\",\n};",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1260,
-        "y": 200,
-        "wires": [
-            [
-                "19bc4cc7e92f9113"
             ]
         ]
     },
@@ -1023,117 +1045,6 @@
                 "de50c9778807beba"
             ]
         ]
-    },
-    {
-        "id": "135599e1c31fcf51",
-        "type": "function",
-        "z": "6153cd5f03b21a2d",
-        "g": "e1c4e9224fe010cf",
-        "name": "Check token",
-        "func": "function parseJwt(token) {\n    return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());\n}\nfunction getNewToken() {\n    return [ \n        { \n            ...msg, \n            payload: {\n                accessCode1: env.get('ACCESS_CODE_1'),\n                accessCode2: env.get('ACCESS_CODE_2'),\n                baseUri: env.get('OIDC_BASE_URI'),\n                grant_type: \"password\",\n            },\n        },\n        null,\n    ];\n}\n\nconst token = msg.token ?? (context.get(\"TOKEN\") ?? '');\n\nif (!token || Date.now() > parseJwt(token).exp * 1000) {\n    return getNewToken()\n} else {\n    context.set(\"TOKEN\", token)\n    return [null, { ...msg, token: token }];\n}\n",
-        "outputs": 2,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 230,
-        "y": 900,
-        "wires": [
-            [
-                "db42bd9e924c449b"
-            ],
-            [
-                "2ca9f62db386a6fb"
-            ]
-        ]
-    },
-    {
-        "id": "db42bd9e924c449b",
-        "type": "http request",
-        "z": "6153cd5f03b21a2d",
-        "g": "e1c4e9224fe010cf",
-        "name": "Get new token",
-        "method": "POST",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "https://uuidentity.plus4u.net/uu-oidc-maing02/bb977a99f4cc4c37a2afce3fd599d0a7/oidc/grantToken",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 420,
-        "y": 880,
-        "wires": [
-            [
-                "11642c2c41a95f26"
-            ]
-        ]
-    },
-    {
-        "id": "11642c2c41a95f26",
-        "type": "function",
-        "z": "6153cd5f03b21a2d",
-        "g": "e1c4e9224fe010cf",
-        "name": "Save new token",
-        "func": "node.warn(\"Obtained new token!\")\n\nreturn { ...msg, token: msg.payload.id_token }",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 620,
-        "y": 880,
-        "wires": [
-            [
-                "edb2aed5cd80af32"
-            ]
-        ]
-    },
-    {
-        "id": "d47c4cda9cbcfa0f",
-        "type": "link in",
-        "z": "6153cd5f03b21a2d",
-        "g": "e1c4e9224fe010cf",
-        "name": "Ensure token",
-        "links": [
-            "edb2aed5cd80af32"
-        ],
-        "x": 115,
-        "y": 900,
-        "wires": [
-            [
-                "135599e1c31fcf51"
-            ]
-        ]
-    },
-    {
-        "id": "edb2aed5cd80af32",
-        "type": "link out",
-        "z": "6153cd5f03b21a2d",
-        "g": "e1c4e9224fe010cf",
-        "name": "Check again",
-        "mode": "link",
-        "links": [
-            "d47c4cda9cbcfa0f"
-        ],
-        "x": 755,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "2ca9f62db386a6fb",
-        "type": "link out",
-        "z": "6153cd5f03b21a2d",
-        "g": "e1c4e9224fe010cf",
-        "name": "Token is valid, continue",
-        "mode": "return",
-        "links": [],
-        "x": 355,
-        "y": 920,
-        "wires": []
     },
     {
         "id": "4ab39205961df903",
@@ -1530,7 +1441,7 @@
         "type": "comment",
         "z": "6153cd5f03b21a2d",
         "name": "How to: temporary token",
-        "info": "Get your token from:\nhttps://uuidentity.plus4u.net/uu-identitymanagement-maing01/a9b105aff2744771be4daa8361954677/showToken\n\nPaste token into 'TEMP TOKEN' function in 'Send request' group",
+        "info": "Get your token from:\nhttps://uuidentity.plus4u.net/uu-identitymanagement-maing01/a9b105aff2744771be4daa8361954677/showToken\n\nPaste token into 'TEMP TOKEN' function in 'Ensure valid token' group",
         "x": 190,
         "y": 60,
         "wires": []
@@ -1643,5 +1554,299 @@
                 "ca12a33f0913b342"
             ]
         ]
+    },
+    {
+        "id": "cc20caa7b0e1de6f",
+        "type": "inject",
+        "z": "66a9701038c57810",
+        "g": "45d7c435cdd662ad",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "98adfb91783c1e5f"
+            ]
+        ]
+    },
+    {
+        "id": "0ca02f47c49d30dc",
+        "type": "http request",
+        "z": "66a9701038c57810",
+        "g": "45d7c435cdd662ad",
+        "name": "Register gateway request",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://localhost:8080/uun-meteo-maing01/22222222222222222222222222222222/gateway/register",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 750,
+        "y": 140,
+        "wires": [
+            [
+                "1c5a31594f415b5e"
+            ]
+        ]
+    },
+    {
+        "id": "98adfb91783c1e5f",
+        "type": "link call",
+        "z": "66a9701038c57810",
+        "g": "45d7c435cdd662ad",
+        "name": "",
+        "links": [
+            "71f46217a93c6eba"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "9469ab4b3eca4a37"
+            ]
+        ]
+    },
+    {
+        "id": "9469ab4b3eca4a37",
+        "type": "function",
+        "z": "66a9701038c57810",
+        "g": "45d7c435cdd662ad",
+        "name": "Make request",
+        "func": "return {\n    ...msg,\n    headers: {\n        'Authorization': 'Bearer ' + msg.token,\n    },\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 140,
+        "wires": [
+            [
+                "0ca02f47c49d30dc"
+            ]
+        ]
+    },
+    {
+        "id": "1c5a31594f415b5e",
+        "type": "function",
+        "z": "66a9701038c57810",
+        "g": "45d7c435cdd662ad",
+        "name": "Check response",
+        "func": "if (msg.payload && typeof msg.payload === 'object') {\n    return [msg, null];\n} else {\n    return [null, msg];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 140,
+        "wires": [
+            [],
+            [
+                "58751f0d0284ccba"
+            ]
+        ],
+        "outputLabels": [
+            "Success",
+            "Failed"
+        ]
+    },
+    {
+        "id": "58751f0d0284ccba",
+        "type": "delay",
+        "z": "66a9701038c57810",
+        "g": "45d7c435cdd662ad",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1160,
+        "y": 140,
+        "wires": [
+            [
+                "98adfb91783c1e5f"
+            ]
+        ]
+    },
+    {
+        "id": "c0ba1d77393ab5b7",
+        "type": "catch",
+        "z": "66a9701038c57810",
+        "g": "45d7c435cdd662ad",
+        "name": "Catch register error",
+        "scope": [
+            "0ca02f47c49d30dc"
+        ],
+        "uncaught": false,
+        "x": 970,
+        "y": 100,
+        "wires": [
+            [
+                "58751f0d0284ccba"
+            ]
+        ]
+    },
+    {
+        "id": "46e60a4739012d93",
+        "type": "function",
+        "z": "868ea968c59b4598",
+        "g": "20e2c3fa7f34e180",
+        "name": "Check token",
+        "func": "function parseJwt(token) {\n    return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());\n}\nfunction getNewToken() {\n    return [ \n        { \n            ...msg, \n            payload: {\n                accessCode1: env.get('ACCESS_CODE_1'),\n                accessCode2: env.get('ACCESS_CODE_2'),\n                baseUri: env.get('OIDC_BASE_URI'),\n                grant_type: \"password\",\n            },\n        },\n        null,\n    ];\n}\n\nconst token = msg.token ?? (context.get(\"TOKEN\") ?? '');\n\nif (!token || Date.now() > parseJwt(token).exp * 1000) {\n    return getNewToken()\n} else {\n    context.set(\"TOKEN\", token)\n    return [null, { ...msg, token: token }];\n}\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 160,
+        "wires": [
+            [
+                "fb244f5bf9950c6b"
+            ],
+            [
+                "c4421ba278fc33c5"
+            ]
+        ]
+    },
+    {
+        "id": "fb244f5bf9950c6b",
+        "type": "http request",
+        "z": "868ea968c59b4598",
+        "g": "20e2c3fa7f34e180",
+        "name": "Get new token",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://uuidentity.plus4u.net/uu-oidc-maing02/bb977a99f4cc4c37a2afce3fd599d0a7/oidc/grantToken",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 460,
+        "y": 140,
+        "wires": [
+            [
+                "df6f2f9c2ae16d83"
+            ]
+        ]
+    },
+    {
+        "id": "df6f2f9c2ae16d83",
+        "type": "function",
+        "z": "868ea968c59b4598",
+        "g": "20e2c3fa7f34e180",
+        "name": "Save new token",
+        "func": "node.warn(\"Obtained new token!\")\n\nreturn { ...msg, token: msg.payload.id_token }",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 140,
+        "wires": [
+            [
+                "82a9b171fed9f4b4"
+            ]
+        ]
+    },
+    {
+        "id": "71f46217a93c6eba",
+        "type": "link in",
+        "z": "868ea968c59b4598",
+        "g": "20e2c3fa7f34e180",
+        "name": "Ensure token",
+        "links": [
+            "82a9b171fed9f4b4"
+        ],
+        "x": 115,
+        "y": 160,
+        "wires": [
+            [
+                "9024efc8d7d1cc42"
+            ]
+        ]
+    },
+    {
+        "id": "82a9b171fed9f4b4",
+        "type": "link out",
+        "z": "868ea968c59b4598",
+        "g": "20e2c3fa7f34e180",
+        "name": "Check again",
+        "mode": "link",
+        "links": [
+            "71f46217a93c6eba"
+        ],
+        "x": 795,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c4421ba278fc33c5",
+        "type": "link out",
+        "z": "868ea968c59b4598",
+        "g": "20e2c3fa7f34e180",
+        "name": "Token is valid, continue",
+        "mode": "return",
+        "links": [],
+        "x": 395,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "9024efc8d7d1cc42",
+        "type": "function",
+        "z": "868ea968c59b4598",
+        "g": "20e2c3fa7f34e180",
+        "name": "TEMP TOKEN",
+        "func": "\nreturn {\n    ...msg,\n    token: \"eyJraWQiOiI1YjRiNTMyODI1NGE0ODU4OTY4NDE2ZDk4ZDMyYWM1NzFmOGY5NWVjZjAyZTRlYjhiNmYyOWY1YzY0MmI3ZjYiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI2MGIyMGUxMWY3YmE5MDAwMzdkMDBlYjQiLCJ1dWlkZW50aXR5IjoiNDg2LTU4NjUtMSIsImNsaWVudF91cmkiOiJ1cm46dXVvaWRjY2xpZW50OnV1LWlkZW50aXR5bWFuYWdlbWVudC1tYWluZzAxXC82ZDdjMzE3YWZjOTk0NDU1YjI5NDhhOTc2MzQ2MmJlZS1hOWIxMDVhZmYyNzQ0NzcxYmU0ZGFhODM2MTk1NDY3NyIsImF1dGhfaWQiOiJpaU9hRVJSWG9YMkw5NXo5alZfOXc3bU9TV1hlSm5Ma25XSUxSZ3p0MFVnIiwiY2xpZW50X3V1YXBwa2V5IjoidXUtaWRlbnRpdHltYW5hZ2VtZW50LW1haW5nMDFcLzZkN2MzMTdhZmM5OTQ0NTViMjk0OGE5NzYzNDYyYmVlLWE5YjEwNWFmZjI3NDQ3NzFiZTRkYWE4MzYxOTU0Njc3IiwiY2xpZW50X2FjciI6ImxvdyIsImFtciI6WyJ1dUlkZW50aXR5R29vZ2xlQXV0aE5SZWFsbSJdLCJpc3MiOiJodHRwczpcL1wvdXVpZGVudGl0eS5wbHVzNHUubmV0XC91dS1vaWRjLW1haW5nMDJcL2JiOTc3YTk5ZjRjYzRjMzdhMmFmY2UzZmQ1OTlkMGE3XC9vaWRjIiwiY2xpZW50X3V1aWRlbnRpdHlfdHlwZSI6InV1QXdpZEVlIiwibm9uY2UiOiJlMGZoZXBsNTBnOCIsImNsaWVudF91dWlkZW50aXR5IjoiMzE5Ni0zMjg3LTE3OTAtMSIsImFjciI6InN0YW5kYXJkIiwiYXVkIjpbImE5YjEwNWFmZjI3NDQ3NzFiZTRkYWE4MzYxOTU0Njc3IiwiaHR0cHM6XC9cLyIsImh0dHA6XC9cL2xvY2FsaG9zdCJdLCJjbGllbnRfdXVpZGVudGl0eV9uYW1lIjoiUGx1czRVIiwibmJmIjoxNjc4NzAwNDkxLCJ1dWlkZW50aXR5X3R5cGUiOiJ1dVBlcnNvbiIsImF1dGhfdGltZSI6MTY3ODcwMDQ4NywibmFtZSI6Ill1cmlpIEJsaXVzaXVrIiwiZXhwIjoxNjc4NzAyMjkxLCJpYXQiOjE2Nzg3MDA0OTEsImp0aSI6ImYxYjlhNDM0OTQ0YTQ5OTNiZThlMDUxNzdkMWU1YjdlIn0.SFaVGCtMt3hryZeAFlB-G0WyQLeU_f6c_sLPMUBcgdkVrxfFRfkH6pSKv3QIjla0RU4ATVA1p9PMrkTKBUbhDiHx3kFdKh5UDDryyp8ZZ9LsS8WGI53O6bR4dihWTx2_iSLDdmhhTX5OVRmeQpDN9ZwGZgQMnG1hy5vts-ggcUihHbLNou4pij5fnh3UVuluBPlvHmDqdJ_0ai-69jQivisdf_5LR7y_6BhvBuSSD6Lh7QAxO5WKy2f6As-yuRaNOWj20HwKs8CbcioSsvFwXFPRA3D1PIgbMH-pt0x1HLUHCdsE5dYCYEveSRcyZikJO_RVJmp07J3FflHSjlr8TA\",\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 200,
+        "wires": [
+            [
+                "c4421ba278fc33c5"
+            ]
+        ]
+    },
+    {
+        "id": "1bfa0c4157d87609",
+        "type": "comment",
+        "z": "868ea968c59b4598",
+        "name": "How to: temporary token",
+        "info": "Get your token from:\nhttps://uuidentity.plus4u.net/uu-identitymanagement-maing01/a9b105aff2744771be4daa8361954677/showToken\n\nPaste token into 'TEMP TOKEN' function in 'Ensure valid token' group",
+        "x": 190,
+        "y": 60,
+        "wires": []
     }
 ]

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google" content="notranslate" />
-    <title>uuWeatherstation</title>
+    <title>uu5Tutorial</title>
 
     <!-- NOTE Following URLs are automatically replaced during build according to the configuration.
       Additionally, <base> element is automatically inserted here so that relative paths are loaded relatively to app base,
@@ -13,13 +13,13 @@
     <script src="uu5-environment.js"></script>
     <script src="~uu5g05-browser-compatibility/uu5g05-browser-compatibility.min.js" crossorigin="anonymous"></script>
 
-    <link type="text/css" rel="stylesheet" href="https://cdn.plus4u.net/uu-gdsg01/1.0.0/assets/font.min.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.plus4u.net/libs/clearsans/2.0.0/fonts/clear-sans.min.css">
     <link type="text/css" rel="stylesheet" href="loading.css">
     <link rel="preconnect" href="https://uuidentity.plus4u.net">
     <script src="~uu5loaderg01" crossorigin="anonymous"></script>
 
-    <meta name="apple-mobile-web-app-title" content="uuWeatherstation">
-    <meta name="application-name" content="uuWeatherstation">
+    <meta name="apple-mobile-web-app-title" content="uu5Tutorial">
+    <meta name="application-name" content="uu5Tutorial">
     <meta name="msapplication-TileImage" content="assets/meta/mstile-150x150.png">
     <meta name="msapplication-TileColor" content="#004191">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/meta/apple-touch-icon.png">
@@ -32,18 +32,22 @@
     ` %><%= htmlWebpackPlugin.options.ejsFixUrls(template) %>
   </head>
 
-  <body class="uu-gdsg01-unicorn">
-
+  <body class="clear-sans">
     <div id="uuApp">
-      <div id="uuAppLoading">
-        <%=
-          // add loading indication and apply uuApp visual settings from uu5Environment["uu_plus4u5g02_uuApp"] (env/production.json)
-          // https://uuapp.plus4u.net/uu-bookkit-maing01/83c1406c4fc541dba975941424106318/book/page?code=67000055
-          htmlWebpackPlugin.options.renderTemplate("index-loading.html")
-        %>
+      <div class="uu-app-loading" hidden>
+        <svg version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="uu-app-loading-svg">
+          <defs>
+            <linearGradient id="a" x1="50%" x2="50%" y2="100%">
+              <stop stop-color="currentColor" offset="0" />
+              <stop stop-color="currentColor" stop-opacity=".3" offset="1" />
+            </linearGradient>
+          </defs>
+          <circle cx="12" cy="12" r="11.8" fill="none" stroke="url(#a)" stroke-width="0.4" />
+        </svg>
+        <div class="uu-app-loading-name">uu5Tutorial</div>
       </div>
     </div>
-
+    
 <%=
   // insert error snippet if application initialization fails entirely
   htmlWebpackPlugin.options.renderTemplate("index-error.html", {

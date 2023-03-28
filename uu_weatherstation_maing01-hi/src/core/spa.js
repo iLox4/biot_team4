@@ -1,6 +1,5 @@
 //@@viewOn:imports
-import { createVisualComponent, Utils } from "uu5g05";
-import Uu5Elements from "uu5g05-elements";
+import { createVisualComponent, Utils, Environment } from "uu5g05";
 import Plus4U5 from "uu_plus4u5g02";
 import Plus4U5App from "uu_plus4u5g02-app";
 
@@ -9,6 +8,7 @@ import Home from "../routes/home.js";
 //@@viewOff:imports
 
 //@@viewOn:constants
+const Gateway = Utils.Component.lazy(() => import("../routes/gateway.js"));
 const About = Utils.Component.lazy(() => import("../routes/about.js"));
 const InitAppWorkspace = Utils.Component.lazy(() => import("../routes/init-app-workspace.js"));
 const ControlPanel = Utils.Component.lazy(() => import("../routes/control-panel.js"));
@@ -16,22 +16,13 @@ const ControlPanel = Utils.Component.lazy(() => import("../routes/control-panel.
 const ROUTE_MAP = {
   "": { redirect: "home" },
   home: (props) => <Home {...props} />,
+  gateway: (props) => <Gateway {...props} />,
   about: (props) => <About {...props} />,
   "sys/uuAppWorkspace/initUve": (props) => <InitAppWorkspace {...props} />,
   controlPanel: (props) => <ControlPanel {...props} />,
-  "*": () => (
-    <Uu5Elements.Text category="story" segment="heading" type="h1">
-      Not Found
-    </Uu5Elements.Text>
-  ),
+  "*": { redirect: "home" },
 };
 //@@viewOff:constants
-
-//@@viewOn:css
-//@@viewOff:css
-
-//@@viewOn:helpers
-//@@viewOff:helpers
 
 const Spa = createVisualComponent({
   //@@viewOn:statics
@@ -47,18 +38,10 @@ const Spa = createVisualComponent({
   //@@viewOff:defaultProps
 
   render() {
-    //@@viewOn:private
-    //@@viewOff:private
-
-    //@@viewOn:interface
-    //@@viewOff:interface
-
     //@@viewOn:render
     return (
-      <Plus4U5.SpaProvider initialLanguageList={["en", "cs"]}>
-        <Uu5Elements.ModalBus>
-          <Plus4U5App.Spa routeMap={ROUTE_MAP} />
-        </Uu5Elements.ModalBus>
+      <Plus4U5.SpaProvider initialLanguageList={["en", "cs"]} baseUri={Environment.get("callsBaseUri")}>
+        <Plus4U5App.Spa routeMap={ROUTE_MAP} />
       </Plus4U5.SpaProvider>
     );
     //@@viewOff:render
