@@ -65,6 +65,11 @@
         "realization": "api/controllers/RecordController.remove",
         "httpMethod": "POST",
         "type": "CMD"
+      },
+      "record/getInterval": {
+        "realization": "api/controllers/RecordController.getInterval",
+        "httpMethod": "GET",
+        "type": "CMD"
       }
     }
   }

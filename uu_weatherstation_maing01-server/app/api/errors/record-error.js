@@ -74,7 +74,26 @@ const Remove = {
   },
 };
 
+const GetInterval = {
+  UC_CODE: `${RECORD_ERROR_PREFIX}getInterval/`,
+  InvalidDtoIn: class extends WeatherstationMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${GetInterval.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+  RecordDaoGetIntervalFailed: class extends WeatherstationMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${GetInterval.UC_CODE}RecordDaoGetIntervalFailed`;
+      this.message = "Get records by record DAO get failed.";
+    }
+  },
+};
+
 module.exports = {
   Remove,
-  Add
+  Add,
+  GetInterval,
 };
