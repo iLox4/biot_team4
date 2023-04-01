@@ -1,6 +1,7 @@
 {
   "name": "uu5_tutorial_maing01-hi",
-  "version": "2.0.0",
+  "version": "0.1.0",
+  "private": true,
   "description": "",
   "license": "License Commercial",
   "namespace": "UU5.Tutorial",
@@ -14,7 +15,8 @@
     "uu5g05-forms": "^1.15.4",
     "uu5loaderg01": "^1.0.3",
     "uu5tilesg02": "^1.18.2",
-    "uu5tilesg02-elements": "^2.5.1"
+    "uu5tilesg02-elements": "^2.5.1",
+    "uu5chartg01": "^2.0.0"
   },
   "uuBuildSettings": {
     "externals": {}
@@ -41,6 +43,5 @@
   },
   "prettier": {
     "printWidth": 120
-  },
-  "private": true
+  }
 }

@@ -91,8 +91,9 @@ function sampleRecordsData(data, granularity) {
 }
 
 const inTimeInterval = (startDate, endDate) => (record) => {
-    const isAfterStart = new Date(record.datetime) > new Date(dtoIn.startDate);
-    const isBeforeEnd = new Date(record.datetime) < new Date(dtoIn.endDate);
+    // Was dtoIn.startDate(.endDate)
+    const isAfterStart = new Date(record.datetime) > new Date(startDate);
+    const isBeforeEnd = new Date(record.datetime) < new Date(endDate);
     return isAfterStart && isBeforeEnd;
 }
 

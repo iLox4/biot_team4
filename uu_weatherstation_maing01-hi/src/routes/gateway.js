@@ -41,13 +41,13 @@ let Gateways = createVisualComponent({
                 
               <CreateView
                   gatewayDataList={gatewayDataList}
-                  categoryList={("5c9237a0323cc0000c303028", "5c9237c1323cc0000c30302e")}
+                  categoryList={["5c9237a0323cc0000c303028", "5c9237c1323cc0000c30302e"]}
                   className={Css.createView()}
                 />
                 
                 <ListView
                   gatewayDataList={gatewayDataList}
-                  categoryList={("5c9237a0323cc0000c303028", "5c9237c1323cc0000c30302e")}
+                  categoryList={["5c9237a0323cc0000c303028", "5c9237c1323cc0000c30302e"]}
                   identity={identity}
                 />
                 <ListTitle gatewayList={gatewayDataList.data} />

@@ -12,6 +12,94 @@
       "appDeploymentUri": null
     }
   },
-  "uu_weatherstation_maing01-hi": {},
+  "uu_weatherstation_maing01-hi": {
+    "componentList": [
+      {
+        "code": "UU5.Tutorial.Bricks.Dashboard.Dashboard",
+        "name": "Dashboard",
+        "tagList": [
+          "UU5",
+          "Tutorial",
+          "Bricks",
+          "Dashboard",
+          "Dashboard"
+        ],
+        "docCode": "UU5TutorialBricksDashboardDashboard",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UU5.Tutorial.Bricks.Dashboard.Dashboard />"
+      },
+      {
+        "code": "UU5.Tutorial.Bricks.Dashboard.Graph",
+        "name": "Graph",
+        "tagList": [
+          "UU5",
+          "Tutorial",
+          "Bricks",
+          "Dashboard",
+          "Graph"
+        ],
+        "docCode": "UU5TutorialBricksDashboardGraph",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UU5.Tutorial.Bricks.Dashboard.Graph />"
+      },
+      {
+        "code": "UU5.Tutorial.Bricks.Dashboard.RecordForm",
+        "name": "RecordForm",
+        "tagList": [
+          "UU5",
+          "Tutorial",
+          "Bricks",
+          "Dashboard",
+          "RecordForm"
+        ],
+        "docCode": "UU5TutorialBricksDashboardRecordForm",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UU5.Tutorial.Bricks.Dashboard.RecordForm />"
+      },
+      {
+        "code": "UU5.Tutorial.Bricks.Dashboard.RecordGraph",
+        "name": "RecordGraph",
+        "tagList": [
+          "UU5",
+          "Tutorial",
+          "Bricks",
+          "Dashboard",
+          "RecordGraph"
+        ],
+        "docCode": "UU5TutorialBricksDashboardRecordGraph",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UU5.Tutorial.Bricks.Dashboard.RecordGraph />"
+      },
+      {
+        "code": "UU5.Tutorial.Bricks.Dashboard.RecordsProvider",
+        "name": "RecordsProvider",
+        "tagList": [
+          "UU5",
+          "Tutorial",
+          "Bricks",
+          "Dashboard",
+          "RecordsProvider"
+        ],
+        "docCode": "UU5TutorialBricksDashboardRecordsProvider",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UU5.Tutorial.Bricks.Dashboard.RecordsProvider />"
+      }
+    ]
+  },
   "uu_weatherstation_maing01-server": {}
 }

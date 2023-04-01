@@ -4,9 +4,9 @@ const { Validator } = require("uu_appg01_server").Validation;
 const { DaoFactory, ObjectStoreError } = require("uu_appg01_server").ObjectStore;
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const Errors = require("../api/errors/record-error.js");
-const { sampleRecordsData } = require("../utils/recordsDataUtils");
+const { sampleRecordsData, inTimeInterval } = require("../utils/recordsDataUtils");
 const { getGranularityInterval, validateGranularity, getSafeTimeInterval } = require("../utils/granularityUtils");
- 
+
 const UnsupportedKeysWarning = (error) => {
   return `${error?.UC_CODE}unsupportedKeys`;
 };
@@ -125,7 +125,11 @@ class RecordAbl {
 
     const recordsListSampled = sampleRecordsData(records.itemList, granularity);
     const recordsList = recordsListSampled.filter(inTimeInterval(dtoIn.startDate, dtoIn.endDate));
-    const dataList = recordsList.map((record) => ([record.datetime, record.temperature, record.humidity]));
+    const dataList = recordsList.map((record) => ({
+      datetime: record.datetime,
+      temperature: record.temperature,
+      humidity: record.humidity,
+    }));
 
     const dtoOut = {
       itemList: dataList,

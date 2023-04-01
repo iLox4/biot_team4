@@ -31,9 +31,18 @@ const Calls = {
     return await Calls.getWorkspace();
   },
 
+  Record: {
+    list(dtoIn) {
+      const commandUri =
+        "http://localhost:8080/uu-weatherstation-maing01/22222222222222222222222222222222/record/getInterval";
+      return Calls.call("get", commandUri, dtoIn);
+    },
+  },
+
   Gateway: {
     list(dtoIn) {
-      const commandUri = Calls.getCommandUri("gateway/list");
+      const commandUri =
+        "http://localhost:8080/uu-weatherstation-maing01/22222222222222222222222222222222/gateway/list";
       return Calls.call("get", commandUri, dtoIn);
     },
 
