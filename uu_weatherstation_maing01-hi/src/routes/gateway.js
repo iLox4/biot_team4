@@ -1,67 +1,99 @@
 //@@viewOn:imports
-import { createVisualComponent, useSession } from "uu5g05";
-import { useSubAppData, useSystemData } from "uu_plus4u5g02";
-import { RouteController } from "uu_plus4u5g02-app";
+import { createVisualComponent, useEffect, useState, Lsi } from "uu5g05";
+import UU5 from "uu5g04";
+import { withRoute } from "uu_plus4u5g02-app";
 import Config from "./config/config.js";
 import RouteBar from "../core/route-bar";
-import ListProvider from "../bricks/gateway/list-provider";
-import ListTitle from "../bricks/gateway/list-title";
-import ListView from "../bricks/gateway/list-view";
-import CreateView from "../bricks/gateway/create-view";
+import Dashboard from "../bricks/dashboard/dashboard.js";
+import getParameterByName from "../utils/getParameterByName.js";
+import Plus4U5 from "uu_plus4u5g02";
+import { useAlertBus } from "uu5g05-elements";
 //@@viewOff:imports
 
 //@@viewOn:css
 const Css = {
-  container: () => Config.Css.css({ maxWidth: 640, margin: "0px auto", paddingLeft: 8, paddingRight: 8 }),
-  createView: () => Config.Css.css({ margin: "24px 0px" }),
+  container: () => Config.Css.css({ padding: "auto", margin: "auto", width: "80%" }),
 };
 //@@viewOff:css
 
-let Gateways = createVisualComponent({
+const lsi = {
+  errorHeader: <Lsi lsi={{ cs: "Načítání dat se nezdařilo", en: "Getting data failed" }} />,
+  errorMessage: <Lsi lsi={{ cs: "Nepodařilo se získat data ze serveru", en: "Failed to get data from the server" }} />,
+};
+
+const id = getParameterByName("id");
+
+async function handleLoad() {
+  const response = await Plus4U5.Utils.AppClient["get"](
+    "http://localhost:8080/uu-weatherstation-maing01/22222222222222222222222222222222/gateway/get",
+    {
+      id,
+    }
+  );
+  return response;
+}
+
+let Gateway = createVisualComponent({
   //@@viewOn:statics
   uu5Tag: Config.TAG + "Gateways",
   //@@viewOff:statics
 
   render() {
     //@@viewOn:private
-    const subAppDataObject = useSubAppData();
-    const systemDataObject = useSystemData();
-    const { identity } = useSession();
-
+    const [isLoading, setIsLoading] = useState(true);
+    const [gatewayData, setGatewayData] = useState({});
+    const { addAlert } = useAlertBus();
     //@@viewOff:private
 
+    useEffect(() => {
+      async function fetchData() {
+        setIsLoading(true);
+        try {
+          const response = await handleLoad();
+          setGatewayData(response.data);
+        } catch (error) {
+          Gateway.logger.error("Error getting a gateway data", error);
+          addAlert({
+            header: lsi.errorHeader,
+            message: lsi.errorMessage,
+            priority: "error",
+          });
+        }
+        setIsLoading(false);
+      }
+      fetchData();
+    }, []);
+
+    let content;
+    if (isLoading) {
+      content = <UU5.Bricks.Loading />;
+    } else {
+      content = (
+        <>
+          <h1>
+            {gatewayData.name} - {gatewayData.location.city}, {gatewayData.location.street} {gatewayData.location.zip}
+          </h1>
+          <Dashboard
+            url="http://localhost:8080/uu-weatherstation-maing01/22222222222222222222222222222222/record/getInterval"
+            gatewayId={id}
+          />
+        </>
+      );
+    }
     //@@viewOn:render
     return (
       <>
         <RouteBar />
-        <ListProvider>
-          {(gatewayDataList) => (
-            <RouteController routeDataObject={gatewayDataList}>
-              <div className={Css.container()}>
-                
-              <CreateView
-                  gatewayDataList={gatewayDataList}
-                  categoryList={["5c9237a0323cc0000c303028", "5c9237c1323cc0000c30302e"]}
-                  className={Css.createView()}
-                />
-                
-                <ListView
-                  gatewayDataList={gatewayDataList}
-                  categoryList={["5c9237a0323cc0000c303028", "5c9237c1323cc0000c30302e"]}
-                  identity={identity}
-                />
-                <ListTitle gatewayList={gatewayDataList.data} />
-              </div>
-            </RouteController>
-          )}
-        </ListProvider>
+        <div className={Css.container()}>{content}</div>
       </>
     );
     //@@viewOff:render
   },
 });
 
+Gateway = withRoute(Gateway, { authenticated: false });
+
 //@@viewOn:exports
-export { Gateways };
-export default Gateways;
+export { Gateway };
+export default Gateway;
 //@@viewOff:exports

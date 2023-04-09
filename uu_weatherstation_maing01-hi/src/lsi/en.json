@@ -14,10 +14,16 @@
     "btNotConnected": "The application is not connected to a Business Territory."
   },
   "Home": {
-    "welcome": "Welcome",
-    "intro": "<uu5string/>This template consist of prepared client and server side. Shown components demonstrate possibilities and way of using. For application developing purposes they are suitable for modifying, copying and deleting. More about uuApp Structure see documentation&nbsp; <Uu5Elements.Link href=\"https://uuapp.plus4u.net/uu-bookkit-maing01/e884539c8511447a977c7ff070e7f2cf/book/page?code=stepByStepApp\" target=\"_blank\">uuAppDevKit</Uu5Elements.Link>.",
-    "clientSide": "<uu5string/>Libraries <Uu5Elements.Link href=\"https://uuapp.plus4u.net/uu-bookkit-maing01/05ecbf4e8bca405290b1a6d4cee8813a/book\" target=\"_blank\">uu5</Uu5Elements.Link> and <Uu5Elements.Link href=\"https://uuapp.plus4u.net/uu-bookkit-maing01/83c1406c4fc541dba975941424106318/book\" target=\"_blank\">uuPlus4U5</Uu5Elements.Link> are used for developing of client side.",
-    "serverSide": "<uu5string/>It is necessary to initialize application workspace for running server side. See manual <Uu5Elements.Link href=\"https://uuapp.plus4u.net/uu-bookkit-maing01/e884539c8511447a977c7ff070e7f2cf/book/page?code=stepByStepApp\" target=\"_blank\">uuApp Template Developer Guide</Uu5Elements.Link>"
+    "header": "Metestations"
+  },
+  "GatewayList": {
+    "name": "Name"
+  },
+  "GatewayListItem": {
+    "state": "state",
+    "humidity": "humidity",
+    "update": "update",
+    "more": "more"
   },
   "InitAppWorkspace": {
     "notAuthorized": "You do not have sufficient rights to use the application.",
@@ -28,56 +34,5 @@
     "uuBtLocationUriInfo": "Uri of the uuBt location where AWSC will be created",
     "nameLabel": "Name",
     "initialize": "Initialize"
-  },
-  "UuJokes.Bricks.Joke.CreateForm": {
-    "name": "Name",
-    "location": "Location",
-    "category": "Category",
-    "image": "Image",
-    "text": "Text",
-    "cancel": "Cancel",
-    "submit": "Create Gateway",
-    "textOrImage": "Text or image must be provided."
-  },
-  "UuJokes.Bricks.Joke.CreateView": {
-    "creategateway": "Add Gateway",
-    "createFail": "Gateway creation failed!",
-    "createDone": "Gateway {0} has been created."
-  },
-  "UuJokes.Bricks.Joke.DetailModal": {
-    "oneVotes": "{0} vote",
-    "fewVotes": "{0} votes",
-    "otherVotes": "{0} votes",
-    "averageRating": "Rating: {0} / 5",
-    "update": "Update",
-    "delete": "Delete"
-  },
-  "UuJokes.Bricks.Joke.UpdateModal": {
-    "header": "Update Gateway",
-    "name": "Name",
-    "category": "Category",
-    "image": "Image",
-    "text": "Text",
-    "cancel": "Cancel",
-    "submit": "Update",
-    "textOrImage": "Text or image must be provided."
-  },
-  "UuJokes.Bricks.Joke.ListView": {
-    "deleteDone": "The Gateway {0} has been deleted.",
-    "deleteFail": "Gateway delete failed!",
-    "updateFail": "Gateway update failed!",
-    "pageLoadFail": "Gateways loading failed!",
-    "noJokes": "No Gateways"
-  },
-  "UuJokes.Bricks.Joke.Tile": {
-    "averageRating": "Average rating: {0} / 5",
-    "deleteTip": "Delete",
-    "updateTip": "Update"
-  },
-  "UuJokes.Core.RouteBar": {
-    "title": "Lesson 18 - Dynamic Rendering - {0}",
-    "home": "Welcome",
-    "gateways": "Gateways",
-    "about": "About Application"
   }
 }

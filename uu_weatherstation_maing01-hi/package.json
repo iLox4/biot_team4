@@ -16,6 +16,7 @@
     "uu5loaderg01": "^1.0.3",
     "uu5tilesg02": "^1.18.2",
     "uu5tilesg02-elements": "^2.5.1",
+    "uu5tilesg02-controls": "^2.5.1",
     "uu5chartg01": "^2.0.0"
   },
   "uuBuildSettings": {
