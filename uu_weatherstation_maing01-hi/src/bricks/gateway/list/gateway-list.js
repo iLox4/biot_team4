@@ -12,29 +12,6 @@ import { useAlertBus } from "uu5g05-elements";
 
 const STATE_LIST = ["created", "active", "closed"];
 
-const SORTER_LIST = [
-  {
-    key: "name",
-    label: <Lsi lsi={{ cs: "Název", en: "Name" }} />,
-    sort: (a, b) => a.data.name.localeCompare(b.data.name),
-  },
-  {
-    key: "city",
-    label: <Lsi lsi={{ cs: "Město", en: "City" }} />,
-    sort: (a, b) => a.data.city.localeCompare(b.data.city),
-  },
-  {
-    key: "temperature",
-    label: <Lsi lsi={{ cs: "Teplota", en: "Temperature" }} />,
-    sort: (a, b) => a.data.lastRecord.temperature - b.data.lastRecord.temperature,
-  },
-  {
-    key: "humidity",
-    label: <Lsi lsi={{ cs: "Vlhkost", en: "Humidity" }} />,
-    sort: (a, b) => a.data.lastRecord.humidity - b.data.lastRecord.humidity,
-  },
-];
-
 //@@viewOn:css
 const Css = {
   container: () => Config.Css.css({ padding: "auto", margin: "auto" }),
@@ -55,6 +32,7 @@ export const GatewayList = createVisualComponent({
   //@@viewOn:propTypes
   propTypes: {
     gatewayDataList: PropTypes.object.isRequired,
+    canManage: PropTypes.bool,
   },
   //@@viewOff:propTypes
 
@@ -65,7 +43,6 @@ export const GatewayList = createVisualComponent({
   render(props) {
     //@@viewOn:private
     const { data, state } = props.gatewayDataList;
-    const [sorterList, setSorterList] = useState([{ key: "name", ascending: true }]);
     const [filterList, setFilterList] = useState([]);
     const [updateData, setUpdateData] = useState({ isOpen: false, data: {} });
     const { addAlert } = useAlertBus();
@@ -121,7 +98,10 @@ export const GatewayList = createVisualComponent({
           placeholder: { en: "Enter value", cs: "Zadejte hodnotu" },
         },
       },
-      {
+    ];
+
+    if (props.canManage) {
+      FILTER_LIST.push({
         key: "state",
         label: <Lsi lsi={{ cs: "Stav", en: "State" }} />,
         filter: (item, value) => {
@@ -137,8 +117,8 @@ export const GatewayList = createVisualComponent({
           itemList: STATE_LIST.map((it) => ({ value: it, children: it })),
           placeholder: { en: "Enter value", cs: "Zadejte hodnotu" },
         },
-      },
-    ];
+      });
+    }
 
     let content;
 
@@ -146,24 +126,19 @@ export const GatewayList = createVisualComponent({
       content = (
         <Uu5Tiles.ControllerProvider
           data={data}
-          sorterDefinitionList={SORTER_LIST}
-          sorterList={sorterList}
-          onSorterChange={(e) => setSorterList(e.data.sorterList)}
           filterDefinitionList={FILTER_LIST}
           filterList={filterList}
           onFilterChange={(e) => setFilterList(e.data.filterList)}
         >
           <div className={Css.controls()}>
-            <Uu5TilesControls.SorterButton />
             <Uu5TilesControls.SearchButton />
             <Uu5TilesControls.FilterButton />
           </div>
-          <Uu5TilesControls.SorterBar />
           <Uu5TilesControls.FilterBar />
           <Uu5TilesElements.Grid verticalGap={15} horizontalGap={15} tileMaxWidth={700}>
-            <GatewayItem setUpdateData={handleSetUpdateData} />
+            <GatewayItem setUpdateData={handleSetUpdateData} canManage={props.canManage} />
           </Uu5TilesElements.Grid>
-          {updateData.isOpen && (
+          {props.canManage && updateData.isOpen && (
             <UpdateModal
               onClose={handleResetUpdateData}
               gatewayDataObject={updateData.data}

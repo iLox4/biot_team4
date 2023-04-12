@@ -70,12 +70,15 @@ let Gateway = createVisualComponent({
     } else {
       content = (
         <>
-          <h1>
-            {gatewayData.name} - {gatewayData.location.city}, {gatewayData.location.street} {gatewayData.location.zip}
-          </h1>
           <Dashboard
             url="http://localhost:8080/uu-weatherstation-maing01/22222222222222222222222222222222/record/getInterval"
             gatewayId={id}
+            header={
+              <h1>
+                {gatewayData.name} - {gatewayData.location.city}, {gatewayData.location.street}{" "}
+                {gatewayData.location.zip}
+              </h1>
+            }
           />
         </>
       );

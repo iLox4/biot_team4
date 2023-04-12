@@ -30,6 +30,8 @@ const lsi = {
   state: <Lsi lsi={{ cs: "Stav", en: "State" }} />,
   cancel: <Lsi lsi={{ cs: "Zrušit", en: "Cancel" }} />,
   submit: <Lsi lsi={{ cs: "Potvrdit", en: "Submit" }} />,
+  successInfo: <Lsi lsi={{ cs: "Údaje byly úspěšně změnění", en: "Data was successfully changed" }} />,
+  errorInfo: <Lsi lsi={{ cs: "Nepodařilo se uložit změny", en: "Gateway update failed" }} />,
 };
 
 export const UpdateModal = createVisualComponent({
@@ -40,7 +42,7 @@ export const UpdateModal = createVisualComponent({
     gatewayDataObject: PropTypes.object.isRequired,
     onClose: PropTypes.func.isRequired,
     showError: PropTypes.func,
-    showInfo: PropTypes.func
+    showInfo: PropTypes.func,
   },
   //@@viewOff:propTypes
 
@@ -68,10 +70,10 @@ export const UpdateModal = createVisualComponent({
       try {
         await props.gatewayDataObject.handlerMap.update(inputData, gateway.lastRecord);
         props.onClose();
-        props.showInfo("Success");
+        props.showInfo(lsi.successInfo);
       } catch (error) {
         UpdateModal.logger.error("Error updating gateway", error);
-        props.showError(error, "Update gateway failed");
+        props.showError(lsi.errorInfo);
       }
     }
 
@@ -121,8 +123,8 @@ export const UpdateModal = createVisualComponent({
               label={lsi.zip}
               name="zip"
               initialValue={gateway.zip}
-              maxLength={5}
-              minLength={5}
+              maxLength={4}
+              minLength={15}
               className={Css.input()}
               required
               autoFocus

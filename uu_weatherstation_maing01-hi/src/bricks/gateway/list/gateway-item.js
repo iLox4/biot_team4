@@ -19,6 +19,12 @@ const lsi = {
   state: <Lsi lsi={{ cs: "Stav", en: "State" }} />,
   update: <Lsi lsi={{ cs: "Změnit", en: "Update" }} />,
   more: <Lsi lsi={{ cs: "Více", en: "More" }} />,
+  noRecords: (
+    <Lsi
+      lsi={{ cs: "Tato metostanice zatím nemá žadné měření", en: "This meteostation does not have any records yet" }}
+    />
+  ),
+  noLocation: <Lsi lsi={{ cs: "Lokalita není nastavená", en: "The location is not set" }} />,
 };
 
 const STATICS = {
@@ -84,11 +90,19 @@ export const GatewayItem = createVisualComponent({
           </p>
         );
       } else {
-        record = <></>;
+        record = (
+          <div>
+            <i>{lsi.noRecords}</i>
+          </div>
+        );
       }
     } else {
-      location = <></>;
-      record = <></>;
+      location = <div>{lsi.noLocation}</div>;
+      record = (
+        <div>
+          <i>{lsi.noRecords}</i>
+        </div>
+      );
     }
 
     //@@viewOn:render
@@ -98,11 +112,13 @@ export const GatewayItem = createVisualComponent({
           <div>{location}</div>
           <div>{record}</div>
           <div className={Css.footer()}>
-            <i>
-              {lsi.state}: <b>{state}</b>
-            </i>
+            {props.canManage && (
+              <i>
+                {lsi.state}: <b>{state}</b>
+              </i>
+            )}
             <div className={Css.actions()}>
-              <Button onClick={() => props.setUpdateData(props.data)}>{lsi.update}</Button>
+              {props.canManage && <Button onClick={() => props.setUpdateData(props.data)}>{lsi.update}</Button>}
               <Button onClick={() => setRoute("gateway", { id })} colorScheme="primary" disabled={isNotActive}>
                 {lsi.more}
               </Button>

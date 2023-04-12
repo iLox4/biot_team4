@@ -1,6 +1,7 @@
 //@@viewOn:imports
 import { Utils, createVisualComponent, useSession, Environment, Lsi } from "uu5g05";
 import { withRoute } from "uu_plus4u5g02-app";
+import { useSystemData } from "uu_plus4u5g02";
 import Config from "./config/config.js";
 import RouteBar from "../core/route-bar.js";
 import ListProvider from "../bricks/gateway/list/list-provider.js";
@@ -32,7 +33,11 @@ let Home = createVisualComponent({
 
   render(props) {
     //@@viewOn:private
-    const { identity } = useSession();
+    const systemDataObject = useSystemData();
+
+    const profileList = systemDataObject.data.profileData.uuIdentityProfileList;
+    const canManage = profileList.includes("Authorities");
+
     //@@viewOff:private
 
     //@@viewOn:render
@@ -43,7 +48,9 @@ let Home = createVisualComponent({
         <RouteBar />
         <div className={Css.container()}>
           <h1>{lsi.header}</h1>
-          <ListProvider>{(gatewayDataList) => <GatewayList gatewayDataList={gatewayDataList} />}</ListProvider>
+          <ListProvider>
+            {(gatewayDataList) => <GatewayList gatewayDataList={gatewayDataList} canManage={canManage} />}
+          </ListProvider>
         </div>
       </div>
     );

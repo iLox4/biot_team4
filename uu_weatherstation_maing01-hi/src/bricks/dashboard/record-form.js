@@ -67,6 +67,7 @@ export const RecordForm = createVisualComponent({
           width: "50%",
         })}
       >
+        {props.header}
         <Uu5Forms.Form
           onSubmit={async (e) => {
             await props.onSubmit({ ...e.data.value, startDate: isoRange[0], endDate: isoRange[1] });
@@ -113,11 +114,7 @@ export const RecordForm = createVisualComponent({
               >
                 {lsi.granularity}
               </h4>
-              <Uu5Forms.FormSwitchSelect
-                name="granularity"
-                itemList={avaibleGrans}
-                required
-              />
+              <Uu5Forms.FormSwitchSelect name="granularity" itemList={avaibleGrans} required />
             </div>
           </Uu5Elements.Block>
         </Uu5Forms.Form>

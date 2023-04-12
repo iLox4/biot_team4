@@ -60,11 +60,7 @@ export const Dashboard = createVisualComponent({
       input = { ...input, gatewayId };
       setIsLoading(true);
       try {
-        const response = await Plus4U5.Utils.AppClient["get"](
-          url,
-          input,
-          {}
-        );
+        const response = await Plus4U5.Utils.AppClient["get"](url, input, {});
         if (response.data.itemList.length === 0) {
           showInfo(lsi.missingData, lsi.missingDataHeader);
           setData([]);
@@ -91,7 +87,7 @@ export const Dashboard = createVisualComponent({
     //@@viewOn:render
     return (
       <>
-        <RecordForm onSubmit={handleSubmit} isLoading={isLoading} />
+        <RecordForm onSubmit={handleSubmit} isLoading={isLoading} header={props.header} />
         {!isLoading && data.length > 0 && <RecordGraph data={data} granularity={granularity} />}
         <div
           className={Config.Css.css({

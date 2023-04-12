@@ -140,7 +140,7 @@
       "uuAppProductPortalUri": "https://uuapp.plus4u.net/uu-dockit-maing02/d112828dcd1445e2a916cdd59331a359/document?documentId=5fb577cf1d97660025f9023b"
     },
     "profileData": {
-      "uuIdentityProfileList": ["Authorities", "Executives", "Readers"],
+      "uuIdentityProfileList": ["Readers", "Authorities"],
       "profileList": ["Authorities", "Executives", "Readers"]
     }
   },
