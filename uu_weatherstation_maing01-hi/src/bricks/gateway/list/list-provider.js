@@ -23,8 +23,6 @@ const ListProvider = createComponent({
     const gatewayDataList = useDataList({
       handlerMap: {
         load: handleLoad,
-        loadNext: handleLoad,
-        create: handleCreate,
       },
       itemHandlerMap: {
         update: handleUpdate,
@@ -47,14 +45,6 @@ const ListProvider = createComponent({
       });
 
       return { itemList: response.data.itemList, pageInfo: response.data.pageInfo };
-    }
-
-    function handleLoadNext(dtoIn) {
-      return Calls.Gateway.list(dtoIn);
-    }
-
-    function handleCreate(values) {
-      return Calls.Gateway.create(values);
     }
 
     async function handleUpdate(dtoIn, lastRecord) {

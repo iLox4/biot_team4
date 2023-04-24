@@ -123,8 +123,8 @@ export const UpdateModal = createVisualComponent({
               label={lsi.zip}
               name="zip"
               initialValue={gateway.zip}
-              maxLength={4}
-              minLength={15}
+              maxLength={15}
+              minLength={4}
               className={Css.input()}
               required
               autoFocus

@@ -41,6 +41,7 @@ let Gateway = createVisualComponent({
   render() {
     //@@viewOn:private
     const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
     const [gatewayData, setGatewayData] = useState({});
     const { addAlert } = useAlertBus();
     //@@viewOff:private
@@ -58,6 +59,7 @@ let Gateway = createVisualComponent({
             message: lsi.errorMessage,
             priority: "error",
           });
+          setIsError(true);
         }
         setIsLoading(false);
       }
@@ -67,6 +69,8 @@ let Gateway = createVisualComponent({
     let content;
     if (isLoading) {
       content = <UU5.Bricks.Loading />;
+    } else if (isError) {
+      content = <h1>{lsi.errorMessage}</h1>;
     } else {
       content = (
         <>
