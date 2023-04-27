@@ -40,7 +40,7 @@ export const GatewayItem = createVisualComponent({
   //@@viewOn:propTypes
   propTypes: {
     data: PropTypes.object,
-    setUpdateData: PropTypes.func,
+    setUpdateData: PropTypes.func.isRequired,
   },
   //@@viewOff:propTypes
 
@@ -91,17 +91,17 @@ export const GatewayItem = createVisualComponent({
         );
       } else {
         record = (
-          <div>
+          <p>
             <i>{lsi.noRecords}</i>
-          </div>
+          </p>
         );
       }
     } else {
-      location = <div>{lsi.noLocation}</div>;
+      location = <h2 className={Css.header()}>{lsi.noLocation}</h2>;
       record = (
-        <div>
+        <p>
           <i>{lsi.noRecords}</i>
-        </div>
+        </p>
       );
     }
 

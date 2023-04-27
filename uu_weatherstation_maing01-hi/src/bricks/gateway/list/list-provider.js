@@ -32,27 +32,20 @@ const ListProvider = createComponent({
     });
 
     async function handleLoad(dtoIn) {
-      //return Calls.Gateway.list(dtoIn);
-      const response = await Plus4U5.Utils.AppClient["get"](
-        "http://localhost:8080/uu-weatherstation-maing01/22222222222222222222222222222222/gateway/list",
-        dtoIn,
-        {}
-      );
-      response.data.itemList = response.data.itemList.map((record) => {
+      const response = await Calls.Gateway.list(dtoIn);
+      
+      response.itemList = response.itemList.map((record) => {
         let newRecord = { ...record, ...record.location };
         delete newRecord.location;
         return newRecord;
       });
 
-      return { itemList: response.data.itemList, pageInfo: response.data.pageInfo };
+      return response;
     }
 
     async function handleUpdate(dtoIn, lastRecord) {
-      const response = await Plus4U5.Utils.AppClient["post"](
-        "http://localhost:8080/uu-weatherstation-maing01/22222222222222222222222222222222/gateway/update",
-        dtoIn,
-        {}
-      );
+      const response = await Calls.Gateway.update(dtoIn);
+      
       const gatewayData = response.data;
       gatewayData["city"] = gatewayData.location.city;
       gatewayData["street"] = gatewayData.location.street;

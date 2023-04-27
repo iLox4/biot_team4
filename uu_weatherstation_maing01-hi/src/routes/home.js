@@ -6,6 +6,7 @@ import Config from "./config/config.js";
 import RouteBar from "../core/route-bar.js";
 import ListProvider from "../bricks/gateway/list/list-provider.js";
 import GatewayList from "../bricks/gateway/list/gateway-list.js";
+import { RouteController } from "uu_plus4u5g02-app";
 //@@viewOff:imports
 
 //@@viewOn:css
@@ -49,7 +50,11 @@ let Home = createVisualComponent({
         <div className={Css.container()}>
           <h1>{lsi.header}</h1>
           <ListProvider>
-            {(gatewayDataList) => <GatewayList gatewayDataList={gatewayDataList} canManage={canManage} />}
+            {(gatewayDataList) => (
+              <RouteController routeDataObject={gatewayDataList}>
+                <GatewayList gatewayDataList={gatewayDataList} canManage={canManage} />
+              </RouteController>
+            )}
           </ListProvider>
         </div>
       </div>

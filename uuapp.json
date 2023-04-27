@@ -170,6 +170,24 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UU5.Tutorial.Bricks.Gateway.List.UpdateModal />"
+      },
+      {
+        "code": "UU5.Tutorial.Bricks.Gateway.Detail.ObjectProvider",
+        "name": "ObjectProvider",
+        "tagList": [
+          "UU5",
+          "Tutorial",
+          "Bricks",
+          "Gateway",
+          "Detail",
+          "ObjectProvider"
+        ],
+        "docCode": "UU5TutorialBricksGatewayDetailObjectProvider",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UU5.Tutorial.Bricks.Gateway.Detail.ObjectProvider />"
       }
     ]
   },

@@ -1,13 +1,14 @@
 //@@viewOn:imports
-import { createVisualComponent, useEffect, useState, Lsi } from "uu5g05";
+import { createVisualComponent, Lsi } from "uu5g05";
 import UU5 from "uu5g04";
 import { withRoute } from "uu_plus4u5g02-app";
 import Config from "./config/config.js";
 import RouteBar from "../core/route-bar";
 import Dashboard from "../bricks/dashboard/dashboard.js";
 import getParameterByName from "../utils/getParameterByName.js";
-import Plus4U5 from "uu_plus4u5g02";
-import { useAlertBus } from "uu5g05-elements";
+import ObjectProvider from "../bricks/gateway/detail/object-provider.js";
+import { RouteController } from "uu_plus4u5g02-app";
+import Calls from "calls";
 //@@viewOff:imports
 
 //@@viewOn:css
@@ -17,21 +18,10 @@ const Css = {
 //@@viewOff:css
 
 const lsi = {
-  errorHeader: <Lsi lsi={{ cs: "Načítání dat se nezdařilo", en: "Getting data failed" }} />,
-  errorMessage: <Lsi lsi={{ cs: "Nepodařilo se získat data ze serveru", en: "Failed to get data from the server" }} />,
+  notActive: <Lsi lsi={{ cs: "Tato meteostanice není aktivní!", en: "This meteostation is not active!" }} />,
 };
 
 const id = getParameterByName("id");
-
-async function handleLoad() {
-  const response = await Plus4U5.Utils.AppClient["get"](
-    "http://localhost:8080/uu-weatherstation-maing01/22222222222222222222222222222222/gateway/get",
-    {
-      id,
-    }
-  );
-  return response;
-}
 
 let Gateway = createVisualComponent({
   //@@viewOn:statics
@@ -40,58 +30,34 @@ let Gateway = createVisualComponent({
 
   render() {
     //@@viewOn:private
-    const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(false);
-    const [gatewayData, setGatewayData] = useState({});
-    const { addAlert } = useAlertBus();
     //@@viewOff:private
-
-    useEffect(() => {
-      async function fetchData() {
-        setIsLoading(true);
-        try {
-          const response = await handleLoad();
-          setGatewayData(response.data);
-        } catch (error) {
-          Gateway.logger.error("Error getting a gateway data", error);
-          addAlert({
-            header: lsi.errorHeader,
-            message: lsi.errorMessage,
-            priority: "error",
-          });
-          setIsError(true);
-        }
-        setIsLoading(false);
-      }
-      fetchData();
-    }, []);
-
-    let content;
-    if (isLoading) {
-      content = <UU5.Bricks.Loading />;
-    } else if (isError) {
-      content = <h1>{lsi.errorMessage}</h1>;
-    } else {
-      content = (
-        <>
-          <Dashboard
-            url="http://localhost:8080/uu-weatherstation-maing01/22222222222222222222222222222222/record/getInterval"
-            gatewayId={id}
-            header={
-              <h1>
-                {gatewayData.name} - {gatewayData.location.city}, {gatewayData.location.street}{" "}
-                {gatewayData.location.zip}
-              </h1>
-            }
-          />
-        </>
-      );
-    }
-    //@@viewOn:render
     return (
       <>
         <RouteBar />
-        <div className={Css.container()}>{content}</div>
+        <div className={Css.container()}>
+          <ObjectProvider id={id}>
+            {(gatewayDataObject) => (
+              <RouteController routeDataObject={gatewayDataObject}>
+                {gatewayDataObject.state === "ready" && gatewayDataObject.data.state != "active" && (
+                  <h1>{lsi.notActive}</h1>
+                )}
+                {gatewayDataObject.state === "ready" && gatewayDataObject.data.state === "active" && (
+                  <Dashboard
+                    listCall={(dtoIn) => Calls.Record.list(dtoIn)}
+                    gatewayId={id}
+                    header={
+                      <h1>
+                        {gatewayDataObject.data.name} - {gatewayDataObject.data.location.city},{" "}
+                        {gatewayDataObject.data.location.street} {gatewayDataObject.data.location.zip}
+                      </h1>
+                    }
+                  />
+                )}
+                {gatewayDataObject.state === "pending" && <UU5.Bricks.Loading />}
+              </RouteController>
+            )}
+          </ObjectProvider>
+        </div>
       </>
     );
     //@@viewOff:render
