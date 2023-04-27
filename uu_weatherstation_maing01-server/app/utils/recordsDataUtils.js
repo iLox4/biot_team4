@@ -31,6 +31,8 @@ function upsampleRecordsData(data, outputFreq) {
   
     // Add the last input data point to the output data
     const lastRecord = data[data.length - 1];
+    if (!lastRecord) return [];
+
     outputData.push({ datetime: lastRecord.datetime, temperature: lastRecord.temperature, humidity: lastRecord.humidity });
   
     return outputData;
