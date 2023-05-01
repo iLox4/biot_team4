@@ -6,7 +6,7 @@ import { createVisualComponent, useState, useLsi } from "uu5g05";
 import { getPossibleGranularitiesList } from "../../../../uu_weatherstation_maing01-server/app/utils/granularityUtils";
 import Config from "./config/config";
 import { UuDate } from "uu_i18ng01";
-import importLsi from "./lsi/import-lsi";
+import importLsi from "../lsi/import-lsi";
 //@@viewOff:imports
 
 const STATICS = {
