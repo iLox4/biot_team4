@@ -2,14 +2,14 @@
   "schemaVersion": "1.0.0",
   "schemaSpecificationUri": "https://uuapp.plus4u.net/uu-bookkit-maing01/bef682626ed943f28cde360ccb325981/book/page?code=uuSubAppInstanceDescriptor",
   "uuSubApp": {
-    "code": "UU.WEATHERSTATION.MAING01",
-    "version": "0.1.0",
-    "name": "uuWeatherstationMaing01",
+    "code": "UUN.BIOT23SFT04.MAING01",
+    "version": "0.1.2",
+    "name": "uunBIOT23SFT04.Maing01",
     "description": "",
     "license": "License Commercial",
     "asidRequired": true,
     "awidCount": 1,
-    "resourcePoolUri": "----- VALUE REQUIRED -----",
+    "resourcePoolUri": "ues:UCL-BT:UUN_STUDENTS03_AWE",
     "uuAppNodeSetMap": {
       "CMD": {
         "nodeSize": "G1_S",
@@ -17,7 +17,7 @@
           "min": 1,
           "max": 1
         },
-        "appPackUri": null,
+        "appPackUri": "ues:UCL-BT:UUN.BIOT23SFT04.MAING01/APPBOX-0.1.2:UUN.BIOT23SFT04.MAING01/CMD-PACK",
         "runtimeStack": "UU.APPG01/APPSERVER_NODEJS_STACK-1.6"
       }
     },
@@ -30,6 +30,25 @@
       }
     },
     "uuConfigMap": {
+      "uu_app_oidc_providers_oidcg02_client_executive": "579-9838-1212-1",
+      "asid_license_owner_list": [
+        "579-9838-1212-1"
+      ]
+    }
+  },
+  "uuSubAppInstance": {
+    "asid": "641d1e3ca94a3ae0022e72987b320de6",
+    "asidOwner": "579-9838-1212-1",
+    "awidList": [
+      {
+        "awid": "e1c57b97dc60b8e5192daecd1e85bb2c",
+        "awidOwner": "579-5436-4071-1"
+      }
+    ],
+    "uuAppObjectStoreMap": {
+      "OSID_1": {
+        "osid": "kzczq4ca0of8on8jneqsgxzz0e1j56mau"
+      }
     }
   }
 }

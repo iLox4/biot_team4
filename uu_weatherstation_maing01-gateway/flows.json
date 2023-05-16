@@ -73,7 +73,7 @@
             },
             {
                 "name": "OIDC_BASE_URI",
-                "value": "https://uuappg01-eu-c-3.plus4u.net/uun-bpmi22wft02-maing01/3aac9c8017cdac802968ed6db29c501b",
+                "value": "https://uuappg01-eu-c-3.plus4u.net/uun-biot23sft04-maing01/e1c57b97dc60b8e5192daecd1e85bb2c",
                 "type": "str"
             }
         ]

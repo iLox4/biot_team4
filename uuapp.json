@@ -1,6 +1,6 @@
 {
   "product": "uu_weatherstation_maing01",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "license": "License Commercial",
   "description": {
     "en": "",
@@ -8,8 +8,10 @@
   },
   "devkit": {
     "development": {
-      "appBoxLocationUri": "----- VALUE REQUIRED -----",
-      "appDeploymentUri": null
+      "appBoxLocationUri": "ues:UCL-BT:OPR.RSP/APPBOXES",
+      "appDeploymentUri": "ues:UCL-BT[118500965363973101]:UUN_STUDENTS03_AWE[61797a92a1342b81b8058028]:UUN.BIOT23SFT04.MAING01[6463330f5bc79eddfaeffd5f]",
+      "uuCloudBaseUri": "https://sys-eu-c-3.plus4u.net",
+      "uuCloudLogStoreBaseUri": "https://cmd-eu-c-3.plus4u.net/DTC-BT/uu-logstore/Log/getRecordList/exec"
     }
   },
   "uu_weatherstation_maing01-hi": {
