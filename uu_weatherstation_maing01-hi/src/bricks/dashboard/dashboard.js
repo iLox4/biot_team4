@@ -6,8 +6,6 @@ import RecordForm from "./record-form";
 import RecordGraph from "./record-graph";
 import { useAlertBus } from "uu5g05-elements";
 import importLsi from "./lsi/import-lsi";
-//import Calls from "calls";
-import Plus4U5 from "uu_plus4u5g02";
 //@@viewOff:imports
 
 const STATICS = {
@@ -22,8 +20,8 @@ export const Dashboard = createVisualComponent({
 
   //@@viewOn:propTypes
   propTypes: {
-    gatewayId: PropTypes.string,
-    url: PropTypes.string,
+    gatewayId: PropTypes.string.isRequired,
+    listCall: PropTypes.func.isRequired,
   },
   //@@viewOff:propTypes
 
@@ -36,6 +34,7 @@ export const Dashboard = createVisualComponent({
     const { addAlert } = useAlertBus();
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
     const [granularity, setGranularity] = useState("");
     const lsi = useLsi(importLsi, ["Dashboard"]);
     const { gatewayId, url } = props;
@@ -59,29 +58,27 @@ export const Dashboard = createVisualComponent({
     const handleSubmit = async (input) => {
       input = { ...input, gatewayId };
       setIsLoading(true);
+      setIsError(false);
       try {
-        const response = await Plus4U5.Utils.AppClient["get"](
-          url,
-          input,
-          {}
-        );
-        if (response.data.itemList.length === 0) {
+        const response = await props.listCall(input);
+        if (response.itemList.length === 0) {
           showInfo(lsi.missingData, lsi.missingDataHeader);
           setData([]);
         } else {
-          if (input.granularity !== response.data.granularity) {
+          if (input.granularity !== response.granularity) {
             showInfo(
-              Utils.String.format(lsi.granularityChanged, input.granularity, response.data.granularity),
+              Utils.String.format(lsi.granularityChanged, input.granularity, response.granularity),
               lsi.granularityChangedHeader
             );
           }
-          setGranularity(response.data.granularity);
-          setData(response.data.itemList);
+          setGranularity(response.granularity);
+          setData(response.itemList);
         }
       } catch (error) {
         Dashboard.logger.error("Error getting a list of records", error);
         showError(lsi.gettingDataError, lsi.gettingDataErrorHeader);
         console.log(error);
+        setIsError(true);
       }
       setIsLoading(false);
     };
@@ -91,14 +88,15 @@ export const Dashboard = createVisualComponent({
     //@@viewOn:render
     return (
       <>
-        <RecordForm onSubmit={handleSubmit} isLoading={isLoading} />
-        {!isLoading && data.length > 0 && <RecordGraph data={data} granularity={granularity} />}
+        <RecordForm onSubmit={handleSubmit} isLoading={isLoading} header={props.header} />
+        {!isLoading && !isError && data.length > 0 && <RecordGraph data={data} granularity={granularity} />}
         <div
           className={Config.Css.css({
             marginTop: "50px",
+            textAlign: "center",
           })}
         >
-          {isLoading && <UU5.Bricks.Loading />}
+          {isLoading && !isError && <UU5.Bricks.Loading />}
         </div>
       </>
     );

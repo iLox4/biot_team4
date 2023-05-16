@@ -33,22 +33,20 @@ const Calls = {
 
   Record: {
     list(dtoIn) {
-      const commandUri =
-        "http://localhost:8080/uu-weatherstation-maing01/22222222222222222222222222222222/record/getInterval";
+      const commandUri = Calls.getCommandUri("record/getInterval")
       return Calls.call("get", commandUri, dtoIn);
     },
   },
 
   Gateway: {
     list(dtoIn) {
-      const commandUri =
-        "http://localhost:8080/uu-weatherstation-maing01/22222222222222222222222222222222/gateway/list";
+      const commandUri = Calls.getCommandUri("gateway/list");  
       return Calls.call("get", commandUri, dtoIn);
     },
 
-    create(dtoIn) {
-      const commandUri = Calls.getCommandUri("gateway/create");
-      return Calls.call("post", commandUri, dtoIn);
+    get(dtoIn) {
+      const commandUri = Calls.getCommandUri("gateway/get");
+      return Calls.call("get", commandUri, dtoIn);
     },
 
     update(dtoIn) {
@@ -59,12 +57,7 @@ const Calls = {
     delete(dtoIn) {
       const commandUri = Calls.getCommandUri("gateway/delete");
       return Calls.call("post", commandUri, dtoIn);
-    },
-
-    getImage(dtoIn) {
-      const commandUri = Calls.getCommandUri("uu-app-binarystore/getBinaryData");
-      return Calls.call("get", commandUri, dtoIn);
-    },
+    }
   },
 
   Gateways: {

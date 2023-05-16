@@ -1,0 +1,72 @@
+{
+  "product": "uu_weatherstation",
+  "version": "0.1.0-beta.1",
+  "license": "License Commercial",
+  "description": {
+    "en": "",
+    "cs": ""
+  },
+  "docUri": "",
+  "flsUri": "",
+  "slsUri": "",
+  "imageUri": "",
+  "devkit": {
+    "development": {
+      "appBoxLocationUri": "ues:UCL-BT:OPR.RSP/APPBOXES",
+      "appDeploymentUri": "ues:UCL-BT[118500965363973101]:UUN_STUDENTS03_AWE[61797a92a1342b81b8058028]:UU.WEATHERSTATION[644f75615bc79ec9eaeffc5b]",
+      "resourcePoolUri": "ues:UCL-BT:UUN_STUDENTS03_AWE",
+      "uuCloudBaseUri": "https://sys-eu-c-3.plus4u.net",
+      "uuCloudLogStoreBaseUri": "https://cmd-eu-c-3.plus4u.net/DTC-BT"
+    }
+  },
+  "uu_weatherstation-core": {
+    "namespace": "UuWeatherstation",
+    "sourceUri": "https://cdn.plus4u.net/uu-weatherstation/%s/uu_weatherstation-core.min.js",
+    "componentList": [
+      {
+        "code": "UuWeatherstation.Dashboard.Dashboard",
+        "name": "Dashboard",
+        "tagList": [
+          "UuWeatherstation",
+          "Dashboard"
+        ],
+        "docCode": "UuWeatherstationDashboardDashboard",
+        "desc": "The component consists of two parts: Form and Graph. The goal of this component is to show changes in humidity and temperature to users based on time interval",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuWeatherstation.Dashboard.Dashboard />"
+      },
+      {
+        "code": "UuWeatherstation.Dashboard.RecordForm",
+        "name": "RecordForm",
+        "tagList": [
+          "UuWeatherstation",
+          "Dashboard",
+          "RecordForm"
+        ],
+        "docCode": "UuWeatherstationDashboardRecordForm",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuWeatherstation.Dashboard.RecordForm />"
+      },
+      {
+        "code": "UuWeatherstation.Dashboard.RecordGraph",
+        "name": "RecordGraph",
+        "tagList": [
+          "UuWeatherstation",
+          "Dashboard",
+          "RecordGraph"
+        ],
+        "docCode": "UuWeatherstationDashboardRecordGraph",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuWeatherstation.Dashboard.RecordGraph />"
+      }
+    ]
+  }
+}

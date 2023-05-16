@@ -100,6 +100,96 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UU5.Tutorial.Bricks.Dashboard.RecordsProvider />"
+      },
+      {
+        "code": "UU5.Tutorial.Bricks.Gateway.List.GatewayList",
+        "name": "GatewayList",
+        "tagList": [
+          "UU5",
+          "Tutorial",
+          "Bricks",
+          "Gateway",
+          "List",
+          "GatewayList"
+        ],
+        "docCode": "UU5TutorialBricksGatewayListGatewayList",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UU5.Tutorial.Bricks.Gateway.List.GatewayList />"
+      },
+      {
+        "code": "UU5.Tutorial.Bricks.Gateway.List.GatewayItem",
+        "name": "GatewayItem",
+        "tagList": [
+          "UU5",
+          "Tutorial",
+          "Bricks",
+          "Gateway",
+          "List",
+          "GatewayItem"
+        ],
+        "docCode": "UU5TutorialBricksGatewayListGatewayItem",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UU5.Tutorial.Bricks.Gateway.List.GatewayItem />"
+      },
+      {
+        "code": "UU5.Tutorial.Bricks.Gateway.Detail.DetailProvider",
+        "name": "DetailProvider",
+        "tagList": [
+          "UU5",
+          "Tutorial",
+          "Bricks",
+          "Gateway",
+          "Detail",
+          "DetailProvider"
+        ],
+        "docCode": "UU5TutorialBricksGatewayDetailDetailProvider",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UU5.Tutorial.Bricks.Gateway.Detail.DetailProvider />"
+      },
+      {
+        "code": "UU5.Tutorial.Bricks.Gateway.List.UpdateModal",
+        "name": "UpdateModal",
+        "tagList": [
+          "UU5",
+          "Tutorial",
+          "Bricks",
+          "Gateway",
+          "List",
+          "UpdateModal"
+        ],
+        "docCode": "UU5TutorialBricksGatewayListUpdateModal",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UU5.Tutorial.Bricks.Gateway.List.UpdateModal />"
+      },
+      {
+        "code": "UU5.Tutorial.Bricks.Gateway.Detail.ObjectProvider",
+        "name": "ObjectProvider",
+        "tagList": [
+          "UU5",
+          "Tutorial",
+          "Bricks",
+          "Gateway",
+          "Detail",
+          "ObjectProvider"
+        ],
+        "docCode": "UU5TutorialBricksGatewayDetailObjectProvider",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UU5.Tutorial.Bricks.Gateway.Detail.ObjectProvider />"
       }
     ]
   },
