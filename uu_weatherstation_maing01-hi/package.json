@@ -1,6 +1,6 @@
 {
   "name": "uu5_tutorial_maing01-hi",
-  "version": "0.1.2",
+  "version": "0.1.6",
   "private": true,
   "description": "",
   "license": "License Commercial",
@@ -18,12 +18,12 @@
     "uu5tilesg02-elements": "^2.5.1",
     "uu5tilesg02-controls": "^2.5.1",
     "uu5chartg01": "^2.0.0",
-    "uu_weatherstation-core": "https://cdn-eu-c-3.plus4u.net/beta/uu-weatherstation/0.1.0-beta.1/uu_weatherstation-core.min.js"
+    "uu_weatherstation-core": "https://cdn-eu-c-3.plus4u.net/beta/uu-weatherstation/0.1.0-beta.2/uu_weatherstation-core.min.js"
   },
   "uuBuildSettings": {
     "externals": {
       "uu_weatherstation-core": {
-        "cdnBaseUri": "https://cdn-eu-c-3.plus4u.net/beta/uu-weatherstation/0.1.0-beta.1"
+        "cdnBaseUri": "https://cdn-eu-c-3.plus4u.net/beta/uu-weatherstation/0.1.0-beta.2"
       }
     }
   },

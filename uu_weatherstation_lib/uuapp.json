@@ -1,6 +1,6 @@
 {
   "product": "uu_weatherstation",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.2",
   "license": "License Commercial",
   "description": {
     "en": "",
@@ -21,7 +21,7 @@
   },
   "uu_weatherstation-core": {
     "namespace": "UuWeatherstation",
-    "sourceUri": "https://cdn.plus4u.net/uu-weatherstation/%s/uu_weatherstation-core.min.js",
+    "sourceUri": "https://cdn-eu-c-3.plus4u.net/beta/uu-weatherstation/0.1.0-beta.1/uu_weatherstation-core.min.js",
     "componentList": [
       {
         "code": "UuWeatherstation.Dashboard.Dashboard",
