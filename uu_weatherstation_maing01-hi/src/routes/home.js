@@ -35,9 +35,12 @@ let Home = createVisualComponent({
   render(props) {
     //@@viewOn:private
     const systemDataObject = useSystemData();
+    const { identity } = useSession();
+    const { uuIdentity } = identity;
 
-    const profileList = systemDataObject.data.profileData.uuIdentityProfileList;
-    const canManage = profileList.includes("Authorities");
+    const profileList = systemDataObject.data.awidData.authorizationData.uuIdentityList.permissionMap;
+
+    const canManage = profileList[uuIdentity]?.includes("Authorities");
 
     //@@viewOff:private
 
