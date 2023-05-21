@@ -38,9 +38,9 @@ let Home = createVisualComponent({
     const { identity } = useSession();
     const { uuIdentity } = identity;
 
-    const profileList = systemDataObject.data.awidData.authorizationData.uuIdentityList.permissionMap;
+    const profileList = systemDataObject.data.awidData.authorizationData?.uuIdentityList.permissionMap;
 
-    const canManage = profileList[uuIdentity]?.includes("Authorities");
+    const canManage = profileList ? profileList[uuIdentity]?.includes("Authorities") : false;
 
     //@@viewOff:private
 
