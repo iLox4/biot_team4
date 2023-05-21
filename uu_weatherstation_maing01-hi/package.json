@@ -18,7 +18,7 @@
     "uu5tilesg02-elements": "^2.5.1",
     "uu5tilesg02-controls": "^2.5.1",
     "uu5chartg01": "^2.0.0",
-    "uu_weatherstation-core": "https://cdn-eu-c-3.plus4u.net/beta/uu-weatherstation/0.1.0-beta.2/uu_weatherstation-core.min.js"
+    "uu_weatherstation-core": "https://cdn-eu-c-3.plus4u.net/beta/uu-weatherstation/0.1.0-beta.2/uu_weatherstation-core.tgz"
   },
   "uuBuildSettings": {
     "externals": {

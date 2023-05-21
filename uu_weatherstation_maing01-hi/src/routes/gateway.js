@@ -4,7 +4,7 @@ import UU5 from "uu5g04";
 import { withRoute } from "uu_plus4u5g02-app";
 import Config from "./config/config.js";
 import RouteBar from "../core/route-bar";
-import Dashboard from "../bricks/dashboard/dashboard.js";
+import * as UuWeatherstation from "uu_weatherstation-core";
 import getParameterByName from "../utils/getParameterByName.js";
 import ObjectProvider from "../bricks/gateway/detail/object-provider.js";
 import { RouteController } from "uu_plus4u5g02-app";
@@ -42,7 +42,7 @@ let Gateway = createVisualComponent({
                   <h1>{lsi.notActive}</h1>
                 )}
                 {gatewayDataObject.state === "ready" && gatewayDataObject.data.state === "active" && (
-                  <Dashboard
+                  <UuWeatherstation.Dashboard.Dashboard 
                     listCall={(dtoIn) => Calls.Record.list(dtoIn)}
                     gatewayId={id}
                     header={
