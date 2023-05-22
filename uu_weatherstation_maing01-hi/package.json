@@ -18,12 +18,12 @@
     "uu5tilesg02-elements": "^2.5.1",
     "uu5tilesg02-controls": "^2.5.1",
     "uu5chartg01": "^2.0.0",
-    "uu_weatherstation-core": "https://cdn-eu-c-3.plus4u.net/beta/uu-weatherstation/0.1.1-beta.2/uu_weatherstation-core.tgz"
+    "uu_weatherstation-core": "https://cdn-eu-c-3.plus4u.net/beta/uu-weatherstation/0.1.2-beta.2/uu_weatherstation-core.tgz"
   },
   "uuBuildSettings": {
     "externals": {
       "uu_weatherstation-core": {
-        "cdnBaseUri": "https://cdn-eu-c-3.plus4u.net/beta/uu-weatherstation/0.1.1-beta.2"
+        "cdnBaseUri": "https://cdn-eu-c-3.plus4u.net/beta/uu-weatherstation/0.1.2-beta.2"
       }
     }
   },
