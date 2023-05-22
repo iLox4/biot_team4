@@ -29,8 +29,6 @@ let Gateway = createVisualComponent({
   uu5Tag: Config.TAG + "Gateways",
   //@@viewOff:statics
 
-  //
-
   render() {
     //@@viewOn:private
     //@@viewOff:private
