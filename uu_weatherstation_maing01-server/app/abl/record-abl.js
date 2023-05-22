@@ -6,7 +6,9 @@ const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const Errors = require("../api/errors/record-error.js");
 const { sampleRecordsData, inTimeInterval } = require("../utils/recordsDataUtils");
 const { getGranularityInterval, validateGranularity, getSafeTimeInterval, olderRecordsGranularities } = require("../utils/granularityUtils");
-const { log } = require("console");
+
+const WeatherstationMainUseCaseError = require("../api/errors/weatherstation-main-use-case-error.js");
+const RECORD_WARNING_PREFIX = `${WeatherstationMainUseCaseError.ERROR_PREFIX}record/`;
 
 const UnsupportedKeysWarning = (error) => {
   return `${error?.UC_CODE}unsupportedKeys`;
@@ -109,8 +111,10 @@ class RecordAbl {
       UnsupportedKeysWarning(Errors.GetInterval),
       Errors.GetInterval.InvalidDtoIn
     );
-    dtoIn.granularity = validateGranularity(dtoIn.granularity, dtoIn.startDate, dtoIn.endDate);
+    dtoIn.granularity = validateGranularity(dtoIn.granularity, dtoIn.startDate, dtoIn.endDate, uuAppErrorMap, `${RECORD_WARNING_PREFIX}getInterval/granularityWasChanged`);
     const granularity = getGranularityInterval(dtoIn.granularity);
+
+    if (!granularity) throw new Errors.GetInterval.IntervalExceeded({ uuAppErrorMap });
 
     const [safeStart, safeEnd] = getSafeTimeInterval(dtoIn.startDate, dtoIn.endDate);
     const safeStartDate = new Date(safeStart).toISOString();

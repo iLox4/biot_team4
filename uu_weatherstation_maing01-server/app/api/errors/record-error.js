@@ -90,6 +90,13 @@ const GetInterval = {
       this.message = "Get records by record DAO get failed.";
     }
   },
+  IntervalExceeded: class extends WeatherstationMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${GetInterval.UC_CODE}IntervalExceeded`;
+      this.message = "Interval exceeded.";
+    }
+  },
 };
 
 const RemoveOld = {

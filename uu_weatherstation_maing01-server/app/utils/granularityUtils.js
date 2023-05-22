@@ -88,9 +88,14 @@ const getGranularityInterval = (granularity) => {
  * @param {ISOString} endDate - Time interal end
  * @return {string} Valid granularity string ("10m", "30m", ...)
 */
-const validateGranularity = (granularity, startDate, endDate) => {
+const validateGranularity = (granularity, startDate, endDate, uuAppErrorMap, granularityWasChangedWarning) => {
     const granularityError = _validateGranularity(granularity, startDate, endDate);
     if (!granularityError) return granularity;
+
+    uuAppErrorMap[granularityWasChangedWarning] = {
+        "type": "warning",
+        "message": "Granularity was changed."
+    }
 
     const possibleGranularities = getPossibleGranularitiesList(startDate, endDate);
     if (granularityError === 'shouldBeIncreased') return possibleGranularities[0];
