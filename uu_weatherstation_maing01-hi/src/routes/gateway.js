@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import { createVisualComponent, Lsi } from "uu5g05";
+import { createVisualComponent, Lsi, useState } from "uu5g05";
 import UU5 from "uu5g04";
 import { withRoute } from "uu_plus4u5g02-app";
 import Config from "./config/config.js";
@@ -22,8 +22,6 @@ const lsi = {
   notActive: <Lsi lsi={{ cs: "Tato meteostanice není aktivní!", en: "This meteostation is not active!" }} />,
 };
 
-const id = getParameterByName("id");
-
 let Gateway = createVisualComponent({
   //@@viewOn:statics
   uu5Tag: Config.TAG + "Gateways",
@@ -32,6 +30,7 @@ let Gateway = createVisualComponent({
   render() {
     //@@viewOn:private
     //@@viewOff:private
+    const [id] = useState(getParameterByName("id"));
     return (
       <>
         <RouteBar />
