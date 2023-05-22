@@ -11,20 +11,21 @@ const granularities = {
 const BASE_GRANULARITY = granularities['10m'];
 
 // PROD
-// const oldGrabularities = {
-        // 0: BASE_GRANULARITY,
-//     [3 * 31 * 24 * 60 * 60]: granularities['1h'],
-//     [6 * 31 * 24 * 60 * 60]: granularities['12h'],
-//     [12 * 31 * 24 * 60 * 60]: granularities['1d'],
-// }
-
-// DEV
 const olderRecordsGranularities = {
     0: BASE_GRANULARITY,
-    [1 * 24 * 60 * 60]: granularities['1h'],
-    [3 * 24 * 60 * 60]: granularities['12h'],
-    [5 * 24 * 60 * 60]: granularities['1d'],
+    [1 * 31 * 24 * 60 * 60]: granularities['30m'],
+    [3 * 31 * 24 * 60 * 60]: granularities['1h'],
+    [6 * 31 * 24 * 60 * 60]: granularities['12h'],
+    [12 * 31 * 24 * 60 * 60]: granularities['1d'],
 }
+
+// DEV
+// const olderRecordsGranularities = {
+//     0: BASE_GRANULARITY,
+//     [1 * 24 * 60 * 60]: granularities['1h'],
+//     [3 * 24 * 60 * 60]: granularities['12h'],
+//     [5 * 24 * 60 * 60]: granularities['1d'],
+// }
 
 const MAX_POINTS = 1000;
 
@@ -115,4 +116,4 @@ const getSafeTimeInterval = (startDate, endDate) => {
     return [(+new Date(startDate) - startSafeInterval), (+new Date(endDate) + endSafeInterval)];
 }
 
-module.exports = { granularities, BASE_GRANULARITY, getGranularityInterval, getPossibleGranularitiesList, validateGranularity, getSafeTimeInterval }
+module.exports = { granularities, olderRecordsGranularities, BASE_GRANULARITY, getGranularityInterval, getPossibleGranularitiesList, validateGranularity, getSafeTimeInterval }

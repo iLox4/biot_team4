@@ -60,6 +60,10 @@
       "record/getInterval": {
         "sysStateList": ["active"],
         "profileList": ["Public"]
+      },
+      "record/removeOld": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities","Administrators"]
       }
     }
   }

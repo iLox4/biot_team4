@@ -5,7 +5,8 @@ const { DaoFactory, ObjectStoreError } = require("uu_appg01_server").ObjectStore
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const Errors = require("../api/errors/record-error.js");
 const { sampleRecordsData, inTimeInterval } = require("../utils/recordsDataUtils");
-const { getGranularityInterval, validateGranularity, getSafeTimeInterval } = require("../utils/granularityUtils");
+const { getGranularityInterval, validateGranularity, getSafeTimeInterval, olderRecordsGranularities } = require("../utils/granularityUtils");
+const { log } = require("console");
 
 const UnsupportedKeysWarning = (error) => {
   return `${error?.UC_CODE}unsupportedKeys`;
@@ -136,6 +137,70 @@ class RecordAbl {
       granularity: dtoIn.granularity,
       uuAppErrorMap,
     };
+    return dtoOut;
+  }
+
+  async removeOld(awid, dtoIn, session, authorizationResult) {
+    let validationResult = this.validator.validate("removeOldRecordDtoInType", dtoIn);
+    let uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      UnsupportedKeysWarning(Errors.Remove),
+      Errors.RemoveOld.InvalidDtoIn
+    );
+
+    let gateways;
+    try {
+      gateways = await this.gatewayDao.list(awid, {}, { pageSize: 99999, pageIndex: 0 });
+    } catch (e) {
+      throw new Errors.RemoveOld.GatewayDaoListFailed({ uuAppErrorMap }, e);
+    }
+
+    gateways.forEach((gateway) => {
+      Object.entries(olderRecordsGranularities).reverse().forEach(async ([interval, granularity], index) => {
+        if (interval === 0) return;
+        const prev = Object.entries(olderRecordsGranularities).reverse().at(index-1);
+
+        const startDate = index === 0 ? 0 : new Date( Date.now() - prev[0] * 1000 );
+        const endDate = new Date( Date.now() - interval * 1000 );
+
+        const [safeStart, safeEnd] = getSafeTimeInterval(startDate, endDate);
+        const safeStartDate = new Date(safeStart).toISOString();
+        const safeEndDate = new Date(safeEnd).toISOString();
+
+        let recordsOlderThenInterval;
+        try {
+          recordsOlderThenInterval = await this.recordDao.getInterval(awid, gateway.id, safeStartDate, safeEndDate);
+        } catch (e) {
+          throw new Errors.RemoveOld.RecordDaoGetIntervalFailed({ uuAppErrorMap }, e);
+        }
+
+        const recordsListSampled = sampleRecordsData(recordsOlderThenInterval.itemList, granularity);
+        const recordsList = recordsListSampled.filter(inTimeInterval(startDate, endDate));
+
+        // add records with new granularity
+        recordsList.forEach(async (recordInNewGranularity) => {
+          try {
+            await this.recordDao.create({...recordInNewGranularity, awid, gatewayId: gateway.id});
+          } catch (e) {
+            throw new Errors.RemoveOld.RecordDaoCreateFailed({ uuAppErrorMap }, e);
+          }
+        })
+
+        // delete old records
+        recordsOlderThenInterval.itemList.forEach(async (record) => {
+          try {
+            await this.recordDao.remove(awid, record.id);
+          } catch (e) {
+            throw new Errors.RemoveOld.RecordDaoRemoveFailed({ uuAppErrorMap }, e);
+          }
+        })
+      })
+    })
+
+    let dtoOut = { status: 'success' };
+
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
     return dtoOut;
   }
 }

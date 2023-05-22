@@ -92,8 +92,48 @@ const GetInterval = {
   },
 };
 
+const RemoveOld = {
+  UC_CODE: `${RECORD_ERROR_PREFIX}removeOld/`,
+  InvalidDtoIn: class extends WeatherstationMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${GetInterval.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+  RecordDaoGetIntervalFailed: class extends WeatherstationMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${GetInterval.UC_CODE}RecordDaoGetIntervalFailed`;
+      this.message = "Get records by record DAO get failed.";
+    }
+  },
+  GatewayDaoListFailed: class extends WeatherstationMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${GetInterval.UC_CODE}GatewayDaoListFailed`;
+      this.message = "List gateways by record DAO removeOld failed.";
+    }
+  },
+  RecordDaoRemoveFailed: class extends WeatherstationMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${GetInterval.UC_CODE}RecordDaoRemoveFailed`;
+      this.message = "Remove record by record DAO removeOld failed.";
+    }
+  },
+  RecordDaoCreateFailed: class extends WeatherstationMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Add.UC_CODE}RecordDaoCreateFailed`;
+      this.message = "Add record by record DAO removeOld failed.";
+    }
+  },
+};
+
 module.exports = {
   Remove,
   Add,
   GetInterval,
+  RemoveOld
 };

@@ -12,6 +12,8 @@ const removeRecordDtoInType = shape({
     ids: array(mongoId()).isRequired(),
 });
 
+const removeOldRecordDtoInType = shape({});
+
 const getRecordsIntervalDtoInType = shape({
     gatewayId: mongoId().isRequired(),
     startDate: datetime().isRequired(),

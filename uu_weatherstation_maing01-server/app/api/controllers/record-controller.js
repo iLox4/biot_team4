@@ -14,6 +14,10 @@ class RecordController {
   getInterval(ucEnv) {
     return RecordAbl.getInterval(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }
+
+  removeOld(ucEnv) {
+    return RecordAbl.removeOld(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession(), ucEnv.getAuthorizationResult());
+  }
 }
 
 module.exports = new RecordController();
