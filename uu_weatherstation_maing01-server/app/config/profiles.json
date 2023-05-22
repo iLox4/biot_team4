@@ -35,7 +35,7 @@
       },
       "gateway/get": {
         "sysStateList": ["active"],
-        "profileList": ["Administrators"]
+        "profileList": ["Public"]
       },
       "gateway/list": {
         "sysStateList": ["active"],
