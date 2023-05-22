@@ -58,8 +58,6 @@ export const RecordGraph = createVisualComponent({
 
     props.data.forEach((record) => {
       const datetime = new Date(record.datetime);
-      const timeOffset = datetime.getTimezoneOffset() / 60;
-      datetime.setHours(datetime.getHours() - timeOffset);
 
       const date = datetime.toLocaleDateString("en-GB");
 
