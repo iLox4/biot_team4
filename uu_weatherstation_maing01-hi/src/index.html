@@ -18,8 +18,8 @@
     <link rel="preconnect" href="https://uuidentity.plus4u.net">
     <script src="~uu5loaderg01" crossorigin="anonymous"></script>
 
-    <meta name="apple-mobile-web-app-title" content="uu5Tutorial">
-    <meta name="application-name" content="uu5Tutorial">
+    <meta name="apple-mobile-web-app-title" content="uuWeather">
+    <meta name="application-name" content="uuWeather">
     <meta name="msapplication-TileImage" content="assets/meta/mstile-150x150.png">
     <meta name="msapplication-TileColor" content="#004191">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/meta/apple-touch-icon.png">
@@ -35,19 +35,9 @@
   <body class="clear-sans">
     <div id="uuApp">
       <div class="uu-app-loading" hidden>
-        <svg version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="uu-app-loading-svg">
-          <defs>
-            <linearGradient id="a" x1="50%" x2="50%" y2="100%">
-              <stop stop-color="currentColor" offset="0" />
-              <stop stop-color="currentColor" stop-opacity=".3" offset="1" />
-            </linearGradient>
-          </defs>
-          <circle cx="12" cy="12" r="11.8" fill="none" stroke="url(#a)" stroke-width="0.4" />
-        </svg>
-        <div class="uu-app-loading-name">uu5Tutorial</div>
       </div>
     </div>
-    
+
 <%=
   // insert error snippet if application initialization fails entirely
   htmlWebpackPlugin.options.renderTemplate("index-error.html", {
