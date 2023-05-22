@@ -31,8 +31,6 @@ export const GetawayHeader = createVisualComponent({
     let tempHumData;
     if (props.lastRecord) {
       const datetime = new Date(props.lastRecord.datetime);
-      const timeOffset = datetime.getTimezoneOffset() / 60;
-      datetime.setHours(datetime.getHours() - timeOffset);
 
       const date = datetime.toLocaleDateString("en-GB");
 
@@ -47,7 +45,7 @@ export const GetawayHeader = createVisualComponent({
         minutes +
         " - " +
         props.lastRecord.temperature +
-        "*C " +
+        "°C " +
         props.lastRecord.humidity +
         "%";
     } else {

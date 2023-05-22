@@ -58,8 +58,6 @@ export const RecordGraph = createVisualComponent({
 
     props.data.forEach((record) => {
       const datetime = new Date(record.datetime);
-      const timeOffset = datetime.getTimezoneOffset() / 60;
-      datetime.setHours(datetime.getHours() - timeOffset);
 
       const date = datetime.toLocaleDateString("en-GB");
 
@@ -92,7 +90,7 @@ export const RecordGraph = createVisualComponent({
     //@@viewOn:render
     return (
       <UU5.Bricks.Container>
-        <h2>{lsi.temperature} (*C)</h2>
+        <h2>{lsi.temperature} (°C)</h2>
         <UU5.SimpleChart.AreaChart
           labelKey="label"
           chartType="monotone"
