@@ -92,7 +92,7 @@ export const RecordGraph = createVisualComponent({
     //@@viewOn:render
     return (
       <UU5.Bricks.Container>
-        <h2>{lsi.temperature} (*C)</h2>
+        <h2>{lsi.temperature} (°C)</h2>
         <UU5.SimpleChart.AreaChart
           labelKey="label"
           chartType="monotone"

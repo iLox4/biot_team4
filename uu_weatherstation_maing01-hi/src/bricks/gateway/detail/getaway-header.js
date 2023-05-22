@@ -47,7 +47,7 @@ export const GetawayHeader = createVisualComponent({
         minutes +
         " - " +
         props.lastRecord.temperature +
-        "*C " +
+        "°C " +
         props.lastRecord.humidity +
         "%";
     } else {
