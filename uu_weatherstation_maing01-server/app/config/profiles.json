@@ -7,8 +7,8 @@
     "profileList": ["Authorities","Executives","AwidLicenseOwner","Public","Authenticated","AwidInitiator","Gateways","Administrators"],
     "useCaseMap": {
       "sys/uuAppWorkspace/init": {
-        "sysStateList": ["created","assigned"],
-        "profileList": ["AwidLicenseOwner","AwidInitiator"]
+        "sysStateList": ["created", "assigned"],
+        "profileList": ["AwidLicenseOwner", "AwidInitiator"]
       },
       "sys/uuAppWorkspace/load": {
         "sysStateList": ["active"],
@@ -23,7 +23,7 @@
       },
       "sys/uuAppWorkspace/initUve": {
         "sysStateList": ["created"],
-        "profileList": ["Public","AwidLicenseOwner"]
+        "profileList": ["Public", "AwidLicenseOwner"]
       },
       "gateway/register": {
         "sysStateList": ["active"],
@@ -43,13 +43,17 @@
       },
       "gateway/remove": {
         "sysStateList": ["active"],
-        "profileList": ["Authorities","Administrators"]
+        "profileList": ["Authorities", "Administrators"]
       },
       "record/add": {
         "sysStateList": ["active"],
         "profileList": ["Gateways"]
       },
       "gateway/getRecords": {
+        "sysStateList": ["active"],
+        "profileList": ["Public"]
+      },
+      "gateway/lastRecord": {
         "sysStateList": ["active"],
         "profileList": ["Public"]
       },

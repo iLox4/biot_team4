@@ -10,6 +10,10 @@ const updateGatewayDtoInType = shape({
     }),
 });
 
+const lastRecordDtoInType = shape({
+  id: mongoId().isRequired(),
+});
+
 const removeGatewayDtoInType = shape({
     id: mongoId().isRequired(),
 });

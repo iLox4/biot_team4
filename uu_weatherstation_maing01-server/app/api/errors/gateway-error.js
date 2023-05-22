@@ -21,6 +21,24 @@ const Register = {
   },
 };
 
+const LastRecord = {
+  UC_CODE: `${GATEWAY_ERROR_PREFIX}lastRecord/`,
+  InvalidDtoIn: class extends WeatherstationMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${LastRecord.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+  GatewayDaoGetLastRecordFailed: class extends WeatherstationMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${LastRecord.UC_CODE}gatewayDaoGetLastRecordFailed`;
+      this.message = "Get last record from gateway DAO failed.";
+    }
+  },
+};
+
 const Update = {
   UC_CODE: `${GATEWAY_ERROR_PREFIX}update/`,
   InvalidDtoIn: class extends WeatherstationMainUseCaseError {
@@ -152,5 +170,6 @@ module.exports = {
   List,
   Get,
   Update,
-  Register
+  Register,
+  LastRecord,
 };
