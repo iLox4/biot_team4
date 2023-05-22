@@ -190,6 +190,24 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UU5.Tutorial.Bricks.Gateway.Detail.ObjectProvider />"
+      },
+      {
+        "code": "UU5.Tutorial.Bricks.Gateway.Detail.GetawayHeader",
+        "name": "GetawayHeader",
+        "tagList": [
+          "UU5",
+          "Tutorial",
+          "Bricks",
+          "Gateway",
+          "Detail",
+          "GetawayHeader"
+        ],
+        "docCode": "UU5TutorialBricksGatewayDetailGetawayHeader",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UU5.Tutorial.Bricks.Gateway.Detail.GetawayHeader />"
       }
     ]
   },

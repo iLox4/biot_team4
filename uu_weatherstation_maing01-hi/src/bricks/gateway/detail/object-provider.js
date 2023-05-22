@@ -1,7 +1,6 @@
 //@@viewOn:imports
 import { createComponent, useDataObject } from "uu5g05";
 import Config from "./config/config";
-import Plus4U5 from "uu_plus4u5g02";
 import { PropTypes } from "uu5g04";
 import Calls from "calls";
 //@@viewOff:imports
@@ -35,7 +34,12 @@ export const ObjectProvider = createComponent({
     });
 
     async function handleLoad() {
-      return await Calls.Gateway.get({ id: props.id });
+      const lastRecord = await Calls.Gateway.getLastRecord({ id: props.id });
+      const gateway = await Calls.Gateway.get({ id: props.id });
+      return {
+        ...gateway,
+        lstRec: { temperature: lastRecord.temperature, humidity: lastRecord.humidity, datetime: lastRecord.datetime },
+      };
     }
     //@@viewOff:private
 

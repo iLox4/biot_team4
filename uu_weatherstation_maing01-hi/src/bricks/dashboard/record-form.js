@@ -32,6 +32,7 @@ export const RecordForm = createVisualComponent({
   propTypes: {
     onSubmit: PropTypes.func,
     isLoading: PropTypes.bool,
+    timeOff: PropTypes.number
   },
   //@@viewOff:propTypes
 
@@ -46,7 +47,7 @@ export const RecordForm = createVisualComponent({
     const [dateRange, setDateRange] = useState([new UuDate().shiftDay(-1).toIsoString(), new UuDate().toIsoString()]);
     const [isoRange, setIsoRange] = useState([
       new Date(new UuDate().shiftDay(-1).toIsoString()).toISOString(),
-      new Date(new UuDate().toIsoString()).toISOString(),
+      new Date(new UuDate().shiftDay(1).toIsoString()).toISOString(),
     ]);
     const lsi = useLsi(importLsi, ["Form"]);
 
@@ -66,7 +67,6 @@ export const RecordForm = createVisualComponent({
     //@@viewOn:render
     return (
       <div className={Css.container()}>
-        {props.header}
         <Uu5Forms.Form
           onSubmit={async (e) => {
             await props.onSubmit({ ...e.data.value, startDate: isoRange[0], endDate: isoRange[1] });
@@ -91,8 +91,17 @@ export const RecordForm = createVisualComponent({
                 required
                 value={dateRange}
                 onChange={(e) => {
-                  let startDate = new Date(e.data.value[0]).toISOString();
-                  let endDate = new Date(e.data.value[1]).toISOString();
+                  let startDate = new Date(e.data.value[0]);
+                  let endDate = new Date(e.data.value[1]);
+                  const timeOffset = endDate.getTimezoneOffset() / 60;
+
+                  startDate.setHours(timeOffset);
+                  endDate.setHours(23 + timeOffset);
+                  endDate.setMinutes(59);
+
+                  startDate.toISOString();
+                  endDate.toISOString();
+
                   updateGrans(startDate, endDate);
                   setIsoRange([startDate, endDate]);
                   setDateRange(e.data.value);

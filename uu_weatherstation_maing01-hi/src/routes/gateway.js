@@ -8,12 +8,13 @@ import * as UuWeatherstation from "uu_weatherstation-core";
 import getParameterByName from "../utils/getParameterByName.js";
 import ObjectProvider from "../bricks/gateway/detail/object-provider.js";
 import { RouteController } from "uu_plus4u5g02-app";
+import GetawayHeader from "../bricks/gateway/detail/getaway-header.js";
 import Calls from "calls";
 //@@viewOff:imports
 
 //@@viewOn:css
 const Css = {
-  container: () => Config.Css.css({ padding: "auto", margin: "auto", width: "80%" }),
+  container: () => Config.Css.css({ padding: "auto", margin: "auto", width: "80%", textAlign: "center" }),
 };
 //@@viewOff:css
 
@@ -27,6 +28,8 @@ let Gateway = createVisualComponent({
   //@@viewOn:statics
   uu5Tag: Config.TAG + "Gateways",
   //@@viewOff:statics
+
+  //
 
   render() {
     //@@viewOn:private
@@ -42,16 +45,18 @@ let Gateway = createVisualComponent({
                   <h1>{lsi.notActive}</h1>
                 )}
                 {gatewayDataObject.state === "ready" && gatewayDataObject.data.state === "active" && (
-                  <UuWeatherstation.Dashboard.Dashboard 
-                    listCall={(dtoIn) => Calls.Record.list(dtoIn)}
-                    gatewayId={id}
+                  <GetawayHeader
                     header={
                       <h1>
                         {gatewayDataObject.data.name} - {gatewayDataObject.data.location.city},{" "}
                         {gatewayDataObject.data.location.street} {gatewayDataObject.data.location.zip}
                       </h1>
                     }
+                    lastRecord={gatewayDataObject.data.lstRec}
                   />
+                )}
+                {gatewayDataObject.state === "ready" && gatewayDataObject.data.state === "active" && (
+                  <UuWeatherstation.Dashboard.Dashboard listCall={(dtoIn) => Calls.Record.list(dtoIn)} gatewayId={id} />
                 )}
                 {gatewayDataObject.state === "pending" && <UU5.Bricks.Loading />}
               </RouteController>
@@ -64,7 +69,7 @@ let Gateway = createVisualComponent({
   },
 });
 
-Gateway = withRoute(Gateway, { authenticated: false });
+Gateway = withRoute(Gateway, { authenticated: true });
 
 //@@viewOn:exports
 export { Gateway };

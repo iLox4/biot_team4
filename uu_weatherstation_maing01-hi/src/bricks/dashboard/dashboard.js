@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import { createVisualComponent, useState, useLsi, Utils } from "uu5g05";
+import { createVisualComponent, useState, useLsi, Utils, useEffect } from "uu5g05";
 import UU5, { PropTypes } from "uu5g04";
 import Config from "./config/config";
 import RecordForm from "./record-form";
@@ -21,7 +21,7 @@ export const Dashboard = createVisualComponent({
   //@@viewOn:propTypes
   propTypes: {
     gatewayId: PropTypes.string.isRequired,
-    listCall: PropTypes.func.isRequired,
+    listCall: PropTypes.func.isRequired
   },
   //@@viewOff:propTypes
 
@@ -37,7 +37,7 @@ export const Dashboard = createVisualComponent({
     const [isError, setIsError] = useState(false);
     const [granularity, setGranularity] = useState("");
     const lsi = useLsi(importLsi, ["Dashboard"]);
-    const { gatewayId, url } = props;
+    const { gatewayId } = props;
 
     function showError(error, header = "") {
       addAlert({
@@ -88,7 +88,7 @@ export const Dashboard = createVisualComponent({
     //@@viewOn:render
     return (
       <>
-        <RecordForm onSubmit={handleSubmit} isLoading={isLoading} header={props.header} />
+        <RecordForm onSubmit={handleSubmit} isLoading={isLoading} />
         {!isLoading && !isError && data.length > 0 && <RecordGraph data={data} granularity={granularity} />}
         <div
           className={Config.Css.css({

@@ -57,6 +57,11 @@ const Calls = {
     delete(dtoIn) {
       const commandUri = Calls.getCommandUri("gateway/delete");
       return Calls.call("post", commandUri, dtoIn);
+    },
+
+    getLastRecord(dtoIn) {
+      const commandUri = Calls.getCommandUri("gateway/lastRecord");
+      return Calls.call("get", commandUri, dtoIn);
     }
   },
 

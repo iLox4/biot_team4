@@ -42,6 +42,7 @@ export const RecordGraph = createVisualComponent({
   propTypes: {
     data: PropTypes.array,
     granularity: PropTypes.string,
+    timeOff: PropTypes.number
   },
   //@@viewOff:propTypes
 
@@ -53,15 +54,26 @@ export const RecordGraph = createVisualComponent({
     //@@viewOn:private
     const tempData = [];
     const humData = [];
+    let prevDate = "";
 
     props.data.forEach((record) => {
       const datetime = new Date(record.datetime);
+      const timeOffset = datetime.getTimezoneOffset() / 60;
+      datetime.setHours(datetime.getHours() - timeOffset);
+
       const date = datetime.toLocaleDateString("en-GB");
 
       const hours = String(datetime.getHours()).length === 1 ? "0" + datetime.getHours() : datetime.getHours();
       const minutes = String(datetime.getMinutes()).length === 1 ? "0" + datetime.getMinutes() : datetime.getMinutes();
 
-      const label = props.granularity === "1d" ? date : date + " " + hours + ":" + minutes;
+      let label;
+      if (props.granularity === "1d") {
+        label = date;
+      } else if (prevDate !== date) {
+        label = date + " " + hours + ":" + minutes;
+      } else {
+        label = hours + ":" + minutes;
+      }
 
       tempData.push({
         label,
@@ -72,6 +84,8 @@ export const RecordGraph = createVisualComponent({
         label,
         value: record.humidity,
       });
+
+      prevDate = date;
     });
     //@@viewOff:private
 

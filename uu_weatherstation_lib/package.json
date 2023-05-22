@@ -1,6 +1,6 @@
 {
   "name": "uu_weatherstation~root",
-  "version": "0.1.0-beta.2",
+  "version": "0.1.1-beta.2",
   "private": true,
   "workspaces": [
     "uu_weatherstation-core"
