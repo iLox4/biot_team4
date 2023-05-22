@@ -29,8 +29,6 @@ let Gateway = createVisualComponent({
   uu5Tag: Config.TAG + "Gateways",
   //@@viewOff:statics
 
-  //
-
   render() {
     //@@viewOn:private
     //@@viewOff:private
@@ -69,7 +67,7 @@ let Gateway = createVisualComponent({
   },
 });
 
-Gateway = withRoute(Gateway, { authenticated: true });
+Gateway = withRoute(Gateway, { authenticated: false });
 
 //@@viewOn:exports
 export { Gateway };
