@@ -3,7 +3,7 @@
 dht DHT;
 
 unsigned long previousMillis = 0;
-long interval = 2000;
+long interval = 30000;
 
 void setup() 
 {

@@ -8,7 +8,7 @@
         "env": [
             {
                 "name": "AVG_INTERVAL",
-                "value": "10",
+                "value": "600",
                 "type": "str"
             }
         ]
@@ -22,7 +22,7 @@
         "env": [
             {
                 "name": "SEND_INTERVAL",
-                "value": "30",
+                "value": "1800",
                 "type": "str"
             },
             {
@@ -41,7 +41,7 @@
         "env": [
             {
                 "name": "CLEAR_INTERVAL",
-                "value": "60",
+                "value": "3600",
                 "type": "str"
             }
         ]
@@ -79,6 +79,14 @@
         ]
     },
     {
+        "id": "275a2644ef7cdcbb",
+        "type": "tab",
+        "label": "fake data generator",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "ca03f85991e465e2",
         "type": "group",
         "z": "b81e9a5ddfc89d95",
@@ -99,12 +107,11 @@
             "9b92ab0cc6e45b59",
             "009ba5c0fca934c9",
             "44a361c9e68cc9f7",
-            "3886e6931ab2441c"
+            "3886e6931ab2441c",
+            "95c3037bbf1e4e76"
         ],
         "x": 74,
-        "y": 99,
-        "w": 1412,
-        "h": 162
+        "y": 99
     },
     {
         "id": "21f52af46773224c",
@@ -197,9 +204,7 @@
             "d72b430ea54bf06d"
         ],
         "x": 74,
-        "y": 59,
-        "w": 1412,
-        "h": 82
+        "y": 59
     },
     {
         "id": "45d7c435cdd662ad",
@@ -219,12 +224,11 @@
             "9469ab4b3eca4a37",
             "1c5a31594f415b5e",
             "58751f0d0284ccba",
-            "c0ba1d77393ab5b7"
+            "c0ba1d77393ab5b7",
+            "099bf1d41bf71810"
         ],
         "x": 74,
-        "y": 59,
-        "w": 1172,
-        "h": 122
+        "y": 59
     },
     {
         "id": "20e2c3fa7f34e180",
@@ -247,14 +251,12 @@
             "9024efc8d7d1cc42"
         ],
         "x": 74,
-        "y": 99,
-        "w": 762,
-        "h": 142
+        "y": 99
     },
     {
         "id": "69cd5af3cf3a32be",
         "type": "serial-port",
-        "serialport": "/dev/cu.usbmodem1101",
+        "serialport": "/dev/tty.usbmodem1101",
         "serialbaud": "9600",
         "databits": "8",
         "parity": "none",
@@ -422,7 +424,6 @@
         "id": "7af86e76bbeef911",
         "type": "serial in",
         "z": "b81e9a5ddfc89d95",
-        "d": true,
         "g": "ca03f85991e465e2",
         "name": "Serial input from Arduino",
         "serial": "69cd5af3cf3a32be",
@@ -458,6 +459,7 @@
         "id": "c7b0908817c0e25a",
         "type": "inject",
         "z": "b81e9a5ddfc89d95",
+        "d": true,
         "g": "ca03f85991e465e2",
         "name": "Fake serial",
         "props": [
@@ -529,7 +531,8 @@
         "y": 180,
         "wires": [
             [
-                "ad2f5c4cdf0e3068"
+                "ad2f5c4cdf0e3068",
+                "95c3037bbf1e4e76"
             ]
         ]
     },
@@ -538,15 +541,16 @@
         "type": "debug",
         "z": "b81e9a5ddfc89d95",
         "g": "ca03f85991e465e2",
-        "name": "debug 1",
+        "name": "average saved to DB",
         "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1260,
+        "x": 1300,
         "y": 140,
         "wires": []
     },
@@ -647,6 +651,24 @@
         "wires": []
     },
     {
+        "id": "95c3037bbf1e4e76",
+        "type": "debug",
+        "z": "b81e9a5ddfc89d95",
+        "g": "ca03f85991e465e2",
+        "name": "stdin from arduino",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 220,
+        "wires": []
+    },
+    {
         "id": "81f309b12f8e6463",
         "type": "http request",
         "z": "6153cd5f03b21a2d",
@@ -655,7 +677,7 @@
         "method": "POST",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://localhost:8080/uun-meteo-maing01/22222222222222222222222222222222/record/add",
+        "url": "https://uuappg01-eu-c-3.plus4u.net/uun-biot23sft04-maing01/e1c57b97dc60b8e5192daecd1e85bb2c/record/add",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -1059,7 +1081,7 @@
         "label": "chart",
         "chartType": "line",
         "legend": "true",
-        "xformat": "HH:mm:ss",
+        "xformat": "auto",
         "interpolate": "monotone",
         "nodata": "",
         "dot": true,
@@ -1584,7 +1606,7 @@
         "method": "POST",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://localhost:8080/uun-meteo-maing01/22222222222222222222222222222222/gateway/register",
+        "url": "https://uuappg01-eu-c-3.plus4u.net/uun-biot23sft04-maing01/e1c57b97dc60b8e5192daecd1e85bb2c/gateway/register",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -1596,7 +1618,8 @@
         "y": 140,
         "wires": [
             [
-                "1c5a31594f415b5e"
+                "1c5a31594f415b5e",
+                "099bf1d41bf71810"
             ]
         ]
     },
@@ -1709,12 +1732,29 @@
         ]
     },
     {
+        "id": "099bf1d41bf71810",
+        "type": "debug",
+        "z": "66a9701038c57810",
+        "g": "45d7c435cdd662ad",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 100,
+        "wires": []
+    },
+    {
         "id": "46e60a4739012d93",
         "type": "function",
         "z": "868ea968c59b4598",
         "g": "20e2c3fa7f34e180",
         "name": "Check token",
-        "func": "function parseJwt(token) {\n    return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());\n}\nfunction getNewToken() {\n    return [ \n        { \n            ...msg, \n            payload: {\n                accessCode1: env.get('ACCESS_CODE_1'),\n                accessCode2: env.get('ACCESS_CODE_2'),\n                baseUri: env.get('OIDC_BASE_URI'),\n                grant_type: \"password\",\n            },\n        },\n        null,\n    ];\n}\n\nconst token = msg.token ?? (context.get(\"TOKEN\") ?? '');\n\nif (!token || Date.now() > parseJwt(token).exp * 1000) {\n    return getNewToken()\n} else {\n    context.set(\"TOKEN\", token)\n    return [null, { ...msg, token: token }];\n}\n",
+        "func": "function parseJwt(token) {\n    return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());\n}\nfunction getNewToken() {\n    return [ \n        { \n            ...msg, \n            payload: {\n                accessCode1: env.get('ACCESS_CODE_1'),\n                accessCode2: env.get('ACCESS_CODE_2'),\n                scope: `openid ${env.get('OIDC_BASE_URI')}`,\n                grant_type: \"password\",\n            },\n        },\n        null,\n    ];\n}\n\nconst token = msg.token ?? (context.get(\"TOKEN\") ?? '');\n\nif (!token || Date.now() > parseJwt(token).exp * 1000) {\n    return getNewToken()\n} else {\n    context.set(\"TOKEN\", token)\n    return [null, { ...msg, token: token }];\n}\n",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -1789,7 +1829,7 @@
         "y": 160,
         "wires": [
             [
-                "9024efc8d7d1cc42"
+                "46e60a4739012d93"
             ]
         ]
     },
@@ -1825,7 +1865,7 @@
         "z": "868ea968c59b4598",
         "g": "20e2c3fa7f34e180",
         "name": "TEMP TOKEN",
-        "func": "\nreturn {\n    ...msg,\n    token: \"eyJraWQiOiI1YjRiNTMyODI1NGE0ODU4OTY4NDE2ZDk4ZDMyYWM1NzFmOGY5NWVjZjAyZTRlYjhiNmYyOWY1YzY0MmI3ZjYiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI2MGIyMGUxMWY3YmE5MDAwMzdkMDBlYjQiLCJ1dWlkZW50aXR5IjoiNDg2LTU4NjUtMSIsImNsaWVudF91cmkiOiJ1cm46dXVvaWRjY2xpZW50OnV1LWlkZW50aXR5bWFuYWdlbWVudC1tYWluZzAxXC82ZDdjMzE3YWZjOTk0NDU1YjI5NDhhOTc2MzQ2MmJlZS1hOWIxMDVhZmYyNzQ0NzcxYmU0ZGFhODM2MTk1NDY3NyIsImF1dGhfaWQiOiJpaU9hRVJSWG9YMkw5NXo5alZfOXc3bU9TV1hlSm5Ma25XSUxSZ3p0MFVnIiwiY2xpZW50X3V1YXBwa2V5IjoidXUtaWRlbnRpdHltYW5hZ2VtZW50LW1haW5nMDFcLzZkN2MzMTdhZmM5OTQ0NTViMjk0OGE5NzYzNDYyYmVlLWE5YjEwNWFmZjI3NDQ3NzFiZTRkYWE4MzYxOTU0Njc3IiwiY2xpZW50X2FjciI6ImxvdyIsImFtciI6WyJ1dUlkZW50aXR5R29vZ2xlQXV0aE5SZWFsbSJdLCJpc3MiOiJodHRwczpcL1wvdXVpZGVudGl0eS5wbHVzNHUubmV0XC91dS1vaWRjLW1haW5nMDJcL2JiOTc3YTk5ZjRjYzRjMzdhMmFmY2UzZmQ1OTlkMGE3XC9vaWRjIiwiY2xpZW50X3V1aWRlbnRpdHlfdHlwZSI6InV1QXdpZEVlIiwibm9uY2UiOiJlMGZoZXBsNTBnOCIsImNsaWVudF91dWlkZW50aXR5IjoiMzE5Ni0zMjg3LTE3OTAtMSIsImFjciI6InN0YW5kYXJkIiwiYXVkIjpbImE5YjEwNWFmZjI3NDQ3NzFiZTRkYWE4MzYxOTU0Njc3IiwiaHR0cHM6XC9cLyIsImh0dHA6XC9cL2xvY2FsaG9zdCJdLCJjbGllbnRfdXVpZGVudGl0eV9uYW1lIjoiUGx1czRVIiwibmJmIjoxNjc4NzAwNDkxLCJ1dWlkZW50aXR5X3R5cGUiOiJ1dVBlcnNvbiIsImF1dGhfdGltZSI6MTY3ODcwMDQ4NywibmFtZSI6Ill1cmlpIEJsaXVzaXVrIiwiZXhwIjoxNjc4NzAyMjkxLCJpYXQiOjE2Nzg3MDA0OTEsImp0aSI6ImYxYjlhNDM0OTQ0YTQ5OTNiZThlMDUxNzdkMWU1YjdlIn0.SFaVGCtMt3hryZeAFlB-G0WyQLeU_f6c_sLPMUBcgdkVrxfFRfkH6pSKv3QIjla0RU4ATVA1p9PMrkTKBUbhDiHx3kFdKh5UDDryyp8ZZ9LsS8WGI53O6bR4dihWTx2_iSLDdmhhTX5OVRmeQpDN9ZwGZgQMnG1hy5vts-ggcUihHbLNou4pij5fnh3UVuluBPlvHmDqdJ_0ai-69jQivisdf_5LR7y_6BhvBuSSD6Lh7QAxO5WKy2f6As-yuRaNOWj20HwKs8CbcioSsvFwXFPRA3D1PIgbMH-pt0x1HLUHCdsE5dYCYEveSRcyZikJO_RVJmp07J3FflHSjlr8TA\",\n};",
+        "func": "\nreturn {\n    ...msg,\n    token: \"eyJraWQiOiJiODVkMWJiYTQzZDg0NTJmODI0YmFkMjU0MjM1ZDVjYWQyNzdmMTA1NTVlYTQ4MGM5NWE1MzM2YTU1NDVlOGUiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI2MGIyMGUxMWY3YmE5MDAwMzdkMDBlYjQiLCJ1dWlkZW50aXR5IjoiNDg2LTU4NjUtMSIsImNsaWVudF91cmkiOiJ1cm46dXVvaWRjY2xpZW50OnV1LWlkZW50aXR5bWFuYWdlbWVudC1tYWluZzAxXC82ZDdjMzE3YWZjOTk0NDU1YjI5NDhhOTc2MzQ2MmJlZS1hOWIxMDVhZmYyNzQ0NzcxYmU0ZGFhODM2MTk1NDY3NyIsImF1dGhfaWQiOiJaSFJHaFUxTXRTTWVpUVloenhpU0pQNkZWeGRiRWQwRUFwejlFV1hsRU1zIiwiY2xpZW50X3V1YXBwa2V5IjoidXUtaWRlbnRpdHltYW5hZ2VtZW50LW1haW5nMDFcLzZkN2MzMTdhZmM5OTQ0NTViMjk0OGE5NzYzNDYyYmVlLWE5YjEwNWFmZjI3NDQ3NzFiZTRkYWE4MzYxOTU0Njc3IiwiY2xpZW50X2FjciI6ImxvdyIsImFtciI6WyJ1dUlkZW50aXR5R29vZ2xlQXV0aE5SZWFsbSJdLCJpc3MiOiJodHRwczpcL1wvdXVpZGVudGl0eS5wbHVzNHUubmV0XC91dS1vaWRjLW1haW5nMDJcL2JiOTc3YTk5ZjRjYzRjMzdhMmFmY2UzZmQ1OTlkMGE3XC9vaWRjIiwiY2xpZW50X3V1aWRlbnRpdHlfdHlwZSI6InV1QXdpZEVlIiwibm9uY2UiOiJxMTdoaDI5OGplZyIsImNsaWVudF91dWlkZW50aXR5IjoiMzE5Ni0zMjg3LTE3OTAtMSIsImFjciI6InN0YW5kYXJkIiwiYXVkIjpbImE5YjEwNWFmZjI3NDQ3NzFiZTRkYWE4MzYxOTU0Njc3IiwiaHR0cHM6XC9cLyIsImh0dHA6XC9cL2xvY2FsaG9zdCJdLCJjbGllbnRfdXVpZGVudGl0eV9uYW1lIjoiUGx1czRVIiwibmJmIjoxNjgyNDE4MDk3LCJ1dWlkZW50aXR5X3R5cGUiOiJ1dVBlcnNvbiIsImF1dGhfdGltZSI6MTY4MjQxODA5MywibmFtZSI6Ill1cmlpIEJsaXVzaXVrIiwiZXhwIjoxNjgyNDE5ODk3LCJpYXQiOjE2ODI0MTgwOTcsImp0aSI6ImQ1Y2JjYzBjYTJhODQ1ZDI4NmEwYWNjMDM0NGVkNjRjIn0.hwcaYIDm-T6JmGkNM09CSolEf-CIPVFynPGo3vnwCa9x9yPx6y2zDqagnZgh-1VOmLYYgIMZLqpashZQzbOHSMYFDC5mhjaV8ji-auwVQb2x8hs2jzkGDTvq2FnZkyoOBq481aYd18uz-515P1CgHELwKwWHRo8re51L1kFGrTIxSyTVFTq3hutM8Pjslgxkz_SWjdkZCT7-hMYfB6UzbCGJ-LCosbIu936W2Cu86joJOq2dnL8iUdHHvtWnmJtVwZnP13dSKuUfz9zent-7kKbtym-htuzjWA66c9AAl7nIXdnCSzRW1CIctjWaM9xjIaDJgR7r5zDWoeyaV8HKIQ\",\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1847,6 +1887,274 @@
         "info": "Get your token from:\nhttps://uuidentity.plus4u.net/uu-identitymanagement-maing01/a9b105aff2744771be4daa8361954677/showToken\n\nPaste token into 'TEMP TOKEN' function in 'Ensure valid token' group",
         "x": 190,
         "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f7c69026576eabe2",
+        "type": "inject",
+        "z": "275a2644ef7cdcbb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1dbe6aea92f2b595",
+        "type": "function",
+        "z": "275a2644ef7cdcbb",
+        "name": "function 1",
+        "func": "const startTimestamp = Date.parse('2022-01-01');\nconst stopTimestamp = Date.parse('2022-03-16');\nconst interval = 24 * 60 * 60 * 1000; // 24h\nconst tempStart = 0;\nconst tempEnd = 15;\nconst tempIncrement = 15 / ((stopTimestamp - startTimestamp) / interval); \n\n// const startTimestamp = new Date('16.03.2022');\n// const stopTimestamp = new Date('16.09.2022');\n// const interval = 12 * 60 * 60 * 1000; // 12h\n\n// const startTimestamp = new Date('16.09.2022');\n// const stopTimestamp = new Date('16.01.2023');\n// const interval = 1 * 60 * 60 * 1000; // 1h\n\n// const startTimestamp = new Date('16.01.2023');\n// const stopTimestamp = new Date('16.03.2023');\n// const interval = 10 * 60 * 1000; // 10m\n\nconst lastTimestamp = context.get('lastTimestamp') ?? startTimestamp;\nconst intervalCount = parseInt(context.get('intervalCount')) || 0;\n\nconst currentTimestamp = lastTimestamp + interval;\nif (currentTimestamp < stopTimestamp) {\n    const temp = tempStart + intervalCount * tempIncrement;\n    context.set('lastTimestamp', currentTimestamp);\n    context.set('intervalCount', intervalCount + 1);\n    return [{ temp, timestamp: currentTimestamp }, null];\n}\nreturn [null, msg];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 200,
+        "wires": [
+            [
+                "89f735b752850a97",
+                "2216cca9b607db18"
+            ],
+            [
+                "701ea5c2ed1afac1"
+            ]
+        ]
+    },
+    {
+        "id": "89f735b752850a97",
+        "type": "delay",
+        "z": "275a2644ef7cdcbb",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 140,
+        "wires": [
+            [
+                "1dbe6aea92f2b595"
+            ]
+        ]
+    },
+    {
+        "id": "991cbedd79345bcb",
+        "type": "function",
+        "z": "275a2644ef7cdcbb",
+        "name": "function 2",
+        "func": "function rndTemp(start, end) {\n    return start + ((end - start) * Math.random());\n}\n\n\nconst startTimestamp = Date.parse('2022-03-16');\nconst stopTimestamp = Date.parse('2022-09-16');\nconst interval = 12 * 60 * 60 * 1000; // 12h\n\n// const startTimestamp = new Date('16.09.2022');\n// const stopTimestamp = new Date('16.01.2023');\n// const interval = 1 * 60 * 60 * 1000; // 1h\n\n// const startTimestamp = new Date('16.01.2023');\n// const stopTimestamp = new Date('16.03.2023');\n// const interval = 10 * 60 * 1000; // 10m\n\nconst lastTimestamp = context.get('lastTimestamp') ?? startTimestamp;\nconst intervalCount = parseInt(context.get('intervalCount')) || 0;\n\nconst currentTimestamp = lastTimestamp + interval;\nif (currentTimestamp < stopTimestamp) {\n    const temp = intervalCount % 2 !== 0 ? rndTemp(10, 15) : rndTemp(15, 25);\n\n    context.set('lastTimestamp', currentTimestamp);\n    context.set('intervalCount', intervalCount + 1);\n    return [{ temp, timestamp: currentTimestamp }, null];\n}\nreturn [null, msg];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 340,
+        "wires": [
+            [
+                "701ea5c2ed1afac1",
+                "2216cca9b607db18"
+            ],
+            [
+                "9c23cb7df09c1745"
+            ]
+        ]
+    },
+    {
+        "id": "701ea5c2ed1afac1",
+        "type": "delay",
+        "z": "275a2644ef7cdcbb",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 280,
+        "wires": [
+            [
+                "991cbedd79345bcb"
+            ]
+        ]
+    },
+    {
+        "id": "4c3d2bbd09ae7c1c",
+        "type": "function",
+        "z": "275a2644ef7cdcbb",
+        "name": "function 3",
+        "func": "function rnd() {\n    const plus = Math.random() > 0.5;\n    return plus ? Math.random() : Math.random() * -1;\n}\n\nconst startTimestamp = Date.parse('2022-09-16');\nconst stopTimestamp = Date.parse('2023-01-16');\nconst interval = 1 * 60 * 60 * 1000; // 1h\nconst hours = {\n    0: 5,\n    1: 4.5,\n    2: 4.5,\n    3: 4,\n    4: 3.5,\n    5: 4,\n    6: 5,\n    7: 7,\n    8: 8,\n    9: 9,\n    10: 10,\n    11: 12,\n    12: 13,\n    13: 13,\n    14: 14,\n    15: 15,\n    16: 14,\n    17: 13,\n    18: 12,\n    19: 11,\n    20: 10,\n    21: 9,\n    22: 8,\n    23: 6,\n}\n\n// const startTimestamp = new Date('16.01.2023');\n// const stopTimestamp = new Date('16.03.2023');\n// const interval = 10 * 60 * 1000; // 10m\n\nconst lastTimestamp = context.get('lastTimestamp') ?? startTimestamp;\nconst intervalCount = parseInt(context.get('intervalCount')) || 0;\n\nconst currentTimestamp = lastTimestamp + interval;\nif (currentTimestamp < stopTimestamp) {\n    const temp = hours[new Date(currentTimestamp).getHours()] + rnd();\n\n    context.set('lastTimestamp', currentTimestamp);\n    context.set('intervalCount', intervalCount + 1);\n    return [{ temp, timestamp: currentTimestamp }, null];\n}\nreturn [null, msg];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 480,
+        "wires": [
+            [
+                "9c23cb7df09c1745",
+                "2216cca9b607db18"
+            ],
+            [
+                "d1a204ee1a1e06eb"
+            ]
+        ]
+    },
+    {
+        "id": "9c23cb7df09c1745",
+        "type": "delay",
+        "z": "275a2644ef7cdcbb",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "4c3d2bbd09ae7c1c"
+            ]
+        ]
+    },
+    {
+        "id": "d470875607c86e75",
+        "type": "function",
+        "z": "275a2644ef7cdcbb",
+        "name": "function 4",
+        "func": "function rnd() {\n    const plus = Math.random() > 0.5;\n    return plus ? Math.random() : Math.random() * -1;\n}\n\nconst startTimestamp = Date.parse('2023-01-16');\nconst stopTimestamp = Date.parse('2023-03-16');\nconst interval = 10 * 60 * 1000; // 10m\nconst hours = {\n    0: 5,\n    1: 4.5,\n    2: 4.5,\n    3: 4,\n    4: 3.5,\n    5: 4,\n    6: 5,\n    7: 7,\n    8: 8,\n    9: 9,\n    10: 10,\n    11: 12,\n    12: 13,\n    13: 13,\n    14: 14,\n    15: 15,\n    16: 14,\n    17: 13,\n    18: 12,\n    19: 11,\n    20: 10,\n    21: 9,\n    22: 8,\n    23: 6,\n}\n\nconst lastTimestamp = context.get('lastTimestamp') ?? startTimestamp;\nconst intervalCount = parseInt(context.get('intervalCount')) || 0;\n\nconst currentTimestamp = lastTimestamp + interval;\nif (currentTimestamp < stopTimestamp) {\n    const temp = hours[new Date(currentTimestamp).getHours()] + rnd();\n\n    context.set('lastTimestamp', currentTimestamp);\n    context.set('intervalCount', intervalCount + 1);\n    return [{ temp, timestamp: currentTimestamp }, null];\n}\nreturn [null, msg];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 620,
+        "wires": [
+            [
+                "d1a204ee1a1e06eb",
+                "2216cca9b607db18"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d1a204ee1a1e06eb",
+        "type": "delay",
+        "z": "275a2644ef7cdcbb",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 560,
+        "wires": [
+            [
+                "d470875607c86e75"
+            ]
+        ]
+    },
+    {
+        "id": "2216cca9b607db18",
+        "type": "function",
+        "z": "275a2644ef7cdcbb",
+        "name": "function 5",
+        "func": "const rnd = (start, end) => {\n    return start + ((end - start) * Math.random());\n}\n\nreturn {\n    payload: {\n        temperature: parseInt(msg.temp * 100) / 100,\n        humidity: parseInt(rnd(30, 60) * 100) / 100,\n        datetime: new Date(msg.timestamp).toISOString(),\n        sent: false,\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 400,
+        "wires": [
+            [
+                "22f094f4bd672dc1",
+                "9b9c54861371da8b"
+            ]
+        ]
+    },
+    {
+        "id": "9b9c54861371da8b",
+        "type": "mongodb out",
+        "z": "275a2644ef7cdcbb",
+        "mongodb": "94b4fcd8e38862aa",
+        "name": "",
+        "collection": "record",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 1170,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "22f094f4bd672dc1",
+        "type": "debug",
+        "z": "275a2644ef7cdcbb",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 440,
         "wires": []
     }
 ]
