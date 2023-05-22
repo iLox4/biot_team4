@@ -44,7 +44,15 @@ class RecordMongo extends UuObjectDao {
       datetime: { $gte: startDate, $lt: endDate },
     };
 
-    return await super.find(filter, {pageIndex: 0, pageSize: 99999}, {datetime: 1});
+    return await super.find(filter, { pageIndex: 0, pageSize: 99999 }, { datetime: 1 });
+  }
+
+  async getLast(awid, gatewayId) {
+    let filter = {
+      gatewayId: ObjectID(gatewayId),
+      awid: awid,
+    };
+    return await super.findOne(filter, {}, { datetime: -1 });
   }
 }
 

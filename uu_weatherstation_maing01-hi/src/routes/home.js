@@ -36,9 +36,9 @@ let Home = createVisualComponent({
     //@@viewOn:private
     const systemDataObject = useSystemData();
     const { identity } = useSession();
-    const { uuIdentity } = identity;
+    const uuIdentity = identity?.uuIdentity;
 
-    const profileList = systemDataObject.data.awidData.authorizationData?.uuIdentityList.permissionMap;
+    const profileList = systemDataObject?.data?.awidData?.authorizationData?.uuIdentityList.permissionMap;
 
     const canManage = profileList ? profileList[uuIdentity]?.includes("Administrators") : false;
 
@@ -66,7 +66,7 @@ let Home = createVisualComponent({
   },
 });
 
-Home = withRoute(Home, { authenticated: true });
+Home = withRoute(Home, { authenticated: false });
 
 //@@viewOn:exports
 export { Home };

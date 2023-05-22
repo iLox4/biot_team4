@@ -22,8 +22,28 @@ class GatewayAbl {
     this.gatewayDao.createSchema();
   }
 
-  async getRecords(awid, dtoIn) {
-    // TODO: getRecords
+  async lastRecord(awid, dtoIn) {
+    let validationResult = this.validator.validate("lastRecordDtoInType", dtoIn);
+    let uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      UnsupportedKeysWarning(Errors.LastRecord),
+      Errors.LastRecord.InvalidDtoIn
+    );
+    let record;
+    try {
+      record = await this.recordDao.getLast(awid, dtoIn.id);
+    } catch (e) {
+      if (e instanceof ObjectStoreError) {
+        throw new Errors.LastRecord.GatewayDaoGetLastRecordFailed({ uuAppErrorMap }, e);
+      }
+    }
+    if (!record) {
+      record = {};
+    }
+    let dtoOut = record;
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
   }
 
   async remove(awid, dtoIn) {
@@ -77,7 +97,7 @@ class GatewayAbl {
     const userProfiles = authorizationResult.getAuthorizedProfiles();
     const isAdmin = userProfiles.includes("Administrators");
 
-    const pageInfo = {...defaultPageInfo, ...dtoIn.pageInfo}
+    const pageInfo = { ...defaultPageInfo, ...dtoIn.pageInfo };
 
     let dtoOut;
     try {
@@ -90,7 +110,7 @@ class GatewayAbl {
         },
         pageInfo
       );
-      const itemCount = await this.gatewayDao.count( awid, {
+      const itemCount = await this.gatewayDao.count(awid, {
         name: dtoIn.name,
         location: dtoIn.location,
         state: isAdmin ? dtoIn.state : "active",
@@ -100,7 +120,7 @@ class GatewayAbl {
         pageInfo: {
           ...pageInfo,
           total: itemCount,
-        }
+        },
       };
     } catch (e) {
       if (e instanceof ObjectStoreError) {
@@ -157,14 +177,14 @@ class GatewayAbl {
     }
     if (!gateway) throw new Errors.Update.GatewayNotFound({ uuAppErrorMap }, { gatewayId: dtoIn.id });
 
-    const updatedGateway = gateway = {
+    const updatedGateway = (gateway = {
       ...gateway,
       ...dtoIn,
       location: {
         ...gateway.location,
         ...dtoIn.location,
-      }
-    };
+      },
+    });
 
     let dtoOut;
     try {

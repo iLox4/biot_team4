@@ -56,6 +56,11 @@
         "httpMethod": "GET",
         "type": "CMD"
       },
+      "gateway/lastRecord": {
+        "realization": "api/controllers/GatewayController.lastRecord",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
       "record/add": {
         "realization": "api/controllers/RecordController.add",
         "httpMethod": "POST",
