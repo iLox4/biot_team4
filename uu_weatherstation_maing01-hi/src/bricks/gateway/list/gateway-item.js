@@ -21,7 +21,7 @@ const lsi = {
   more: <Lsi lsi={{ cs: "Více", en: "More" }} />,
   noRecords: (
     <Lsi
-      lsi={{ cs: "Tato metostanice zatím nemá žadné měření", en: "This meteostation does not have any records yet" }}
+      lsi={{ cs: "Tato metostanice zatím nemá žádné měření", en: "This meteostation does not have any records yet" }}
     />
   ),
   noLocation: <Lsi lsi={{ cs: "Lokalita není nastavená", en: "The location is not set" }} />,
@@ -79,13 +79,14 @@ export const GatewayItem = createVisualComponent({
       if (lastRecord) {
         let date = new Date(lastRecord.datetime);
         let hlpLabel = date.toLocaleDateString("en-GB");
-        let formatedDateTime = hlpLabel + " " + date.getHours() + ":" + date.getMinutes();
+        let formatedDateTime =
+          hlpLabel + " " + String(date.getHours()).padStart(2, "0") + ":" + String(date.getMinutes()).padStart(2, "0");
 
         record = (
           <p>
-            {formatedDateTime}:{" "}
+            {formatedDateTime}{" "}
             <b>
-              {lastRecord.temperature}C, {lastRecord.humidity}% {lsi.humidity}
+              {lastRecord.temperature}°C, {lastRecord.humidity}%
             </b>
           </p>
         );
