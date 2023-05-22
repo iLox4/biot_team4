@@ -34,7 +34,6 @@ class RecordAbl {
       dtoIn.ids.map(async (id) => {
         try {
           const record = await this.recordDao.get(awid, id);
-          console.log(record);
           if (!record) notExistingRecordsIds.push(id);
         } catch (e) {
           if (e instanceof ObjectStoreError) {

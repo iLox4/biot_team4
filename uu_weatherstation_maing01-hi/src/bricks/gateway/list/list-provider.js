@@ -33,7 +33,6 @@ const ListProvider = createComponent({
 
     async function handleLoad(dtoIn) {
       const response = await Calls.Gateway.list(dtoIn);
-      
       response.itemList = response.itemList.map((record) => {
         let newRecord = { ...record, ...record.location };
         delete newRecord.location;
@@ -45,14 +44,7 @@ const ListProvider = createComponent({
 
     async function handleUpdate(dtoIn, lastRecord) {
       const response = await Calls.Gateway.update(dtoIn);
-      
-      const gatewayData = response.data;
-      gatewayData["city"] = gatewayData.location.city;
-      gatewayData["street"] = gatewayData.location.street;
-      gatewayData["zip"] = gatewayData.location.zip;
-
-      delete gatewayData["location"];
-
+      const gatewayData = response;
       return { ...gatewayData, lastRecord };
     }
 
