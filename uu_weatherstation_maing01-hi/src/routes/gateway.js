@@ -69,7 +69,7 @@ let Gateway = createVisualComponent({
   },
 });
 
-Gateway = withRoute(Gateway, { authenticated: true });
+Gateway = withRoute(Gateway, { authenticated: false });
 
 //@@viewOn:exports
 export { Gateway };
