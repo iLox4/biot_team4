@@ -135,7 +135,7 @@ export const GatewayList = createVisualComponent({
             <Uu5TilesControls.FilterButton />
           </div>
           <Uu5TilesControls.FilterBar />
-          <Uu5TilesElements.Grid verticalGap={15} horizontalGap={15} tileMaxWidth={700}>
+          <Uu5TilesElements.Grid verticalGap={15} horizontalGap={15} tileMaxWidth={700} style={{padding: '3px'}}>
             <GatewayItem setUpdateData={handleSetUpdateData} canManage={props.canManage} />
           </Uu5TilesElements.Grid>
           {props.canManage && updateData.isOpen && (
