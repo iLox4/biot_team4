@@ -77,7 +77,6 @@ export const Dashboard = createVisualComponent({
       } catch (error) {
         Dashboard.logger.error("Error getting a list of records", error);
         showError(lsi.gettingDataError, lsi.gettingDataErrorHeader);
-        console.log(error);
         setIsError(true);
       }
       setIsLoading(false);

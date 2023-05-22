@@ -30,7 +30,7 @@ const lsi = {
   state: <Lsi lsi={{ cs: "Stav", en: "State" }} />,
   cancel: <Lsi lsi={{ cs: "Zrušit", en: "Cancel" }} />,
   submit: <Lsi lsi={{ cs: "Potvrdit", en: "Submit" }} />,
-  successInfo: <Lsi lsi={{ cs: "Údaje byly úspěšně změnění", en: "Data was successfully changed" }} />,
+  successInfo: <Lsi lsi={{ cs: "Údaje byly úspěšně změněny", en: "Data was successfully updated" }} />,
   errorInfo: <Lsi lsi={{ cs: "Nepodařilo se uložit změny", en: "Gateway update failed" }} />,
 };
 
