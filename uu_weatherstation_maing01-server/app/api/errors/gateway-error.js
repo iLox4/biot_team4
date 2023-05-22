@@ -30,11 +30,11 @@ const LastRecord = {
       this.message = "DtoIn is not valid.";
     }
   },
-  GatewayDaoGetLastRecordFailed: class extends WeatherstationMainUseCaseError {
+  RecordDaoGetLastRecordFailed: class extends WeatherstationMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${LastRecord.UC_CODE}gatewayDaoGetLastRecordFailed`;
-      this.message = "Get last record from gateway DAO failed.";
+      this.code = `${LastRecord.UC_CODE}recordDaoGetLastRecordFailed`;
+      this.message = "Get last record from record DAO failed.";
     }
   },
 };
