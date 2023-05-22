@@ -45,6 +45,11 @@ const ListProvider = createComponent({
     async function handleUpdate(dtoIn, lastRecord) {
       const response = await Calls.Gateway.update(dtoIn);
       const gatewayData = response;
+      gatewayData["city"] = gatewayData.location.city;
+      gatewayData["street"] = gatewayData.location.street;
+      gatewayData["zip"] = gatewayData.location.zip;
+
+      delete gatewayData["location"];
       return { ...gatewayData, lastRecord };
     }
 
