@@ -41,10 +41,10 @@ class RecordMongo extends UuObjectDao {
 
   async getLast(awid, gatewayId) {
     let filter = {
-      gatewayId: ObjectId(gatewayId),
+      gatewayId: ObjectID(gatewayId),
       awid: awid,
     };
-    return await super.find(filter, {}, {datetime: 1});
+    return await super.findOne(filter, {}, { datetime: -1 });
   }
 }
 

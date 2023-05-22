@@ -39,7 +39,7 @@ class GatewayAbl {
       }
     }
     if (!record) {
-      record = { temperature: 0, humidity: 0 };
+      record = {};
     }
     let dtoOut = record;
     dtoOut.uuAppErrorMap = uuAppErrorMap;
