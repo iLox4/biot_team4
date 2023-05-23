@@ -1,7 +1,7 @@
 function insert(styleEl) {
   let insertionEl = document.head || document.body;
 
-  styleEl.setAttribute("data-owner", "uu5_tutorial_maing01-hi/uu5_tutorial_maing01-hi@0.2.4");
+  styleEl.setAttribute("data-owner", "uu5_tutorial_maing01-hi/uu5_tutorial_maing01-hi@0.2.5");
   styleEl.setAttribute("data-emotion", "uu-tutorial");
   styleEl.setAttribute("data-tech", "less");
 
